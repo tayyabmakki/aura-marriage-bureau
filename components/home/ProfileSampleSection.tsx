@@ -25,8 +25,12 @@ export const ProfileSampleSection = () => {
         </div>
 
         {/* Tab switchers */}
-        <div className="mt-8 flex justify-center gap-2">
+        <div className="mt-8 flex justify-center gap-2" role="tablist" aria-label="Profile sample formats">
           <button
+            id="tab-whatsapp"
+            role="tab"
+            aria-selected={activeTab === 'whatsapp'}
+            aria-controls="panel-whatsapp"
             type="button"
             onClick={() => setActiveTab('whatsapp')}
             className={`min-h-[48px] rounded-full px-5 py-2.5 text-xs font-semibold tracking-wider transition ${
@@ -38,6 +42,10 @@ export const ProfileSampleSection = () => {
             {t('tabWhatsApp')}
           </button>
           <button
+            id="tab-instagram"
+            role="tab"
+            aria-selected={activeTab === 'instagram'}
+            aria-controls="panel-instagram"
             type="button"
             onClick={() => setActiveTab('instagram')}
             className={`min-h-[48px] rounded-full px-5 py-2.5 text-xs font-semibold tracking-wider transition ${
@@ -55,7 +63,12 @@ export const ProfileSampleSection = () => {
           <div className="lg:col-span-7">
             {activeTab === 'whatsapp' ? (
               /* WhatsApp Text Container with Internal Scroll */
-              <div className="relative rounded-2xl border border-[rgba(201,162,75,0.25)] bg-[#100e0b] p-5 shadow-2xl">
+              <div
+                id="panel-whatsapp"
+                role="tabpanel"
+                aria-labelledby="tab-whatsapp"
+                className="relative rounded-2xl border border-[rgba(201,162,75,0.25)] bg-[#100e0b] p-5 shadow-2xl"
+              >
                 <div className="flex items-center justify-between border-b border-[rgba(201,162,75,0.2)] pb-3">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -101,7 +114,12 @@ export const ProfileSampleSection = () => {
               </div>
             ) : (
               /* Designed Instagram Card (Pure Code / SVG, Gold-on-Black) */
-              <div className="relative mx-auto max-w-sm rounded-2xl border border-[rgba(212,175,97,0.4)] bg-gradient-to-b from-[#16130f] to-[#0a0908] p-6 shadow-2xl text-center">
+              <div
+                id="panel-instagram"
+                role="tabpanel"
+                aria-labelledby="tab-instagram"
+                className="relative mx-auto max-w-sm rounded-2xl border border-[rgba(212,175,97,0.4)] bg-gradient-to-b from-[#16130f] to-[#0a0908] p-6 shadow-2xl text-center"
+              >
                 <div className="flex items-center justify-between border-b border-[rgba(201,162,75,0.2)] pb-3">
                   <span className="font-serif text-xs uppercase tracking-widest text-[#ecd290]">
                     {SITE_CONFIG.name}

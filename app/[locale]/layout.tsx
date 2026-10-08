@@ -3,7 +3,7 @@ import { Cormorant_Garamond, Lora, Montserrat, Noto_Nastaliq_Urdu } from 'next/f
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
+import { routing, Locale } from '@/i18n/routing';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { StickyBottomBar } from '@/components/StickyBottomBar';
@@ -113,7 +113,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
 
