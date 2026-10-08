@@ -71,11 +71,11 @@ export const HowItWorksSection = () => {
           </p>
         </div>
 
-        {/* Vertical Stacked Timeline (Mobile-First, no heavy scroll-jacking) */}
+        {/* Vertical Stacked Progressive Timeline */}
         <div className="relative mt-12 space-y-6">
           {/* Vertical gold progress hairline */}
           <div
-            className="absolute top-4 bottom-4 start-[23px] w-px bg-gradient-to-b from-[#d4af61]/60 via-[#d4af61]/30 to-transparent"
+            className="absolute top-4 bottom-4 start-[23px] w-px bg-gradient-to-b from-[#d4af61] via-[#d4af61]/40 to-[#d4af61]/10"
             aria-hidden="true"
           />
 
@@ -83,17 +83,17 @@ export const HowItWorksSection = () => {
             const Icon = step.icon;
             return (
               <React.Fragment key={step.num}>
-                <div className="relative flex items-start gap-4 rounded-xl border border-[rgba(201,162,75,0.2)] bg-[#16130f]/90 p-4 transition-all hover:border-[#d4af61]/40 sm:p-6">
+                <div className="group relative flex items-start gap-4 rounded-xl border border-[rgba(201,162,75,0.2)] bg-[#16130f]/90 p-4 transition-all duration-300 hover:border-[#d4af61]/60 hover:bg-[#1c1813] hover:shadow-[0_4px_24px_rgba(212,175,97,0.12)] sm:p-6">
                   {/* Step Number Circle */}
-                  <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d4af61] bg-[#0a0908] text-sm font-bold text-[#ecd290] shadow-sm">
+                  <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d4af61] bg-[#0a0908] text-sm font-bold text-[#ecd290] shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-[#ecd290]">
                     {step.num}
                   </div>
 
                   {/* Step Content */}
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <Icon className="h-4 w-4 text-[#d4af61]" />
-                      <h3 className="font-serif text-lg font-semibold text-[#f4ecda] sm:text-xl">
+                      <Icon className="h-4 w-4 text-[#d4af61] transition-transform duration-300 group-hover:scale-110" />
+                      <h3 className="font-serif text-lg font-semibold text-[#f4ecda] sm:text-xl transition-colors group-hover:text-[#ecd290]">
                         {step.title}
                       </h3>
                     </div>
@@ -105,10 +105,10 @@ export const HowItWorksSection = () => {
 
                 {/* Specific CTA after Step 3 to /form */}
                 {step.showCtaAfter && (
-                  <div className="ms-14 my-2">
+                  <div className="ms-14 my-3">
                     <Link
                       href={`${prefix}/form`}
-                      className="btn-gold inline-flex text-sm py-2 px-5 font-semibold shadow-md"
+                      className="btn-gold inline-flex text-sm py-2.5 px-6 font-semibold shadow-lg transition-transform hover:scale-[1.02]"
                     >
                       <span>{t('step3Cta')}</span>
                       <ArrowRight className="ms-2 h-4 w-4 rtl:rotate-180" />
