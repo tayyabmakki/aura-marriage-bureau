@@ -1,0 +1,161 @@
+{
+  "nav": {
+    "howItWorks": "How it works",
+    "fillForm": "Fill Profile",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy"
+  },
+  "header": {
+    "ariaLogo": "Aura Marriage Bureau Home",
+    "langToggle": "اردو",
+    "whatsapp": "WhatsApp",
+    "menuOpen": "Open navigation menu",
+    "menuClose": "Close navigation menu"
+  },
+  "hero": {
+    "urduHook": "رشتہ درکار ہے؟ ہم سے رابطہ کریں",
+    "titleLine1": "Rishtas in Pakistan",
+    "titleLine2": "& Overseas",
+    "tagline": "Where Destinies Align & Aura's Connect",
+    "hook": "Let's Find Your Perfect Match",
+    "ctaWhatsApp": "Message on WhatsApp",
+    "ctaCall": "Call Consultant",
+    "ctaForm": "Fill your profile form",
+    "proofGuardian": "Proposals handled with family dignity by parents & guardians",
+    "proofCity": "Consultancy in Lahore, Pakistan",
+    "proofHours": "Hours by appointment",
+    "countriesLabel": "Families actively served in"
+  },
+  "badges": {
+    "familyLed": "Family-led",
+    "discreet": "Discreet",
+    "refIdOnly": "Ref ID only",
+    "pakistanOverseas": "Pakistan & overseas"
+  },
+  "mosaic": {
+    "eyebrow": "Moments of Union",
+    "title": "A Sacred Journey of Two Families",
+    "disclaimer": "Photos are illustrative, not clients. AI-generated illustration.",
+    "altFamilies": "Traditional family gathering sharing warmth and conversation in drawing room, AI-generated illustration",
+    "altMehndi": "Henna-adorned bridal hands holding warm festive glow, AI-generated illustration",
+    "altNikah": "Ceremonial Nikah tray with roses and auspicious dates, AI-generated illustration",
+    "altBlessing": "Elders placing tender hands in heartfelt wedding prayer, AI-generated illustration",
+    "altVenue": "Warm candlelit wedding hall dressed in celebratory gold ambience, AI-generated illustration",
+    "altHands": "Close-up of bridal hands in traditional wedding celebration, AI-generated illustration"
+  },
+  "howItWorks": {
+    "eyebrow": "How we work",
+    "title": "From First Greeting to Blessed Nikah",
+    "urduSubtitle": "ہم کیسے کام کرتے ہیں",
+    "step1Title": "Message us on WhatsApp",
+    "step1Desc": "Introduce yourself with key preferences and the character of match you seek for your loved one.",
+    "step2Title": "Register with the bureau",
+    "step2Desc": "Register conveniently via WhatsApp or at our office. All terms and processes are explained with total clarity beforehand.",
+    "step3Title": "Send your profile form",
+    "step3Desc": "Complete the form on our site, tap Copy, paste into WhatsApp with 2-3 recent pictures. Nothing is stored on this site.",
+    "step3Cta": "Ready for step 3? Fill your profile form",
+    "step4Title": "Profile prepared & proofread",
+    "step4Desc": "Our team prepares your dignified profile layout. Your family reviews and approves every word before anything is shared.",
+    "step5Title": "Matching proposals shared",
+    "step5Desc": "Curated proposals matched to your criteria are shared by Ref ID only. Respected partner networks widen the reach.",
+    "step6Title": "Mutual interest confirmed",
+    "step6Desc": "Contact details and family conversations are facilitated solely when both families express genuine mutual agreement.",
+    "step7Title": "Families meet",
+    "step7Desc": "Respective families arrange an auspicious sitting at a mutual time and location to finalize the blessed rishta."
+  },
+  "privacyPromise": {
+    "eyebrow": "Our Sacred Trust",
+    "title": "Your Family's Dignity and Confidentiality",
+    "urduSubtitle": "آپ کی معلومات، ہماری امانت",
+    "desc": "Absolute discretion is our guiding principle. We honor cultural sensibilities and safeguard your personal details with unwavering care.",
+    "point1": "No candidate names, father's names, phone numbers, or addresses are ever broadcasted publicly.",
+    "point2": "Every profile is circulated strictly under an anonymous Reference ID (format AMB-001).",
+    "point3": "Photographs are exchanged strictly family-to-family with your express prior consent.",
+    "point4": "All introductions are conducted through parents, lawful guardians, or elder family representatives."
+  },
+  "sample": {
+    "eyebrow": "Transparency First",
+    "title": "What Your Profile Looks Like",
+    "subtitle": "Presented with consummate elegance and total discretion.",
+    "tabWhatsApp": "WhatsApp profile text",
+    "tabInstagram": "Instagram social card",
+    "sampleBadge": "SAMPLE",
+    "noteFictional": "The sample demonstrates a fictional profile. Real candidate identities are never made public on this website.",
+    "bullet1": "No names or phone numbers are ever visible on any public post",
+    "bullet2": "Available in fluent Urdu and English according to your family's choice",
+    "bullet3": "Reviewed and officially confirmed by your family before sending"
+  },
+  "formPromo": {
+    "eyebrow": "Convenient Profile Builder",
+    "title": "Fill your profile form in about 10 minutes",
+    "desc": "An intuitive step-by-step assistant with helpful examples. Once finished, tap Copy form and send it directly on WhatsApp. Nothing is sent or stored from this website.",
+    "step1": "Complete the 8 simple steps",
+    "step2": "Tap Copy Form to clipboard",
+    "step3": "Paste into WhatsApp and attach 2–3 photos",
+    "cta": "Start profile form",
+    "noSubmitNote": "Zero data transmitted: This form operates 100% on your device."
+  },
+  "reviews": {
+    "eyebrow": "Client Experiences",
+    "title": "Words from Families",
+    "emptyTitle": "Be the first to share your experience",
+    "emptyDesc": "We take pride in guiding families with quiet excellence. After your consultation, we welcome your thoughtful reflection on Google.",
+    "writeReview": "Share your review on Google",
+    "readReview": "View reviews"
+  },
+  "follow": {
+    "eyebrow": "Stay Connected",
+    "title": "Follow Aura Marriage Bureau",
+    "desc": "New confidential proposal alerts and matrimonial guidance published weekly across our social pages.",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "threads": "Threads"
+  },
+  "whoWeServe": {
+    "eyebrow": "Our Matchmaking Scope",
+    "title": "Serving Every Family with Honor",
+    "card1Title": "Lahore & all of Pakistan",
+    "card1Desc": "Connecting respectable families across Lahore, Islamabad, Karachi, and all Pakistani regions.",
+    "card1Alt": "Golden bridal jewellery still life, AI-generated illustration",
+    "card2Title": "Overseas Pakistanis",
+    "card2Desc": "Cross-border matchmaking for families across the UK, USA, Canada, Australia, and UAE.",
+    "card2Alt": "Golden hour flight reflections over clouds, AI-generated illustration",
+    "card3Title": "Second marriages with dignity",
+    "card3Desc": "Compassionate, honorable arrangements for divorced, khula, or widowed individuals.",
+    "card3Alt": "Golden tea moment by the lace window, AI-generated illustration",
+    "card4Title": "Educated Professionals",
+    "card4Desc": "Tailored proposals for doctors, engineers, executives, civil servants, and business families.",
+    "card4Alt": "City lights at dusk seen from high-rise office window, AI-generated illustration"
+  },
+  "faq": {
+    "eyebrow": "Frequently Asked Questions",
+    "title": "Common Questions from Parents",
+    "desc": "Have an additional inquiry? Speak directly with Muhammad Tayyab on WhatsApp."
+  },
+  "contact": {
+    "eyebrow": "Inquiries & Consultation",
+    "title": "Connect with Our Consultant",
+    "consultantRole": "Senior Matrimonial Consultant",
+    "officeNote": "In-person visits strictly by prior appointment.",
+    "addressPlaceholder": "Office location details provided upon appointment confirmation in Lahore Cantt.",
+    "hoursPlaceholder": "Open for calls & WhatsApp daily: 11:00 AM – 7:00 PM (PKT)",
+    "btnWhatsApp": "WhatsApp Chat",
+    "btnCall": "Direct Call",
+    "btnEmail": "Send Email",
+    "btnDirections": "Get Directions",
+    "mapAlt": "Luxurious warmly lit executive office in Lahore, AI-generated illustration"
+  },
+  "footer": {
+    "tagline": "Where Destinies Align & Aura's Connect",
+    "rights": "© Aura Marriage Bureau, Lahore. All rights reserved.",
+    "disclaimer": "Photographs throughout this platform are illustrative and AI-generated to protect candidate privacy."
+  },
+  "legal": {
+    "draftNotice": "DRAFT NOTICE: This legal documentation is pending formal review by Pakistani legal counsel.",
+    "termsTitle": "Terms & Conditions",
+    "privacyTitle": "Privacy Policy",
+    "lastUpdated": "Last updated: October 2026"
+  }
+}
