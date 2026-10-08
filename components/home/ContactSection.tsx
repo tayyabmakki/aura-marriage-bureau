@@ -42,7 +42,7 @@ export const ContactSection = () => {
               </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-[#16130f] via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 start-4 rounded-full border border-[#d4af61]/40 bg-black/70 px-3 py-1 text-xs text-[#ecd290] backdrop-blur-sm">
-                Lahore Cantt, Pakistan
+                {SITE_CONFIG.city}, {SITE_CONFIG.country}
               </div>
             </div>
 

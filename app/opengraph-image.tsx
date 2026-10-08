@@ -83,7 +83,7 @@ export default async function Image() {
             fontSize: '20px',
           }}
         >
-          <span>Lahore Cantt</span>
+          <span>{SITE_CONFIG.city}, {SITE_CONFIG.country}</span>
           <span>·</span>
           <span>WhatsApp: {SITE_CONFIG.phone}</span>
         </div>
