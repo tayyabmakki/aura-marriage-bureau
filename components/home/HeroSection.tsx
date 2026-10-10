@@ -112,10 +112,16 @@ export const HeroSection = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-3 pt-3 border-t border-[rgba(201,162,75,0.15)] text-xs text-[#a79c82] sm:grid-cols-3">
-            <div className="flex items-center justify-center gap-2">
-              <MapPin className="h-4 w-4 text-[#d4af61]" />
-              <span>{t('proofCity')}</span>
-            </div>
+            <a
+              href={SITE_CONFIG.directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 text-[#a79c82] hover:text-[#ecd290] transition-colors group"
+              title="View office location on Google Maps (opens in new tab)"
+            >
+              <MapPin className="h-4 w-4 text-[#d4af61] group-hover:scale-110 transition-transform" />
+              <span className="group-hover:underline">{t('proofCity')} ↗</span>
+            </a>
             <div className="flex items-center justify-center gap-2">
               <Clock className="h-4 w-4 text-[#d4af61]" />
               <span>

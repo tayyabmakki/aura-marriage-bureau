@@ -14,7 +14,6 @@ import {
   AtSign,
   Clock,
   ArrowUp,
-  ExternalLink,
   FileText,
   ArrowRight,
   ShieldCheck,
@@ -96,20 +95,32 @@ export const Footer = () => {
         {/* Main 4-Column Architectural Grid */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           {/* Column 1: Brand Heritage & Credibility */}
-          <div className="space-y-4">
+          <div className="space-y-5">
+            {/* Round & Big Aura Brand Emblem Medallion */}
             <Link
               href={prefix || '/'}
-              className="group inline-block transition-transform duration-300 hover:scale-105"
+              className="group inline-flex items-center gap-3.5 transition-transform duration-300 hover:scale-105"
               aria-label="Aura Marriage Bureau Home"
             >
-              <div className="relative h-14 w-48 sm:h-16 sm:w-52">
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full border-2 border-[rgba(201,162,75,0.45)] bg-black shadow-[0_0_28px_rgba(212,175,97,0.28)] overflow-hidden p-1 shrink-0 group-hover:border-[#ecd290] transition-colors">
                 <Image
                   src="/images/logo.png"
                   alt="Aura Marriage Bureau"
                   fill
-                  sizes="(max-width: 640px) 192px, 208px"
-                  className="object-contain object-left rtl:object-right drop-shadow-[0_2px_16px_rgba(212,175,97,0.28)]"
+                  sizes="(max-width: 640px) 80px, 96px"
+                  className="object-contain scale-110 drop-shadow-[0_2px_12px_rgba(212,175,97,0.35)]"
                 />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-2xl font-bold tracking-wider text-gold-gradient leading-none">
+                  AURA
+                </span>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#ecd290]/90 font-medium mt-1">
+                  Marriage Bureau
+                </span>
+                <span className="text-[9px] text-[#a79c82] tracking-wider uppercase">
+                  Lahore &bull; Overseas
+                </span>
               </div>
             </Link>
 
@@ -135,34 +146,34 @@ export const Footer = () => {
               </span>
             </div>
 
-            {/* Glowing Social Pills */}
+            {/* Round & Big Glowing Social Pills */}
             <div className="pt-2 flex items-center gap-3">
               <a
                 href={SITE_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Aura on Instagram"
-                className="group flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(201,162,75,0.25)] bg-black/50 text-[#ecd290] transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61] hover:text-black hover:shadow-[0_0_16px_rgba(212,175,97,0.45)]"
+                className="group flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61] hover:text-black hover:shadow-[0_0_18px_rgba(212,175,97,0.5)]"
               >
-                <Instagram className="h-4 w-4 transition-transform group-hover:scale-110" />
+                <Instagram className="h-5 w-5 transition-transform group-hover:scale-110" />
               </a>
               <a
                 href={SITE_CONFIG.threadsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Aura on Threads"
-                className="group flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(201,162,75,0.25)] bg-black/50 text-[#ecd290] transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61] hover:text-black hover:shadow-[0_0_16px_rgba(212,175,97,0.45)]"
+                className="group flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61] hover:text-black hover:shadow-[0_0_18px_rgba(212,175,97,0.5)]"
               >
-                <AtSign className="h-4 w-4 transition-transform group-hover:scale-110" />
+                <AtSign className="h-5 w-5 transition-transform group-hover:scale-110" />
               </a>
               <a
                 href={SITE_CONFIG.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Aura on Facebook"
-                className="group flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(201,162,75,0.25)] bg-black/50 text-[#ecd290] transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61] hover:text-black hover:shadow-[0_0_16px_rgba(212,175,97,0.45)]"
+                className="group flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61] hover:text-black hover:shadow-[0_0_18px_rgba(212,175,97,0.5)]"
               >
-                <Facebook className="h-4 w-4 transition-transform group-hover:scale-110" />
+                <Facebook className="h-5 w-5 transition-transform group-hover:scale-110" />
               </a>
             </div>
           </div>
@@ -180,54 +191,64 @@ export const Footer = () => {
               {SITE_CONFIG.consultant} &bull; {t('consultantTitle')}
             </p>
 
-            <ul className="space-y-3 text-xs sm:text-sm">
+            <ul className="space-y-3.5 text-xs sm:text-sm">
+              {/* Phone Row */}
               <li>
                 <a
                   href={`tel:${SITE_CONFIG.phoneRaw}`}
-                  className="group flex items-center gap-2.5 text-[#c4b99f] hover:text-[#f4ecda] transition-colors"
+                  className="group flex items-center gap-3 text-[#c4b99f] hover:text-[#f4ecda] transition-colors"
                 >
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-[rgba(201,162,75,0.2)] bg-black/40 text-[#d4af61] group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/10 transition-colors">
-                    <Phone className="h-3.5 w-3.5" />
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/20 group-hover:scale-105 transition-all">
+                    <Phone className="h-5 w-5 text-[#ecd290]" />
                   </div>
-                  <bdi dir="ltr">{SITE_CONFIG.phone}</bdi>
+                  <bdi dir="ltr" className="text-xs sm:text-sm font-medium">{SITE_CONFIG.phone}</bdi>
                 </a>
               </li>
 
+              {/* Email Row (Resolved Mail Icon Issue: Big, Round & Crystal Clear) */}
               <li>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="group flex items-center gap-2.5 text-[#c4b99f] hover:text-[#f4ecda] transition-colors"
+                  className="group flex items-center gap-3 text-[#c4b99f] hover:text-[#f4ecda] transition-colors"
                 >
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-[rgba(201,162,75,0.2)] bg-black/40 text-[#d4af61] group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/10 transition-colors">
-                    <Mail className="h-3.5 w-3.5" />
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/20 group-hover:scale-105 transition-all">
+                    <Mail className="h-5 w-5 text-[#ecd290]" />
                   </div>
-                  <span className="truncate">{SITE_CONFIG.email}</span>
+                  <span className="truncate text-xs sm:text-sm font-medium">{SITE_CONFIG.email}</span>
                 </a>
               </li>
 
-              <li className="flex items-start gap-2.5 text-xs text-[#a79c82]">
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-[rgba(201,162,75,0.2)] bg-black/40 text-[#d4af61] shrink-0 mt-0.5">
-                  <MapPin className="h-3.5 w-3.5" />
-                </div>
+              {/* Address Row (Interactive - Opens Google Maps in New Tab) */}
+              <li className="flex items-start gap-3 text-xs sm:text-sm text-[#a79c82]">
+                <a
+                  href={SITE_CONFIG.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open office location in Google Maps (opens in new tab)"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] hover:border-[#d4af61] hover:bg-[#d4af61]/20 hover:scale-105 transition-all mt-0.5"
+                >
+                  <MapPin className="h-5 w-5 text-[#ecd290]" />
+                </a>
                 <div className="leading-relaxed">
-                  <span>{SITE_CONFIG.officeAddress}</span>
-                  <div className="mt-1">
-                    <a
-                      href={SITE_CONFIG.directionsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-medium text-[#ecd290] hover:text-[#f4ecda] hover:underline"
-                    >
-                      <span>{t('getDirections')}</span>
-                      <ExternalLink className="h-3 w-3" />
-                    </a>
-                  </div>
+                  <a
+                    href={SITE_CONFIG.directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block text-[#c4b99f] hover:text-[#ecd290] transition-colors"
+                    title="Click to open office location in Google Maps (opens in new tab)"
+                  >
+                    <span>{SITE_CONFIG.officeAddress}</span>
+                    <span className="ms-1.5 inline-flex items-center text-[11px] font-semibold text-[#d4af61] group-hover:underline">
+                      ↗ Google Maps
+                    </span>
+                  </a>
                 </div>
               </li>
 
-              <li className="flex items-center gap-2.5 text-xs text-[#a79c82]">
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-[rgba(201,162,75,0.2)] bg-black/40 text-[#d4af61] shrink-0">
-                  <Clock className="h-3.5 w-3.5" />
+              {/* Hours Row */}
+              <li className="flex items-center gap-3 text-xs sm:text-sm text-[#a79c82]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)]">
+                  <Clock className="h-5 w-5 text-[#ecd290]" />
                 </div>
                 <span>
                   <bdi dir="ltr">
@@ -253,7 +274,7 @@ export const Footer = () => {
                   href={`${prefix}/#how-it-works`}
                   className="inline-flex items-center gap-2 text-[#c4b99f] hover:text-[#ecd290] transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-[#d4af61]/50" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61]/50" />
                   <span>{navT('howItWorks')}</span>
                 </Link>
               </li>
@@ -274,7 +295,7 @@ export const Footer = () => {
                   href={`${prefix}/#reviews`}
                   className="inline-flex items-center gap-2 text-[#c4b99f] hover:text-[#ecd290] transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-[#d4af61]/50" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61]/50" />
                   <span>{navT('reviews')}</span>
                 </Link>
               </li>
@@ -283,7 +304,7 @@ export const Footer = () => {
                   href={`${prefix}/#moments-of-union`}
                   className="inline-flex items-center gap-2 text-[#c4b99f] hover:text-[#ecd290] transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-[#d4af61]/50" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61]/50" />
                   <span>{locale === 'ur' ? 'اتحاد کے لمحات' : 'Moments of Union'}</span>
                 </Link>
               </li>
@@ -292,7 +313,7 @@ export const Footer = () => {
                   href={`${prefix}/#faq`}
                   className="inline-flex items-center gap-2 text-[#c4b99f] hover:text-[#ecd290] transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-[#d4af61]/50" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61]/50" />
                   <span>{locale === 'ur' ? 'اکثر پوچھے جانے والے سوالات' : 'Parent FAQs'}</span>
                 </Link>
               </li>
@@ -301,7 +322,7 @@ export const Footer = () => {
                   href={`${prefix}/#contact`}
                   className="inline-flex items-center gap-2 text-[#c4b99f] hover:text-[#ecd290] transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-[#d4af61]/50" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61]/50" />
                   <span>{navT('contact')}</span>
                 </Link>
               </li>
@@ -365,8 +386,8 @@ export const Footer = () => {
             aria-label={t('backToTop')}
           >
             <span>{t('backToTop')}</span>
-            <div className="flex h-7 w-7 items-center justify-center rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/15 group-hover:scale-105 transition-all">
-              <ArrowUp className="h-3.5 w-3.5 text-[#d4af61] group-hover:text-[#ecd290]" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/15 group-hover:scale-105 transition-all">
+              <ArrowUp className="h-4 w-4 text-[#d4af61] group-hover:text-[#ecd290]" />
             </div>
           </button>
         </div>
