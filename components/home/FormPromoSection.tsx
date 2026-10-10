@@ -11,7 +11,7 @@ export const FormPromoSection = () => {
   const prefix = locale === 'ur' ? '/ur' : '';
 
   return (
-    <section className="relative overflow-hidden bg-[#0d0b09] py-14 sm:py-20 border-y border-[rgba(201,162,75,0.18)]">
+    <section className="relative overflow-hidden bg-[#0d0b09] py-18 sm:py-24 lg:py-28 border-y border-[rgba(201,162,75,0.18)]">
       {/* Background with hero-hands backdrop */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" aria-hidden="true">
         <Image

@@ -7,7 +7,7 @@ export const FollowUsSection = () => {
   const t = useTranslations('follow');
 
   return (
-    <section className="relative bg-[#0d0b09] py-12 border-t border-[rgba(201,162,75,0.18)]">
+    <section className="relative bg-[#0d0b09] py-16 sm:py-20 border-t border-[rgba(201,162,75,0.18)]">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-xs uppercase tracking-widest text-[#ecd290]">
           {t('eyebrow')}

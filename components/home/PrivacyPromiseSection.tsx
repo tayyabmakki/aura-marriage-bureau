@@ -26,7 +26,7 @@ export const PrivacyPromiseSection = () => {
   ];
 
   return (
-    <section className="relative bg-[#0d0b09] py-14 sm:py-20 border-y border-[rgba(201,162,75,0.18)]">
+    <section className="relative bg-[#0d0b09] py-18 sm:py-24 lg:py-28 border-y border-[rgba(201,162,75,0.18)]">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#d4af61]/30 bg-[#d4af61]/10 px-4 py-1 text-xs text-[#ecd290]">

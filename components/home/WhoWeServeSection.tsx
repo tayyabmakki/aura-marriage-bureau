@@ -33,7 +33,7 @@ export const WhoWeServeSection = () => {
   ];
 
   return (
-    <section className="relative bg-[#0a0908] py-14 sm:py-20">
+    <section className="relative bg-[#0a0908] py-18 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-xs uppercase tracking-widest text-[#ecd290]">

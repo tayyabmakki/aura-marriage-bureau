@@ -10,7 +10,7 @@ export const ProfileSampleSection = () => {
   const [activeTab, setActiveTab] = useState<'whatsapp' | 'instagram'>('whatsapp');
 
   return (
-    <section className="relative bg-[#0a0908] py-14 sm:py-20">
+    <section className="relative bg-[#0a0908] py-18 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-xs uppercase tracking-widest text-[#ecd290]">
@@ -80,36 +80,43 @@ export const ProfileSampleSection = () => {
                 </div>
 
                 <div className="mt-4 max-h-[380px] overflow-y-auto overflow-x-hidden rounded-lg bg-black/60 p-4 font-mono text-xs leading-relaxed text-[#f4ecda]/90 scrollbar-thin">
-                  <p className="text-[#a79c82]">➖➖➖➖➖➖➖➖➖</p>
-                  <p><b className="text-[#ecd290]">Date:</b> 1 October 2026</p>
-                  <p><b className="text-[#ecd290]">Ref ID:</b> {SITE_CONFIG.sampleRefId}</p>
-                  <p className="text-[#a79c82]">➖➖➖➖➖➖➖➖➖</p>
-                  <p className="mt-2 text-[#ecd290]">🔸 <b>امیدوار کی تفصیل</b></p>
-                  <p className="text-xs font-serif leading-loose" lang="ur" dir="rtl">
-                    27 سال، 5 فٹ 5 انچ، غیر شادی شدہ، ایم بی اے، لاہور میں مارکیٹنگ مینیجر، والد ریٹائرڈ استاد، والدہ ہاؤس وائف، ایک بھائی اور ایک بہن
-                  </p>
-                  <p className="mt-2 text-[#ecd290]">🔸 <b>مطلوبہ رشتہ</b></p>
-                  <p className="text-xs font-serif leading-loose" lang="ur" dir="rtl">
-                    28 تا 32 سال، تعلیم یافتہ، لاہور یا اسلام آباد، شریف اور سلجھا ہوا گھرانہ
-                  </p>
-                  <p className="text-[#a79c82]">➖➖➖➖➖➖➖➖➖</p>
-                  <p className="mt-2 text-[#ecd290]">🔸 <b>BASIC INFORMATION</b></p>
-                  <p><b>Gender:</b> Female</p>
-                  <p><b>Age:</b> 27</p>
-                  <p><b>Height:</b> 5&apos;5&quot;</p>
-                  <p><b>Marital Status:</b> Unmarried</p>
-                  <p><b>Religion/Sect:</b> Islam / Sunni</p>
-                  <p className="mt-2 text-[#ecd290]">🔸 <b>EDUCATION & WORK</b></p>
-                  <p><b>Education:</b> MBA</p>
-                  <p><b>Occupation:</b> Marketing Manager, Lahore</p>
-                  <p className="mt-2 text-[#ecd290]">🔸 <b>FAMILY</b></p>
-                  <p><b>Father:</b> Retired teacher</p>
-                  <p><b>Mother:</b> Housewife</p>
-                  <p><b>Siblings:</b> 1 brother, 1 sister</p>
-                  <p className="mt-2 text-[#ecd290]">🔸 <b>REQUIREMENTS</b></p>
-                  <p><b>Age:</b> 28 to 32</p>
-                  <p><b>City:</b> Lahore / Islamabad</p>
-                  <p className="text-[#a79c82]">➖➖➖➖➖➖➖➖➖</p>
+                  <p className="text-[#ecd290] font-bold">*{SITE_CONFIG.name} · Profile Form*</p>
+                  <p className="text-[11px] text-[#a79c82] mt-1"><b className="text-[#ecd290]">Ref ID:</b> {SITE_CONFIG.sampleRefId}</p>
+
+                  <p className="mt-3 text-[#ecd290] font-bold">*BASIC*</p>
+                  <p>Gender: Female</p>
+                  <p>Age: 27</p>
+                  <p>Height: 5&apos;5&quot;</p>
+                  <p>Father&apos;s caste: Sheikh</p>
+                  <p>Marital status: Unmarried</p>
+                  <p>Any disability / disease: No</p>
+                  <p>Religion / sect / maslik: Sunni</p>
+
+                  <p className="mt-3 text-[#ecd290] font-bold">*EDUCATION*</p>
+                  <p>Highest qualification: MBA</p>
+                  <p>Degree / institute details: LUMS, Lahore</p>
+
+                  <p className="mt-3 text-[#ecd290] font-bold">*JOB*</p>
+                  <p>Occupation status: Job</p>
+                  <p>Designation / profession: Marketing Manager</p>
+                  <p>Company / business name: Multinational FMCG</p>
+                  <p>Work city: Lahore</p>
+
+                  <p className="mt-3 text-[#ecd290] font-bold">*FAMILY*</p>
+                  <p>Father&apos;s occupation (or late): Retired Govt Officer</p>
+                  <p>Mother&apos;s occupation / housewife: Housewife</p>
+                  <p>Brothers (total / married): 1 (unmarried)</p>
+                  <p>Sisters (total / married): 1 (married)</p>
+
+                  <p className="mt-3 text-[#ecd290] font-bold">*RESIDENCE*</p>
+                  <p>City: Lahore</p>
+                  <p>Area / town: DHA Phase 5</p>
+                  <p>House status: Own</p>
+
+                  <p className="mt-3 text-[#ecd290] font-bold">*REQUIREMENTS*</p>
+                  <p>Preferred age range: 28 to 32</p>
+                  <p>Preferred education: Master&apos;s / Professional Degree</p>
+                  <p>Preferred city / country: Lahore / Islamabad</p>
                 </div>
               </div>
             ) : (
@@ -162,7 +169,7 @@ export const ProfileSampleSection = () => {
 
                 <div className="mt-4 pt-3 border-t border-[rgba(201,162,75,0.15)] flex items-center justify-between text-[11px] text-[#a79c82]">
                   <span>Family-to-Family Inquiries</span>
-                  <span className="text-[#ecd290] font-mono">wa.me/{SITE_CONFIG.whatsappNumber}</span>
+                  <span className="text-[#ecd290] font-mono"><bdi dir="ltr">wa.me/{SITE_CONFIG.whatsappNumber}</bdi></span>
                 </div>
               </div>
             )}
