@@ -82,6 +82,14 @@ export const FlagUAE = ({ className = "w-6 h-6" }: { className?: string }) => (
   </svg>
 );
 
+export const FlagSaudiArabia = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg viewBox="0 0 36 36" className={className} aria-hidden="true" focusable="false">
+    <circle cx="18" cy="18" r="18" fill="#006C35" />
+    <path d="M12 18h12M14 21l8-1" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="18" cy="14" r="2" fill="#FFFFFF" />
+  </svg>
+);
+
 export const FLAG_MAP: Record<string, React.FC<{ className?: string }>> = {
   PK: FlagPakistan,
   GB: FlagUK,
@@ -89,4 +97,5 @@ export const FLAG_MAP: Record<string, React.FC<{ className?: string }>> = {
   CA: FlagCanada,
   AU: FlagAustralia,
   AE: FlagUAE,
+  SA: FlagSaudiArabia,
 };
