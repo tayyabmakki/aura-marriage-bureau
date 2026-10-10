@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { SITE_CONFIG } from '@/lib/config';
-import { Phone, Mail, MapPin, Instagram, Facebook, AtSign } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Facebook, AtSign, Clock } from 'lucide-react';
 import { GoldWaveDivider } from '@/components/BrandIcons';
 
 export const Footer = () => {
@@ -23,9 +23,9 @@ export const Footer = () => {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4 lg:gap-12">
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-4">
-            <div className="relative h-12 w-44">
+            <div className="relative h-14 w-44">
               <Image
-                src="/images/aura-logo-transparent.png"
+                src="/images/logo.png"
                 alt="Aura Marriage Bureau"
                 fill
                 sizes="176px"
@@ -67,7 +67,15 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-[#d4af61] mt-0.5 shrink-0" />
-                <span>{SITE_CONFIG.city}, {SITE_CONFIG.country}</span>
+                <span className="leading-snug">{SITE_CONFIG.officeAddress}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Clock className="h-4 w-4 text-[#d4af61] shrink-0" />
+                <span>
+                  <bdi dir="ltr">
+                    {locale === 'ur' ? SITE_CONFIG.openingHoursDisplayUr : SITE_CONFIG.openingHoursDisplay}
+                  </bdi>
+                </span>
               </li>
             </ul>
           </div>
@@ -75,7 +83,7 @@ export const Footer = () => {
           {/* Quick Links & Legal */}
           <div className="space-y-3">
             <h3 className="font-serif text-sm font-semibold uppercase tracking-wider text-[#ecd290]">
-              Navigation & Legal
+              Navigation &amp; Legal
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
@@ -118,7 +126,7 @@ export const Footer = () => {
                 href={SITE_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
+                aria-label="Aura on Instagram"
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(201,162,75,0.3)] text-[#ecd290] transition hover:border-[#d4af61] hover:bg-[#d4af61]/10"
               >
                 <Instagram className="h-4 w-4" />
@@ -127,22 +135,20 @@ export const Footer = () => {
                 href={SITE_CONFIG.threadsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Threads"
+                aria-label="Aura on Threads"
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(201,162,75,0.3)] text-[#ecd290] transition hover:border-[#d4af61] hover:bg-[#d4af61]/10"
               >
                 <AtSign className="h-4 w-4" />
               </a>
-              {SITE_CONFIG.facebookUrl && (
-                <a
-                  href={SITE_CONFIG.facebookUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(201,162,75,0.3)] text-[#ecd290] transition hover:border-[#d4af61] hover:bg-[#d4af61]/10"
-                >
-                  <Facebook className="h-4 w-4" />
-                </a>
-              )}
+              <a
+                href={SITE_CONFIG.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Aura on Facebook"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(201,162,75,0.3)] text-[#ecd290] transition hover:border-[#d4af61] hover:bg-[#d4af61]/10"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>

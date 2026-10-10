@@ -46,8 +46,6 @@
     "proofGuardian_review": true,
     "proofCity": "دفتر لاہور، پاکستان",
     "proofCity_review": true,
-    "proofHours": "ملاقات پیشگی وقت کے ساتھ",
-    "proofHours_review": true,
     "countriesLabel": "ان ممالک میں مقیم خاندانوں کے لیے خدمات"
   },
   "badges": {
@@ -245,12 +243,6 @@
     "title_review": true,
     "consultantRole": "سینیئر میچ میکنگ کنسلٹنٹ",
     "consultantRole_review": true,
-    "officeNote": "دفتر تشریف آوری صرف پیشگی وقت طے کرنے کے بعد۔",
-    "officeNote_review": true,
-    "addressPlaceholder": "لاہور میں دفتر کی لوکیشن پیشگی وقت طے ہونے پر فراہم کی جاتی ہے۔",
-    "addressPlaceholder_review": true,
-    "hoursPlaceholder": "کالز اور واٹس ایپ کا وقت روزانہ: صبح 11:00 بجے تا شام 7:00 بجے",
-    "hoursPlaceholder_review": true,
     "btnWhatsApp": "واٹس ایپ میسج",
     "btnWhatsApp_review": true,
     "btnCall": "براہِ راست کال",

@@ -24,32 +24,14 @@ export const HeroSection = () => {
 
       {/* Hero Background Photo with Safe Gradient Overlay */}
       <div className="absolute inset-0 z-0 select-none overflow-hidden" aria-hidden="true">
-        <picture>
-          <source
-            srcSet={
-              SITE_CONFIG.HERO_PHOTO_LICENSED
-                ? "/images/hero-main-640.avif 640w, /images/hero-main-1080.avif 1080w"
-                : "/images/hero-hands-640.avif 640w, /images/hero-hands-1080.avif 1080w"
-            }
-            type="image/avif"
-          />
-          <source
-            srcSet={
-              SITE_CONFIG.HERO_PHOTO_LICENSED
-                ? "/images/hero-main-640.webp 640w, /images/hero-main-1080.webp 1080w"
-                : "/images/hero-hands-640.webp 640w, /images/hero-hands-1080.webp 1080w"
-            }
-            type="image/webp"
-          />
-          <Image
-            src={heroImageSrc}
-            alt="Solemn wedding ceremony hands clasping with festive gold glow, AI-generated illustration"
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1920px"
-            className="object-cover object-[center_30%] opacity-40 md:opacity-30"
-          />
-        </picture>
+        <Image
+          src={heroImageSrc}
+          alt="Solemn wedding ceremony hands clasping with festive gold glow"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1920px"
+          className="object-cover object-[center_30%] opacity-40 md:opacity-35"
+        />
         {/* Multilayer gradient for perfect text contrast (55-75% darkness) */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0908]/90 via-[#0a0908]/75 to-[#0a0908]" />
       </div>
@@ -136,7 +118,11 @@ export const HeroSection = () => {
             </div>
             <div className="flex items-center justify-center gap-2">
               <Clock className="h-4 w-4 text-[#d4af61]" />
-              <span>{t('proofHours')}</span>
+              <span>
+                <bdi dir="ltr">
+                  {locale === 'ur' ? SITE_CONFIG.openingHoursDisplayUr : SITE_CONFIG.openingHoursDisplay}
+                </bdi>
+              </span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Users className="h-4 w-4 text-[#d4af61]" />

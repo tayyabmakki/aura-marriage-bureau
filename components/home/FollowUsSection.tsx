@@ -25,6 +25,7 @@ export const FollowUsSection = () => {
             href={SITE_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Aura on Instagram"
             className="btn-line inline-flex items-center gap-2 text-xs sm:text-sm font-medium py-2.5 px-4"
           >
             <Instagram className="h-4 w-4 text-[#ecd290]" />
@@ -36,6 +37,7 @@ export const FollowUsSection = () => {
             href={SITE_CONFIG.threadsUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Aura on Threads"
             className="btn-line inline-flex items-center gap-2 text-xs sm:text-sm font-medium py-2.5 px-4"
           >
             <AtSign className="h-4 w-4 text-[#ecd290]" />
@@ -43,22 +45,16 @@ export const FollowUsSection = () => {
           </a>
 
           {/* Facebook */}
-          {SITE_CONFIG.facebookUrl ? (
-            <a
-              href={SITE_CONFIG.facebookUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-line inline-flex items-center gap-2 text-xs sm:text-sm font-medium py-2.5 px-4"
-            >
-              <Facebook className="h-4 w-4 text-[#ecd290]" />
-              <span>{SITE_CONFIG.facebookName}</span>
-            </a>
-          ) : (
-            <div className="inline-flex min-h-[48px] items-center gap-2 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-4 py-2.5 text-xs text-[#a79c82]">
-              <Facebook className="h-4 w-4 text-[#a79c82]" />
-              <span>{SITE_CONFIG.facebookName} (Coming soon)</span>
-            </div>
-          )}
+          <a
+            href={SITE_CONFIG.facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Aura on Facebook"
+            className="btn-line inline-flex items-center gap-2 text-xs sm:text-sm font-medium py-2.5 px-4"
+          >
+            <Facebook className="h-4 w-4 text-[#ecd290]" />
+            <span>{SITE_CONFIG.facebookName}</span>
+          </a>
         </div>
       </div>
     </section>

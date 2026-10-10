@@ -121,7 +121,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const isUrdu = locale === 'ur';
 
-  // JSON-LD schema (omitting null coordinates, address, and hours per strict rule)
+  // JSON-LD schema per verified business data (omitting null coordinates, reviews, and unverified postal code)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -129,11 +129,33 @@ export default async function LocaleLayout({
     image: 'https://auramarriagebureau.pk/images/hero-main.webp',
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE_CONFIG.streetAddress,
+      addressLocality: SITE_CONFIG.city,
+      addressCountry: 'PK',
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+        ],
+        opens: SITE_CONFIG.hours.opens,
+        closes: SITE_CONFIG.hours.closes,
+      },
+    ],
     areaServed: SITE_CONFIG.countriesServed.map((c) => c.nameEn),
     sameAs: [
       SITE_CONFIG.instagramUrl,
       SITE_CONFIG.threadsUrl,
-      ...(SITE_CONFIG.facebookUrl ? [SITE_CONFIG.facebookUrl] : []),
+      SITE_CONFIG.facebookUrl,
     ],
   };
 
@@ -141,9 +163,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isUrdu ? 'rtl' : 'ltr'}
-      className={`${cormorant.variable} ${lora.variable} ${montserrat.variable} ${
-        isUrdu ? notoUrdu.variable : ''
-      }`}
+      className={`${cormorant.variable} ${lora.variable} ${montserrat.variable} ${notoUrdu.variable}`}
     >
       <head>
         <script

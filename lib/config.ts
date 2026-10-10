@@ -7,11 +7,11 @@ export const SITE_CONFIG = {
   whatsappUrl: "https://wa.me/923394519797",
   email: "auramarriagebureau.pk@gmail.com",
   instagramHandle: "@auramarriagebureau",
-  instagramUrl: "https://www.instagram.com/auramarriagebureau",
+  instagramUrl: "https://www.instagram.com/auramarriagebureau/",
   threadsHandle: "@auramarriagebureau",
   threadsUrl: "https://www.threads.net/@auramarriagebureau",
   facebookName: "Aura Marriage Bureau",
-  facebookUrl: null as string | null, // Placeholder: URL to be provided
+  facebookUrl: "https://www.facebook.com/profile.php?id=61594977652723",
   tagline: "Where Destinies Align & Aura's Connect",
   hook: "Let's Find Your Perfect Match",
   footerLine: "Matrimonial Services | Pakistan & Overseas",
@@ -20,9 +20,31 @@ export const SITE_CONFIG = {
   city: "Lahore",
   country: "Pakistan",
 
-  // Placeholders (typed null, UI renders graceful coming-soon/hidden states)
-  officeAddress: null as string | null,
-  openingHours: null as string | null,
+  // Real Owner-Supplied Address & Consultation Hours
+  officeAddress: "Mezzanine Floor, 95 - S Block, Opposite LACAS School System, Imperial Garden Homes, Paragon City, Barki Rd, Cantt, Lahore, Pakistan 5400",
+  streetAddress: "Mezzanine Floor, 95 - S Block, Opposite LACAS School System, Imperial Garden Homes, Paragon City, Barki Rd, Cantt, Lahore, Pakistan",
+  hours: {
+    display: "Daily, 10:00 AM – 7:00 PM (PKT)",
+    displayUr: "روزانہ، صبح 10:00 تا شام 7:00 (پاکستان وقت)",
+    opens: "10:00",
+    closes: "19:00",
+    timezone: "Asia/Karachi",
+    days: [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ] as const,
+  },
+  openingHoursDisplay: "Daily, 10:00 AM – 7:00 PM (PKT)",
+  openingHoursDisplayUr: "روزانہ، صبح 10:00 تا شام 7:00 (پاکستان وقت)",
+  directionsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Mezzanine Floor, 95 - S Block, Opposite LACAS School System, Imperial Garden Homes, Paragon City, Barki Rd, Cantt, Lahore, Pakistan 5400")}`,
+  mapEmbedUrl: `https://maps.google.com/maps?q=${encodeURIComponent("Mezzanine Floor, 95 - S Block, Opposite LACAS School System, Imperial Garden Homes, Paragon City, Barki Rd, Cantt, Lahore, Pakistan 5400")}&output=embed`,
+
+  // Verified Placeholders (stay null per strict hard rules)
   googleReviewUrl: null as string | null,
   mapCoordinates: null as { lat: number; lng: number } | null,
 
@@ -30,7 +52,7 @@ export const SITE_CONFIG = {
   SHOW_FEES: false,
   ENABLE_SUBMIT: false,
   LEGAL_REVIEWED: false,
-  HERO_PHOTO_LICENSED: false,
+  HERO_PHOTO_LICENSED: true,
 
   // Internal Fee structure (NEVER render publicly when SHOW_FEES is false)
   fees: {
