@@ -51,17 +51,14 @@ export const WhoWeServeSection = () => {
               className="group flex flex-col overflow-hidden rounded-2xl border border-[rgba(201,162,75,0.2)] bg-[#16130f] transition-all hover:border-[#d4af61]/40"
             >
               <div className="relative h-48 w-full overflow-hidden sm:h-56">
-                <picture>
-                  <source srcSet={c.image.replace('.webp', '.avif')} type="image/avif" />
-                  <Image
-                    src={c.image}
-                    alt={c.alt}
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </picture>
+                <Image
+                  src={c.image}
+                  alt={c.alt}
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#16130f] via-transparent to-transparent pointer-events-none" />
               </div>
 

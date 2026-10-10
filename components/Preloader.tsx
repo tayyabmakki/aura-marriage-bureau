@@ -42,7 +42,7 @@ export const Preloader = () => {
         {/* Logo Container with Golden Reveal Shimmer */}
         <div className="relative h-24 w-52 sm:h-28 sm:w-64 transition-transform duration-500 hover:scale-105">
           <Image
-            src="/images/aura-logo-transparent.png"
+            src="/images/logo.png"
             alt="Aura Marriage Bureau"
             fill
             sizes="(max-width: 640px) 208px, 256px"

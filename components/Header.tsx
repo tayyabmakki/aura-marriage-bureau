@@ -20,7 +20,8 @@ export const Header = () => {
   // Derive target locale url
   const targetLocale = locale === 'ur' ? 'en' : 'ur';
   // Remove current locale prefix if present, then rebuild
-  const cleanPath = pathname.replace(/^\/ur(\/|$)/, '$1') || '/';
+  const pathWithoutLocale = pathname.replace(/^\/(ur|en)(\/|$)/, '$2') || '';
+  const cleanPath = pathWithoutLocale.startsWith('/') ? pathWithoutLocale : `/${pathWithoutLocale}`;
   const switchLocaleHref = targetLocale === 'ur'
     ? `/ur${cleanPath === '/' ? '' : cleanPath}`
     : cleanPath;
@@ -66,7 +67,7 @@ export const Header = () => {
           >
             <div className="relative h-10 w-28 sm:h-12 sm:w-36">
               <Image
-                src="/images/aura-logo-transparent.png"
+                src="/images/logo.png"
                 alt="Aura Marriage Bureau"
                 fill
                 sizes="(max-width: 640px) 112px, 144px"

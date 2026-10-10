@@ -66,17 +66,14 @@ export const MosaicSection = () => {
                 item.brighten ? 'brighten-family' : ''
               }`}
             >
-              <picture>
-                <source srcSet={item.src.replace('.webp', '.avif')} type="image/avif" />
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  loading="lazy"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 400px"
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </picture>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                loading="lazy"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 400px"
+                className="object-cover transition-transform duration-500 hover:scale-105"
+              />
               {/* Subtle bottom gradient to ensure elegance and warmth */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
             </div>

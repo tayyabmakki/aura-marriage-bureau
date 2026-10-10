@@ -1,6 +1,11 @@
 import React from 'react';
 import { setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 import { HeroSection } from '@/components/home/HeroSection';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 import { MosaicSection } from '@/components/home/MosaicSection';
 import { HowItWorksSection } from '@/components/home/HowItWorksSection';
 import { PrivacyPromiseSection } from '@/components/home/PrivacyPromiseSection';

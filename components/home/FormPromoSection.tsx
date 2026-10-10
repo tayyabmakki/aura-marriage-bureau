@@ -14,17 +14,13 @@ export const FormPromoSection = () => {
     <section className="relative overflow-hidden bg-[#0d0b09] py-14 sm:py-20 border-y border-[rgba(201,162,75,0.18)]">
       {/* Background with hero-hands backdrop */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" aria-hidden="true">
-        <picture>
-          <source srcSet="/images/hero-hands-1080.avif" type="image/avif" />
-          <source srcSet="/images/hero-hands-1080.webp" type="image/webp" />
-          <Image
-            src="/images/hero-hands.webp"
-            alt="Henna wedding hands backdrop, AI-generated illustration"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        </picture>
+        <Image
+          src="/images/hero-hands.webp"
+          alt="Henna wedding hands backdrop"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0908] via-[#0a0908]/90 to-[#0a0908]" />
       </div>
 

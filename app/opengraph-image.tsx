@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { SITE_CONFIG } from '@/lib/config';
 
-export const runtime = 'edge';
 export const alt = 'Aura Marriage Bureau — Matrimonial Services';
 export const size = {
   width: 1200,

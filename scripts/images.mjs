@@ -29,6 +29,8 @@ const ASSET_MAP = [
   { match: /Luxurious[\s_]?Warmly[\s_]?Lit[\s_]?Executive[\s_]?Office/i, name: 'visit-office' },
   { match: /Golden[\s_]?Dust[\s_]?on[\s_]?Black/i, name: 'fx-gold-dust' },
   { match: /Golden[\s_]?Silk[\s_]?Wave[\s_]?on[\s_]?Black/i, name: 'fx-gold-wave' },
+  { match: /Luminous[\s_]?Gold[\s_]?Ribbon[\s_]?on[\s_]?Black/i, name: 'fx-gold-ribbon' },
+  { match: /^logo\.png$/i, name: 'logo', isLogo: true },
 ];
 
 const FORBIDDEN_PATTERNS = [
@@ -125,6 +127,12 @@ async function processAll() {
         .toFile(baseWebp);
       console.log(`  Created base: ${mapItem.name}.webp`);
 
+      if (mapItem.isLogo) {
+        fs.copyFileSync(filePath, path.join(OUT_DIR, 'logo.png'));
+        fs.copyFileSync(filePath, path.join(OUT_DIR, 'aura-logo-transparent.png'));
+        fs.copyFileSync(filePath, path.join(ROOT_DIR, 'public', 'logo.png'));
+        console.log(`  Copied logo.png and aura-logo-transparent.png`);
+      }
     } catch (err) {
       console.error(`Error processing ${file}:`, err);
     }
