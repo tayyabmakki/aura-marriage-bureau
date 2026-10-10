@@ -96,31 +96,20 @@ export const Footer = () => {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           {/* Column 1: Brand Heritage & Credibility */}
           <div className="space-y-5">
-            {/* Round & Big Aura Brand Emblem Medallion */}
+            {/* Crisp & Elegant Aura Brand Logo */}
             <Link
               href={prefix || '/'}
-              className="group inline-flex items-center gap-3.5 transition-transform duration-300 hover:scale-105"
+              className="group inline-block transition-transform duration-300 hover:scale-105"
               aria-label="Aura Marriage Bureau Home"
             >
-              <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full border-2 border-[rgba(201,162,75,0.45)] bg-black shadow-[0_0_28px_rgba(212,175,97,0.28)] overflow-hidden p-1 shrink-0 group-hover:border-[#ecd290] transition-colors">
+              <div className="relative h-14 w-44 sm:h-16 sm:w-52">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo-transparent.png"
                   alt="Aura Marriage Bureau"
                   fill
-                  sizes="(max-width: 640px) 80px, 96px"
-                  className="object-contain scale-110 drop-shadow-[0_2px_12px_rgba(212,175,97,0.35)]"
+                  sizes="(max-width: 640px) 176px, 208px"
+                  className="object-contain object-left rtl:object-right drop-shadow-[0_2px_16px_rgba(212,175,97,0.35)]"
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-2xl font-bold tracking-wider text-gold-gradient leading-none">
-                  AURA
-                </span>
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#ecd290]/90 font-medium mt-1">
-                  Marriage Bureau
-                </span>
-                <span className="text-[9px] text-[#a79c82] tracking-wider uppercase">
-                  Lahore &bull; Overseas
-                </span>
               </div>
             </Link>
 

@@ -2,10 +2,16 @@ import React from 'react';
 
 export const FlagPakistan = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg viewBox="0 0 36 36" className={className} aria-hidden="true" focusable="false">
-    <circle cx="18" cy="18" r="18" fill="#01411C" />
-    <path d="M0 18a18 18 0 0 0 6 13.4V4.6A18 18 0 0 0 0 18z" fill="#FFFFFF" />
-    <path d="M24.2 12.8a6.5 6.5 0 1 1-6.1 8.8 7.5 7.5 0 1 0 6.1-8.8z" fill="#FFFFFF" />
-    <polygon points="23.5,15.2 24.6,18.5 21.8,16.5 25.2,16.5 22.4,18.5" fill="#FFFFFF" />
+    <clipPath id="circle-pk"><circle cx="18" cy="18" r="18" /></clipPath>
+    <g clipPath="url(#circle-pk)">
+      <rect width="36" height="36" fill="#01411C" />
+      <rect width="9" height="36" fill="#FFFFFF" />
+      <circle cx="21.5" cy="18" r="7.5" fill="#FFFFFF" />
+      <circle cx="23.8" cy="15.8" r="6.5" fill="#01411C" />
+      <g transform="translate(25.5, 14) rotate(-35)">
+        <polygon points="0,-3.2 0.9,-1 3,-1 1.4,0.4 2,2.5 0,1.2 -2,2.5 -1.4,0.4 -3,-1 -0.9,-1" fill="#FFFFFF" />
+      </g>
+    </g>
   </svg>
 );
 

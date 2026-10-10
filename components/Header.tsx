@@ -3,8 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
+import { Link as IntlLink, usePathname as useIntlPathname } from '@/i18n/routing';
 import { SITE_CONFIG } from '@/lib/config';
 import { MessageCircle, Phone, Menu, X, Globe, Sparkles } from 'lucide-react';
 
@@ -12,7 +12,7 @@ export const Header = () => {
   const t = useTranslations('header');
   const navT = useTranslations('nav');
   const locale = useLocale();
-  const pathname = usePathname();
+  const intlPathname = useIntlPathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -28,13 +28,8 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Derive target locale url
-  const targetLocale = locale === 'ur' ? 'en' : 'ur';
-  const pathWithoutLocale = pathname.replace(/^\/(ur|en)(\/|$)/, '$2') || '';
-  const cleanPath = pathWithoutLocale.startsWith('/') ? pathWithoutLocale : `/${pathWithoutLocale}`;
-  const switchLocaleHref = targetLocale === 'ur'
-    ? `/ur${cleanPath === '/' ? '' : cleanPath}`
-    : cleanPath;
+  // Derive target locale for robust next-intl switching
+  const targetLocale = (locale === 'ur' ? 'en' : 'ur') as 'en' | 'ur';
 
   // Handle ESC key to close mobile drawer and trap focus
   useEffect(() => {
@@ -71,33 +66,25 @@ export const Header = () => {
         className={`sticky top-0 z-40 w-full transition-all duration-500 ${
           scrolled
             ? 'border-b border-[rgba(201,162,75,0.25)] bg-[#0a0908]/90 backdrop-blur-xl shadow-[0_12px_36px_rgba(0,0,0,0.85)] py-2.5 sm:py-3'
-            : 'border-b border-[rgba(201,162,75,0.16)] bg-[#0a0908]/75 backdrop-blur-md py-3.5 sm:py-4'
+            : 'border-b border-[rgba(201,162,75,0.16)] bg-[#0a0908]/75 backdrop-blur-md py-3 sm:py-3.5'
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Brand Logo with Golden Aura Round Medallion */}
+          {/* Brand Logo with Clean Razor-Sharp Transparent Mark */}
           <Link
             href={prefix || '/'}
-            className="group flex items-center gap-2.5 sm:gap-3 transition-transform duration-300 hover:scale-105"
+            className="group flex items-center transition-transform duration-300 hover:scale-105"
             aria-label={t('ariaLogo')}
           >
-            <div className="relative h-11 w-11 sm:h-12 sm:w-12 rounded-full border border-[rgba(201,162,75,0.4)] bg-black shadow-[0_0_18px_rgba(212,175,97,0.3)] overflow-hidden p-0.5 shrink-0 group-hover:border-[#ecd290] transition-colors">
+            <div className="relative h-11 w-32 sm:h-13 sm:w-40 transition-all">
               <Image
-                src="/images/logo.png"
+                src="/images/logo-transparent.png"
                 alt="Aura Marriage Bureau"
                 fill
-                sizes="48px"
-                className="object-contain scale-110 drop-shadow-[0_2px_10px_rgba(212,175,97,0.3)]"
+                sizes="(max-width: 640px) 128px, 160px"
+                className="object-contain object-left rtl:object-right drop-shadow-[0_2px_14px_rgba(212,175,97,0.32)]"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-gold-gradient leading-none">
-                AURA
-              </span>
-              <span className="text-[9px] sm:text-[10px] tracking-widest text-[#ecd290]/80 uppercase mt-0.5 font-medium">
-                Marriage Bureau
-              </span>
             </div>
           </Link>
 
@@ -138,39 +125,40 @@ export const Header = () => {
             </Link>
           </nav>
 
-          {/* Header Action Controls */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* Header Action Controls (Harmonized Heights & Clean Frosted Pills) */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
             {/* Direct Phone Consultant (Desktop xl+) */}
             <a
               href={`tel:${SITE_CONFIG.phoneRaw}`}
-              className="hidden xl:inline-flex items-center gap-2 rounded-full border border-[rgba(201,162,75,0.18)] bg-[#14110d]/60 px-3.5 py-2 text-xs font-mono text-[#a79c82] transition-colors hover:border-[#d4af61]/50 hover:text-[#ecd290]"
+              className="hidden xl:inline-flex min-h-[44px] items-center gap-2 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/50 px-3.5 py-2 text-xs font-mono text-[#a79c82] transition-colors hover:border-[#d4af61]/50 hover:text-[#ecd290]"
               aria-label={`Call ${SITE_CONFIG.name}`}
             >
               <Phone className="h-3.5 w-3.5 text-[#d4af61]" />
               <bdi dir="ltr">{SITE_CONFIG.phone}</bdi>
             </a>
 
-            {/* Language Switcher Capsule */}
-            <Link
-              href={switchLocaleHref}
+            {/* Language Switcher Capsule (100% Reliable via next-intl routing) */}
+            <IntlLink
+              href={intlPathname || '/'}
+              locale={targetLocale}
               lang={targetLocale}
-              className="inline-flex min-h-[44px] sm:min-h-[48px] items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.28)] bg-black/50 px-3.5 sm:px-4 text-xs font-semibold tracking-wider text-[#ecd290] shadow-sm transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:shadow-[0_0_16px_rgba(212,175,97,0.25)]"
+              className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.28)] bg-black/60 px-3.5 sm:px-4 text-xs font-semibold tracking-wider text-[#ecd290] shadow-sm transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:shadow-[0_0_16px_rgba(212,175,97,0.25)]"
               aria-label={`Switch language to ${targetLocale === 'ur' ? 'Urdu' : 'English'}`}
             >
               <Globe className="h-3.5 w-3.5 text-[#d4af61]" />
               <span className={targetLocale === 'ur' ? 'urdu-text text-sm' : 'text-xs'}>
                 {t('langToggle')}
               </span>
-            </Link>
+            </IntlLink>
 
-            {/* Desktop WhatsApp Action Button */}
+            {/* Desktop WhatsApp Action Button (Frosted Luxury Pill User Loved) */}
             <a
               href={SITE_CONFIG.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold hidden sm:inline-flex min-h-[44px] sm:min-h-[48px] text-xs px-5 py-2.5 font-bold tracking-wide shadow-[0_4px_16px_rgba(212,175,97,0.22)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(212,175,97,0.38)]"
+              className="hidden sm:inline-flex min-h-[44px] items-center gap-2 rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 px-4 sm:px-5 py-2 text-xs font-semibold text-[#ecd290] backdrop-blur-md shadow-sm transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white hover:shadow-[0_0_16px_rgba(212,175,97,0.25)]"
             >
-              <MessageCircle className="me-2 h-4 w-4" />
+              <MessageCircle className="h-4 w-4 text-[#25D366] shrink-0" />
               <span>{t('whatsapp')}</span>
             </a>
 
@@ -189,7 +177,7 @@ export const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Full-Screen Focus-Trapped Sheet Drawer */}
+      {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div
           id="mobile-navigation"
@@ -201,24 +189,14 @@ export const Header = () => {
         >
           {/* Header row in mobile menu */}
           <div className="flex items-center justify-between border-b border-[rgba(201,162,75,0.2)] pb-4">
-            <div className="flex items-center gap-2.5">
-              <div className="relative h-10 w-10 rounded-full border border-[rgba(201,162,75,0.4)] bg-black shadow-[0_0_14px_rgba(212,175,97,0.25)] overflow-hidden p-0.5 shrink-0">
-                <Image
-                  src="/images/logo.png"
-                  alt="Aura Marriage Bureau"
-                  fill
-                  sizes="40px"
-                  className="object-contain scale-110 drop-shadow-[0_2px_8px_rgba(212,175,97,0.3)]"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-base font-bold tracking-wider text-gold-gradient leading-none">
-                  AURA
-                </span>
-                <span className="text-[9px] tracking-widest text-[#ecd290]/80 uppercase mt-0.5 font-medium">
-                  Marriage Bureau
-                </span>
-              </div>
+            <div className="relative h-11 w-32">
+              <Image
+                src="/images/logo-transparent.png"
+                alt="Aura Marriage Bureau"
+                fill
+                sizes="128px"
+                className="object-contain object-left rtl:object-right"
+              />
             </div>
             <button
               ref={closeButtonRef}
@@ -276,37 +254,50 @@ export const Header = () => {
               <Link
                 href={`${prefix}/terms`}
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 text-xs text-[#a79c82] hover:text-[#f4ecda]"
+                className="text-xs text-[#a79c82] hover:text-[#ecd290]"
               >
                 {navT('terms')}
               </Link>
-              <span className="text-[#a79c82]/40">·</span>
+              <span className="text-[rgba(201,162,75,0.3)]">&bull;</span>
               <Link
                 href={`${prefix}/privacy`}
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 text-xs text-[#a79c82] hover:text-[#f4ecda]"
+                className="text-xs text-[#a79c82] hover:text-[#ecd290]"
               >
                 {navT('privacy')}
               </Link>
             </div>
           </nav>
 
-          {/* Action Footer in Drawer */}
-          <div className="mt-auto flex flex-col gap-3 pt-6 border-t border-[rgba(201,162,75,0.2)]">
+          {/* Mobile Bottom Quick Actions */}
+          <div className="mt-auto space-y-3 pt-6 border-t border-[rgba(201,162,75,0.2)]">
+            {/* Language Switcher in Mobile Drawer */}
+            <IntlLink
+              href={intlPathname || '/'}
+              locale={targetLocale}
+              lang={targetLocale}
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 py-3 text-sm font-semibold text-[#ecd290]"
+            >
+              <Globe className="h-4 w-4 text-[#d4af61]" />
+              <span>{targetLocale === 'ur' ? 'اردو میں دیکھیں (Switch to Urdu)' : 'Switch to English'}</span>
+            </IntlLink>
+
             <a
               href={SITE_CONFIG.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold w-full text-center text-sm font-semibold py-3"
+              className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.4)] bg-black/60 py-3 text-sm font-semibold text-[#ecd290]"
             >
-              <MessageCircle className="me-2 h-5 w-5" />
-              {t('whatsapp')}
+              <MessageCircle className="h-5 w-5 text-[#25D366]" />
+              <span>{t('whatsapp')}</span>
             </a>
+
             <a
               href={`tel:${SITE_CONFIG.phoneRaw}`}
-              className="btn-line w-full text-center text-sm font-semibold py-3"
+              className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.3)] bg-white/5 py-3 text-sm font-semibold text-[#f4ecda]"
             >
-              <Phone className="me-2 h-4 w-4" />
+              <Phone className="h-4 w-4 text-[#d4af61]" />
               <bdi dir="ltr">{SITE_CONFIG.phone}</bdi>
             </a>
           </div>

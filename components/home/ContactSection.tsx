@@ -4,7 +4,16 @@ import React from 'react';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { SITE_CONFIG } from '@/lib/config';
-import { MessageCircle, Phone, Mail, Navigation, Clock, MapPin, User, ExternalLink } from 'lucide-react';
+import {
+  MessageCircle,
+  Phone,
+  Mail,
+  Navigation,
+  Clock,
+  MapPin,
+  ExternalLink,
+  ShieldCheck,
+} from 'lucide-react';
 
 export const ContactSection = () => {
   const t = useTranslations('contact');
@@ -29,7 +38,7 @@ export const ContactSection = () => {
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-stretch">
-          {/* Pre-loaded Interactive Map & Office Card */}
+          {/* Left Column: Office Lounge & Pre-Loaded Live Map Card */}
           <div className="lg:col-span-6 flex flex-col overflow-hidden rounded-2xl border border-[rgba(201,162,75,0.25)] bg-[#14120e] shadow-[0_16px_40px_rgba(0,0,0,0.6)]">
             {/* Top: Office Lounge Preview Header */}
             <div className="relative h-44 sm:h-48 w-full shrink-0 overflow-hidden">
@@ -80,36 +89,51 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          {/* Contact Details & Action Buttons */}
+          {/* Right Column: Executive Consultant Profile Card & Action Touchpoints */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             <div className="rounded-2xl border border-[rgba(201,162,75,0.22)] bg-[#14120e] p-6 sm:p-7 space-y-5 shadow-[0_16px_40px_rgba(0,0,0,0.5)]">
-              {/* Consultant */}
-              <div className="flex items-start gap-3.5">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_2px_10px_rgba(212,175,97,0.2)]">
-                  <User className="h-5 w-5" />
+              {/* Senior Consultant Real Picture & Identity */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 pb-5 border-b border-[rgba(201,162,75,0.16)]">
+                <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 overflow-hidden rounded-2xl border-2 border-[rgba(201,162,75,0.45)] bg-[#1a1713] shadow-[0_8px_24px_rgba(212,175,97,0.22)]">
+                  <Image
+                    src="/images/consultant-tayyab.webp"
+                    alt={`${SITE_CONFIG.consultant} - Senior Matrimonial Consultant`}
+                    fill
+                    sizes="(max-width: 640px) 96px, 112px"
+                    className="object-cover object-top"
+                    priority
+                  />
                 </div>
-                <div>
-                  <h3 className="font-serif text-lg font-bold text-[#f4ecda]">
+                <div className="space-y-1">
+                  <div className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.25)] bg-[rgba(212,175,97,0.08)] px-2.5 py-0.5 text-[11px] font-medium text-[#ecd290]">
+                    <ShieldCheck className="h-3 w-3 text-[#d4af61]" />
+                    <span>{locale === 'ur' ? 'سینیئر فیملی کنسلٹنٹ' : 'Senior Matrimonial Consultant'}</span>
+                  </div>
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#f4ecda]">
                     {SITE_CONFIG.consultant}
                   </h3>
-                  <p className="text-xs text-[#ecd290] font-medium">{t('consultantRole')}</p>
+                  <p className="text-xs text-[#c4b99f] leading-relaxed max-w-sm">
+                    {locale === 'ur'
+                      ? 'والدین اور سرپرستوں کے ساتھ براہِ راست، باوقار اور پرائیویٹ مشاورت۔'
+                      : 'Personal, dignified matrimonial consultations conducted directly with parents & guardians.'}
+                  </p>
                 </div>
               </div>
 
-              {/* Office Address (FULLY INTERACTIVE - OPENS GOOGLE MAPS IN NEW TAB) */}
-              <div className="flex items-start gap-3.5 pt-4 border-t border-[rgba(201,162,75,0.12)]">
+              {/* Office Address (Interactive Google Maps Link) */}
+              <div className="flex items-start gap-3.5 pt-1">
                 <a
                   href={SITE_CONFIG.directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open office location in Google Maps"
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_2px_10px_rgba(212,175,97,0.2)] hover:border-[#d4af61] hover:bg-[#d4af61]/20 transition-all"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_2px_10px_rgba(212,175,97,0.2)] hover:border-[#d4af61] hover:bg-[#d4af61]/20 transition-all mt-0.5"
                 >
                   <MapPin className="h-5 w-5" />
                 </a>
                 <div>
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-[#a79c82]">
-                    Location
+                    {locale === 'ur' ? 'دفتر کا پتہ' : 'Office Location'}
                   </h4>
                   <a
                     href={SITE_CONFIG.directionsUrl}
@@ -133,7 +157,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-[#a79c82]">
-                    Consultation Hours
+                    {locale === 'ur' ? 'اوقاتِ کار' : 'Consultation Hours'}
                   </h4>
                   <p className="text-sm text-[#f4ecda]/90 mt-1">
                     <bdi dir="ltr">
@@ -144,46 +168,50 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            {/* Action Buttons (Touch targets >= 48px) */}
+            {/* Action Buttons (Harmonized Touch Targets & Loved Frosted WhatsApp Pill) */}
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {/* WhatsApp Button - Frosted Dark Pill User Praised */}
               <a
                 href={SITE_CONFIG.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Message Aura Marriage Bureau on WhatsApp"
-                className="btn-gold text-center text-sm font-semibold py-3.5 shadow-md"
+                className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 px-5 py-3 text-xs sm:text-sm font-semibold text-[#ecd290] backdrop-blur-md shadow-sm transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white hover:shadow-[0_0_16px_rgba(212,175,97,0.25)]"
               >
-                <MessageCircle className="me-2 h-4 w-4" />
-                {t('btnWhatsApp')}
+                <MessageCircle className="h-4.5 w-4.5 text-[#25D366] shrink-0" />
+                <span>{t('btnWhatsApp')}</span>
               </a>
 
+              {/* Direct Call Button */}
               <a
                 href={`tel:${SITE_CONFIG.phoneRaw}`}
                 aria-label={`Call ${SITE_CONFIG.name}`}
-                className="btn-line text-center text-sm font-semibold py-3.5"
+                className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-5 py-3 text-xs sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
               >
-                <Phone className="me-2 h-4 w-4" />
-                {t('btnCall')}
+                <Phone className="h-4 w-4 text-[#d4af61] shrink-0" />
+                <span>{t('btnCall')}</span>
               </a>
 
+              {/* Send Email Button */}
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
                 aria-label={`Email ${SITE_CONFIG.name}`}
-                className="btn-line text-center text-sm font-semibold py-3.5"
+                className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-5 py-3 text-xs sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
               >
-                <Mail className="me-2 h-4 w-4" />
-                {t('btnEmail')}
+                <Mail className="h-4 w-4 text-[#d4af61] shrink-0" />
+                <span>{t('btnEmail')}</span>
               </a>
 
+              {/* Get Directions Button */}
               <a
                 href={SITE_CONFIG.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={locale === 'ur' ? 'اورا میرج بیورو کی لوکیشن اور راستہ' : 'Directions to Aura Marriage Bureau'}
-                className="btn-line text-center text-sm font-semibold py-3.5"
+                className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-5 py-3 text-xs sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
               >
-                <Navigation className="me-2 h-4 w-4" />
-                {t('btnDirections')}
+                <Navigation className="h-4 w-4 text-[#d4af61] shrink-0" />
+                <span>{t('btnDirections')}</span>
               </a>
             </div>
           </div>
