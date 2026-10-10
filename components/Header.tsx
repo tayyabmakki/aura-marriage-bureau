@@ -70,21 +70,29 @@ export const Header = () => {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Brand Logo with Clean Razor-Sharp Transparent Mark */}
+          {/* Brand Logo with AURA Gold Emblem */}
           <Link
             href={prefix || '/'}
-            className="group flex items-center transition-transform duration-300 hover:scale-105"
+            className="group flex items-center gap-2.5 sm:gap-3 transition-transform duration-300 hover:scale-105"
             aria-label={t('ariaLogo')}
           >
-            <div className="relative h-11 w-32 sm:h-13 sm:w-40 transition-all">
+            <div className="relative h-11 w-11 sm:h-12 sm:w-12 shrink-0 drop-shadow-[0_2px_12px_rgba(212,175,97,0.35)]">
               <Image
-                src="/images/logo-transparent.png"
+                src="/images/aura-emblem.webp"
                 alt="Aura Marriage Bureau"
                 fill
-                sizes="(max-width: 640px) 128px, 160px"
-                className="object-contain object-left rtl:object-right drop-shadow-[0_2px_14px_rgba(212,175,97,0.32)]"
+                sizes="48px"
+                className="object-contain"
                 priority
               />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-gold-gradient leading-none">
+                AURA
+              </span>
+              <span className="text-[9px] sm:text-[10px] tracking-widest text-[#ecd290]/85 uppercase mt-0.5 font-medium">
+                Marriage Bureau
+              </span>
             </div>
           </Link>
 
@@ -189,14 +197,24 @@ export const Header = () => {
         >
           {/* Header row in mobile menu */}
           <div className="flex items-center justify-between border-b border-[rgba(201,162,75,0.2)] pb-4">
-            <div className="relative h-11 w-32">
-              <Image
-                src="/images/logo-transparent.png"
-                alt="Aura Marriage Bureau"
-                fill
-                sizes="128px"
-                className="object-contain object-left rtl:object-right"
-              />
+            <div className="flex items-center gap-2.5">
+              <div className="relative h-10 w-10 shrink-0 drop-shadow-[0_2px_8px_rgba(212,175,97,0.3)]">
+                <Image
+                  src="/images/aura-emblem.webp"
+                  alt="Aura Marriage Bureau"
+                  fill
+                  sizes="40px"
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-base font-bold tracking-wider text-gold-gradient leading-none">
+                  AURA
+                </span>
+                <span className="text-[9px] tracking-widest text-[#ecd290]/85 uppercase mt-0.5 font-medium">
+                  Marriage Bureau
+                </span>
+              </div>
             </div>
             <button
               ref={closeButtonRef}

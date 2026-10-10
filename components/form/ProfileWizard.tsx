@@ -382,16 +382,24 @@ export const ProfileWizard = () => {
 
       {/* Hero Header matching profile-form.html */}
       <header className="relative flex min-h-[340px] flex-col items-center justify-center text-center px-4 pt-10 pb-20 bg-gradient-to-b from-[#0a0908]/70 via-[#0a0908]/85 to-[#0a0908]">
-        {/* Logo */}
-        <div className="relative h-16 w-48 sm:h-20 sm:w-60 mb-2">
-          <Image
-            src="/images/logo.png"
-            alt={SITE_CONFIG.name}
-            fill
-            priority
-            sizes="(max-width: 640px) 240px, 280px"
-            className="object-contain drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]"
-          />
+        {/* AURA Gold Emblem Brand Logo */}
+        <div className="flex flex-col items-center gap-2 mb-2">
+          <div className="relative h-20 w-20 sm:h-24 sm:w-24 drop-shadow-[0_4px_24px_rgba(212,175,97,0.35)]">
+            <Image
+              src="/images/aura-emblem.webp"
+              alt={SITE_CONFIG.name}
+              fill
+              priority
+              sizes="96px"
+              className="object-contain"
+            />
+          </div>
+          <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient leading-none">
+            AURA
+          </span>
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#ecd290]/85 font-medium">
+            Marriage Bureau &bull; Lahore
+          </span>
         </div>
 
         {/* Tagline */}

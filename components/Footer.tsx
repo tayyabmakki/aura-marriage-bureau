@@ -96,20 +96,31 @@ export const Footer = () => {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           {/* Column 1: Brand Heritage & Credibility */}
           <div className="space-y-5">
-            {/* Crisp & Elegant Aura Brand Logo */}
+            {/* AURA Gold Emblem Brand Logo */}
             <Link
               href={prefix || '/'}
-              className="group inline-block transition-transform duration-300 hover:scale-105"
+              className="group inline-flex items-center gap-3.5 sm:gap-4 transition-transform duration-300 hover:scale-105"
               aria-label="Aura Marriage Bureau Home"
             >
-              <div className="relative h-14 w-44 sm:h-16 sm:w-52">
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 drop-shadow-[0_0_24px_rgba(212,175,97,0.35)]">
                 <Image
-                  src="/images/logo-transparent.png"
+                  src="/images/aura-emblem.webp"
                   alt="Aura Marriage Bureau"
                   fill
-                  sizes="(max-width: 640px) 176px, 208px"
-                  className="object-contain object-left rtl:object-right drop-shadow-[0_2px_16px_rgba(212,175,97,0.35)]"
+                  sizes="(max-width: 640px) 80px, 96px"
+                  className="object-contain"
                 />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient leading-none">
+                  AURA
+                </span>
+                <span className="text-[11px] sm:text-xs uppercase tracking-widest text-[#ecd290]/90 font-medium mt-1">
+                  Marriage Bureau
+                </span>
+                <span className="text-[9px] text-[#a79c82] tracking-wider uppercase mt-0.5">
+                  Lahore &bull; Pakistan &bull; Overseas
+                </span>
               </div>
             </Link>
 
