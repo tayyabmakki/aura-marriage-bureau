@@ -102,9 +102,9 @@ export const Footer = () => {
               className="group inline-flex items-center gap-3.5 sm:gap-4 transition-transform duration-300 hover:scale-105"
               aria-label="Aura Marriage Bureau Home"
             >
-              <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 drop-shadow-[0_0_24px_rgba(212,175,97,0.35)]">
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 drop-shadow-[0_4px_16px_rgba(212,175,97,0.3)] rounded-full">
                 <Image
-                  src="/images/aura-emblem.webp"
+                  src="/logo.png"
                   alt="Aura Marriage Bureau"
                   fill
                   sizes="(max-width: 640px) 80px, 96px"

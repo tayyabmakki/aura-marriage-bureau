@@ -63,11 +63,10 @@ export const Header = () => {
       </a>
 
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-500 ${
-          scrolled
-            ? 'border-b border-[rgba(201,162,75,0.25)] bg-[#0a0908]/90 backdrop-blur-xl shadow-[0_12px_36px_rgba(0,0,0,0.85)] py-2.5 sm:py-3'
-            : 'border-b border-[rgba(201,162,75,0.16)] bg-[#0a0908]/75 backdrop-blur-md py-3 sm:py-3.5'
-        }`}
+        className={`sticky top-0 z-40 w-full transition-all duration-500 ${scrolled
+          ? 'border-b border-[rgba(201,162,75,0.25)] bg-[#0a0908]/90 backdrop-blur-xl shadow-[0_12px_36px_rgba(0,0,0,0.85)] py-2.5 sm:py-3'
+          : 'border-b border-[rgba(201,162,75,0.16)] bg-[#0a0908]/75 backdrop-blur-md py-3 sm:py-3.5'
+          }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Brand Logo with AURA Gold Emblem */}
@@ -76,9 +75,9 @@ export const Header = () => {
             className="group flex items-center gap-2.5 sm:gap-3 transition-transform duration-300 hover:scale-105"
             aria-label={t('ariaLogo')}
           >
-            <div className="relative h-11 w-11 sm:h-12 sm:w-12 shrink-0 drop-shadow-[0_2px_12px_rgba(212,175,97,0.35)]">
+            <div className="relative h-11 w-11 sm:h-12 sm:w-12 shrink-0 drop-shadow-[0_2px_12px_rgba(212,175,97,0.35)] rounded-full">
               <Image
-                src="/images/aura-emblem.webp"
+                src="/logo.png"
                 alt="Aura Marriage Bureau"
                 fill
                 sizes="48px"
@@ -198,9 +197,9 @@ export const Header = () => {
           {/* Header row in mobile menu */}
           <div className="flex items-center justify-between border-b border-[rgba(201,162,75,0.2)] pb-4">
             <div className="flex items-center gap-2.5">
-              <div className="relative h-10 w-10 shrink-0 drop-shadow-[0_2px_8px_rgba(212,175,97,0.3)]">
+              <div className="relative h-10 w-10 shrink-0 drop-shadow-[0_2px_8px_rgba(212,175,97,0.3)] rounded-full">
                 <Image
-                  src="/images/aura-emblem.webp"
+                  src="/logo.png"
                   alt="Aura Marriage Bureau"
                   fill
                   sizes="40px"

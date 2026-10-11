@@ -295,7 +295,7 @@ export const ProfileWizard = () => {
       setBadFields(new Set());
       try {
         localStorage.removeItem(STORAGE_KEY);
-      } catch {}
+      } catch { }
       goToStep(0);
       showToast(locale === 'ur' ? 'ڈیٹا صاف کر دیا گیا ہے' : 'Form data cleared');
     }
@@ -350,7 +350,7 @@ export const ProfileWizard = () => {
         setBadFields(new Set());
         try {
           localStorage.removeItem(STORAGE_KEY);
-        } catch {}
+        } catch { }
         goToStep(0);
         showToast(locale === 'ur' ? 'ڈیٹا صاف کر دیا گیا ہے' : 'Data cleared from device');
       }
@@ -373,9 +373,8 @@ export const ProfileWizard = () => {
     <div className="relative min-h-screen bg-[#0a0908] text-[#f4ecda]">
       {/* Toast Notification */}
       <div
-        className={`fixed left-1/2 bottom-6 -translate-x-1/2 z-50 rounded-full bg-gradient-to-r from-[#b88a35] via-[#ecd290] to-[#c9a24b] px-6 py-3 font-semibold text-[#1c1406] shadow-xl text-sm transition-opacity duration-300 pointer-events-none ${
-          toastMessage ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`fixed left-1/2 bottom-6 -translate-x-1/2 z-50 rounded-full bg-gradient-to-r from-[#b88a35] via-[#ecd290] to-[#c9a24b] px-6 py-3 font-semibold text-[#1c1406] shadow-xl text-sm transition-opacity duration-300 pointer-events-none ${toastMessage ? 'opacity-100' : 'opacity-0'
+          }`}
       >
         {toastMessage}
       </div>
@@ -384,9 +383,9 @@ export const ProfileWizard = () => {
       <header className="relative flex min-h-[340px] flex-col items-center justify-center text-center px-4 pt-10 pb-20 bg-gradient-to-b from-[#0a0908]/70 via-[#0a0908]/85 to-[#0a0908]">
         {/* AURA Gold Emblem Brand Logo */}
         <div className="flex flex-col items-center gap-2 mb-2">
-          <div className="relative h-20 w-20 sm:h-24 sm:w-24 drop-shadow-[0_4px_24px_rgba(212,175,97,0.35)]">
+          <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 drop-shadow-[0_4px_20px_rgba(212,175,97,0.3)] rounded-full">
             <Image
-              src="/images/aura-emblem.webp"
+              src="/logo.png"
               alt={SITE_CONFIG.name}
               fill
               priority
@@ -460,13 +459,12 @@ export const ProfileWizard = () => {
                 aria-controls={`step-panel-${idx}`}
                 type="button"
                 onClick={() => goToStep(idx)}
-                className={`shrink-0 border-b-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
-                  isActive
-                    ? 'border-[#d4af61] text-[#ecd290]'
-                    : isDone
+                className={`shrink-0 border-b-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${isActive
+                  ? 'border-[#d4af61] text-[#ecd290]'
+                  : isDone
                     ? 'border-transparent text-[#d4af61] hover:text-[#ecd290]'
                     : 'border-transparent text-[#a79c82] hover:text-[#f4ecda]'
-                }`}
+                  }`}
               >
                 {idx + 1}. {step.t}
               </button>
@@ -566,13 +564,12 @@ export const ProfileWizard = () => {
                             <label
                               key={opt}
                               htmlFor={optId}
-                              className={`cursor-pointer rounded-full border px-4 py-2 text-xs sm:text-sm font-medium transition-all ${
-                                isChecked
-                                  ? 'border-transparent bg-gradient-to-r from-[#b88a35] via-[#ecd290] to-[#c9a24b] text-[#1c1406] font-bold shadow-md'
-                                  : isBad
+                              className={`cursor-pointer rounded-full border px-4 py-2 text-xs sm:text-sm font-medium transition-all ${isChecked
+                                ? 'border-transparent bg-gradient-to-r from-[#b88a35] via-[#ecd290] to-[#c9a24b] text-[#1c1406] font-bold shadow-md'
+                                : isBad
                                   ? 'border-[#ff7b7b] bg-[#080706]/60 text-[#f4ecda] hover:border-[#d4af61]'
                                   : 'border-[rgba(201,162,75,0.22)] bg-[#080706]/60 text-[#f4ecda] hover:border-[#d4af61]'
-                              }`}
+                                }`}
                             >
                               <input
                                 id={optId}
@@ -596,9 +593,8 @@ export const ProfileWizard = () => {
                         aria-invalid={isBad}
                         aria-describedby={isBad ? errorId : field.hint ? hintId : undefined}
                         onChange={(e) => handleInputChange(field.key, e.target.value)}
-                        className={`w-full rounded-xl border bg-[#080706]/70 px-3.5 py-3 text-sm text-[#f4ecda] transition-all focus:outline-none focus:border-[#d4af61] focus:ring-2 focus:ring-[#d4af61]/20 ${
-                          isBad ? 'border-[#ff7b7b]' : 'border-[rgba(201,162,75,0.22)]'
-                        }`}
+                        className={`w-full rounded-xl border bg-[#080706]/70 px-3.5 py-3 text-sm text-[#f4ecda] transition-all focus:outline-none focus:border-[#d4af61] focus:ring-2 focus:ring-[#d4af61]/20 ${isBad ? 'border-[#ff7b7b]' : 'border-[rgba(201,162,75,0.22)]'
+                          }`}
                       >
                         <option value="">{locale === 'ur' ? 'منتخب کریں…' : 'Choose…'}</option>
                         {field.options.map((opt) => (
@@ -616,9 +612,8 @@ export const ProfileWizard = () => {
                         aria-describedby={isBad ? errorId : field.hint ? hintId : undefined}
                         onChange={(e) => handleInputChange(field.key, e.target.value)}
                         rows={3}
-                        className={`w-full rounded-xl border bg-[#080706]/70 px-3.5 py-3 text-sm text-[#f4ecda] transition-all focus:outline-none focus:border-[#d4af61] focus:ring-2 focus:ring-[#d4af61]/20 resize-y ${
-                          isBad ? 'border-[#ff7b7b]' : 'border-[rgba(201,162,75,0.22)]'
-                        }`}
+                        className={`w-full rounded-xl border bg-[#080706]/70 px-3.5 py-3 text-sm text-[#f4ecda] transition-all focus:outline-none focus:border-[#d4af61] focus:ring-2 focus:ring-[#d4af61]/20 resize-y ${isBad ? 'border-[#ff7b7b]' : 'border-[rgba(201,162,75,0.22)]'
+                          }`}
                       />
                     ) : (
                       <input
@@ -632,24 +627,23 @@ export const ProfileWizard = () => {
                           field.key === 'age'
                             ? 'numeric'
                             : field.type === 'tel'
-                            ? 'tel'
-                            : field.type === 'email'
-                            ? 'email'
-                            : undefined
+                              ? 'tel'
+                              : field.type === 'email'
+                                ? 'email'
+                                : undefined
                         }
                         autoComplete={
                           field.type === 'tel'
                             ? 'tel'
                             : field.type === 'email'
-                            ? 'email'
-                            : 'off'
+                              ? 'email'
+                              : 'off'
                         }
                         aria-invalid={isBad}
                         aria-describedby={isBad ? errorId : field.hint ? hintId : undefined}
                         onChange={(e) => handleInputChange(field.key, e.target.value)}
-                        className={`w-full rounded-xl border bg-[#080706]/70 px-3.5 py-3 text-sm text-[#f4ecda] transition-all focus:outline-none focus:border-[#d4af61] focus:ring-2 focus:ring-[#d4af61]/20 ${
-                          isBad ? 'border-[#ff7b7b]' : 'border-[rgba(201,162,75,0.22)]'
-                        }`}
+                        className={`w-full rounded-xl border bg-[#080706]/70 px-3.5 py-3 text-sm text-[#f4ecda] transition-all focus:outline-none focus:border-[#d4af61] focus:ring-2 focus:ring-[#d4af61]/20 ${isBad ? 'border-[#ff7b7b]' : 'border-[rgba(201,162,75,0.22)]'
+                          }`}
                       />
                     )}
 
@@ -750,9 +744,8 @@ export const ProfileWizard = () => {
               type="button"
               onClick={() => goToStep(cur - 1)}
               disabled={cur === 0}
-              className={`rounded-full border border-[rgba(201,162,75,0.25)] px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#a79c82] transition-colors hover:text-[#ecd290] hover:border-[#d4af61] ${
-                cur === 0 ? 'opacity-30 cursor-not-allowed' : ''
-              }`}
+              className={`rounded-full border border-[rgba(201,162,75,0.25)] px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#a79c82] transition-colors hover:text-[#ecd290] hover:border-[#d4af61] ${cur === 0 ? 'opacity-30 cursor-not-allowed' : ''
+                }`}
             >
               {locale === 'ur' ? 'پیچھے' : 'Back'}
             </button>

@@ -39,14 +39,14 @@ export const Preloader = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,97,0.15)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center">
-        {/* Logo Container with Golden Reveal Shimmer */}
-        <div className="relative h-24 w-52 sm:h-28 sm:w-64 transition-transform duration-500 hover:scale-105">
+        {/* Logo Container with Golden Circular Reveal */}
+        <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-full drop-shadow-[0_4px_24px_rgba(212,175,97,0.35)] transition-transform duration-500 hover:scale-105">
           <Image
-            src="/images/logo.png"
+            src="/logo.png"
             alt="Aura Marriage Bureau"
             fill
-            sizes="(max-width: 640px) 208px, 256px"
-            className="object-contain drop-shadow-[0_0_20px_rgba(212,175,97,0.3)]"
+            sizes="(max-width: 640px) 96px, 112px"
+            className="object-contain"
             priority
           />
         </div>
