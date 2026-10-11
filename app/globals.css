@@ -13,10 +13,22 @@
   --color-card-bg: rgba(22, 19, 15, 0.85);
   --color-card-border: rgba(212, 175, 97, 0.2);
 
-  --font-display: var(--font-cormorant), serif;
-  --font-tagline: var(--font-lora), serif;
-  --font-sans: var(--font-montserrat), sans-serif;
-  --font-urdu: var(--font-noto-urdu), 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif;
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-tagline: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-montserrat), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-urdu-heading: var(--font-noto-urdu), 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', var(--font-montserrat), serif;
+  --font-urdu-ui: var(--font-noto-naskh), 'Noto Naskh Arabic', var(--font-montserrat), system-ui, sans-serif;
+  --font-urdu: var(--font-noto-urdu), 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', var(--font-montserrat), serif;
+
+  --tracking-brand: 0.16em;
+  --tracking-kicker: 0.24em;
+  --tracking-nav: 0.18em;
+
+  --leading-display: 1.15;
+  --leading-body: 1.65;
+  --leading-urdu-heading: 2.0;
+  --leading-urdu-body: 2.1;
 
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
@@ -25,6 +37,17 @@
 }
 
 :root {
+  /* Fluid 8-step type scale (clamp) */
+  --text-micro: clamp(0.6875rem, 0.65rem + 0.15vw, 0.75rem);   /* ~11px-12px micro kickers & badges */
+  --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);      /* ~12px-13px small details */
+  --text-sm: clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem);     /* ~14px-15px secondary text & UI */
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);        /* ~16px-17px standard body */
+  --text-lg: clamp(1.125rem, 1.06rem + 0.3vw, 1.25rem);        /* ~18px-20px subheadings */
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);          /* ~20px-24px major cards & H4 */
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem);       /* ~24px-30px section titles H3 */
+  --text-3xl: clamp(1.875rem, 1.65rem + 1.1vw, 2.5rem);        /* ~30px-40px section H2 */
+  --text-4xl: clamp(2.5rem, 2.1rem + 1.8vw, 3.75rem);          /* ~40px-60px hero H1 display */
+
   --gold-gradient: linear-gradient(135deg, #b88a35, #ecd290, #c9a24b);
   --gold-glow: 0 0 24px rgba(212, 175, 97, 0.25);
   --gold-glow-lg: 0 0 45px rgba(212, 175, 97, 0.35);
@@ -34,9 +57,12 @@
 html {
   background-color: #0a0908;
   color: #f4ecda;
-  font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-montserrat), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -45,15 +71,74 @@ body {
   overflow-x: hidden;
   background-color: #0a0908;
   color: #f4ecda;
-  line-height: 1.6;
+  line-height: var(--leading-body);
+  font-synthesis: none;
+}
+
+/* Typography Utility Classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-tagline {
+  font-family: var(--font-tagline);
+}
+
+.font-urdu-heading {
+  font-family: var(--font-urdu-heading);
+}
+
+.font-urdu-ui {
+  font-family: var(--font-urdu-ui);
+}
+
+.tracking-brand {
+  letter-spacing: var(--tracking-brand);
+}
+
+.tracking-kicker {
+  letter-spacing: var(--tracking-kicker);
+}
+
+.tracking-nav {
+  letter-spacing: var(--tracking-nav);
 }
 
 /* RTL Urdu rules: line-height >= 2.0, never letter-spacing on Urdu */
-[dir="rtl"], .urdu-text, :lang(ur) {
-  font-family: var(--font-urdu), 'Noto Nastaliq Urdu', serif;
-  line-height: 2.1 !important;
+[dir="rtl"], :lang(ur) {
+  font-family: var(--font-urdu-ui);
+  line-height: var(--leading-urdu-body);
   letter-spacing: normal !important;
-  word-spacing: 0.05em;
+  word-spacing: 0.04em;
+  font-synthesis: none;
+  text-transform: none !important;
+}
+
+/* Headings and large titles in Urdu use prestigious Noto Nastaliq Urdu */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+:lang(ur) h1, :lang(ur) h2, :lang(ur) h3,
+.urdu-heading, .urdu-nastaliq {
+  font-family: var(--font-urdu-heading) !important;
+  line-height: var(--leading-urdu-heading) !important;
+  letter-spacing: normal !important;
+}
+
+/* Small UI text, buttons, form labels in Urdu use legible Noto Naskh */
+[dir="rtl"] label, [dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea,
+:lang(ur) label, :lang(ur) button, :lang(ur) input, :lang(ur) select, :lang(ur) textarea,
+.urdu-ui, .urdu-text {
+  font-family: var(--font-urdu-ui);
+  line-height: var(--leading-urdu-body);
+}
+
+/* Ensure Latin text (Ref IDs, phone numbers, English words) inside Urdu stays in Montserrat */
+[dir="rtl"] bdi, :lang(ur) bdi,
+[dir="rtl"] .latin-text, :lang(ur) .latin-text {
+  font-family: var(--font-sans);
+  direction: ltr;
+  unicode-bidi: isolate;
+  line-height: normal;
+  letter-spacing: normal;
 }
 
 /* Mobile-first touch targets */

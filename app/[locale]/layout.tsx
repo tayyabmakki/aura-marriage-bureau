@@ -1,5 +1,11 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Lora, Montserrat, Noto_Nastaliq_Urdu } from 'next/font/google';
+import {
+  Cormorant_Garamond,
+  Lora,
+  Montserrat,
+  Noto_Nastaliq_Urdu,
+  Noto_Naskh_Arabic,
+} from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -13,17 +19,21 @@ import '../globals.css';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
+  weight: ['500', '600'],
   variable: '--font-cormorant',
   display: 'swap',
+  preload: true,
+  fallback: ['Georgia', 'serif'],
 });
 
 const lora = Lora({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['italic', 'normal'],
+  weight: ['400'],
+  style: ['italic'],
   variable: '--font-lora',
   display: 'swap',
+  preload: true,
+  fallback: ['Georgia', 'serif'],
 });
 
 const montserrat = Montserrat({
@@ -31,13 +41,26 @@ const montserrat = Montserrat({
   weight: ['300', '400', '500', '600'],
   variable: '--font-montserrat',
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', '-apple-system', 'sans-serif'],
 });
 
 const notoUrdu = Noto_Nastaliq_Urdu({
   subsets: ['arabic'],
-  weight: ['400', '700'],
+  weight: ['400'],
   variable: '--font-noto-urdu',
   display: 'swap',
+  preload: false,
+  fallback: ['Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'serif'],
+});
+
+const notoNaskh = Noto_Naskh_Arabic({
+  subsets: ['arabic'],
+  weight: ['400', '600'],
+  variable: '--font-noto-naskh',
+  display: 'swap',
+  preload: false,
+  fallback: ['Noto Naskh Arabic', 'system-ui', 'sans-serif'],
 });
 
 export const viewport: Viewport = {
@@ -163,7 +186,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isUrdu ? 'rtl' : 'ltr'}
-      className={`${cormorant.variable} ${lora.variable} ${montserrat.variable} ${notoUrdu.variable}`}
+      className={`${cormorant.variable} ${lora.variable} ${montserrat.variable} ${notoUrdu.variable} ${notoNaskh.variable}`}
     >
       <head>
         <script
