@@ -18,7 +18,7 @@ const ASSET_MAP = [
   { match: /slider1\.webp$/i, name: 'hero-main' },
   { match: /Golden[\s_]?Mehndi[\s_]?Wedding[\s_]?Handclasp/i, name: 'hero-hands' },
   { match: /Golden[\s_]?Bridal[\s_]?Jeweller?y[\s_]?Still[\s_]?Life/i, name: 'serve-pakistan' },
-  { match: /Warm[\s_]?Traditional[\s_]?Living[\s_]?Room[\s_]?Gathering/i, name: 'mosaic-families' },
+  { match: /Warm[\s_]?Family[\s_]?Moment[\s_]?on[\s_]?the[\s_]?Sofa-3/i, name: 'mosaic-families' },
   { match: /Golden[\s_]?Mehndi[\s_]?Hands[\s_]?in[\s_]?Festive[\s_]?Glow/i, name: 'mosaic-mehndi' },
   { match: /Golden[\s_]?Ceremony[\s_]?Tray[\s_]?with[\s_]?Roses[\s_]?and[\s_]?Dates/i, name: 'mosaic-nikah', squareCrop: true },
   { match: /A[\s_]?Tender[\s_]?Ceremonial[\s_]?Blessing/i, name: 'mosaic-blessing' },
@@ -30,6 +30,8 @@ const ASSET_MAP = [
   { match: /Golden[\s_]?Dust[\s_]?on[\s_]?Black/i, name: 'fx-gold-dust' },
   { match: /Golden[\s_]?Silk[\s_]?Wave[\s_]?on[\s_]?Black/i, name: 'fx-gold-wave' },
   { match: /Luminous[\s_]?Gold[\s_]?Ribbon[\s_]?on[\s_]?Black/i, name: 'fx-gold-ribbon' },
+  { match: /aura-post-AU-049-urdu/i, name: 'sample-post-au-049' },
+  { match: /aura-reel-AU-049-urdu-cover/i, name: 'sample-reel-cover-au-049' },
   { match: /^logo\.png$/i, name: 'logo', isLogo: true },
 ];
 
@@ -47,6 +49,17 @@ async function processAll() {
   const rootSlider = path.join(ROOT_DIR, 'slider1.webp');
   if (fs.existsSync(rootSlider) && !files.some(f => f.toLowerCase().includes('slider1'))) {
     files.push('slider1.webp');
+  }
+
+  // Copy MP4 reel videos if present
+  const videoFiles = files.filter(f => f.toLowerCase().endsWith('.mp4'));
+  const videosOutDir = path.join(ROOT_DIR, 'public', 'videos');
+  if (videoFiles.length > 0 && !fs.existsSync(videosOutDir)) {
+    fs.mkdirSync(videosOutDir, { recursive: true });
+  }
+  for (const vf of videoFiles) {
+    fs.copyFileSync(path.join(SRC_DIR, vf), path.join(videosOutDir, vf));
+    console.log(`[INFO] Copied video asset: ${vf} -> public/videos/`);
   }
 
   for (const file of files) {

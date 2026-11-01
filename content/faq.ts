@@ -21,11 +21,10 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "verification",
     questionEn: "Do you independently verify families?",
-    answerEn: "We share information precisely as provided to us by each family. Aura acts as a respectful facilitator rather than a private investigative service; we encourage all families to conduct their own diligent background inquiries before making a commitment.",
-    questionUr: "کیا آپ خاندانوں کی تصدیق اور چھان بین کرتے ہیں؟",
-    answerUr: "ہم معلومات اسی طرح پہنچاتے ہیں جس طرح ہر خاندان ہمیں فراہم کرتا ہے۔ ہم باہمی رابطے کا ذریعہ ہیں نہ کہ تفتیشی ادارہ، اس لیے ہر خاندان کو حتمی فیصلہ کرنے سے پہلے اپنی تسلی خود کر لینی چاہیے۔",
-    // Confirm with owner: confirm wording on background verification obligations
-    ownerVerificationNote: "Confirm with owner: confirm wording on background verification obligations",
+    answerEn: "No, we do not independently verify families. We pass on information precisely as each family provides it to us. Aura is a facilitation service, not a private investigative agency, so every family must conduct its own independent background checks and inquiries before making any commitment.",
+    questionUr: "کیا آپ خاندانوں کی خود تصدیق اور چھان بین کرتے ہیں؟",
+    answerUr: "نہیں۔ ہم معلومات اسی طرح آگے پہنچاتے ہیں جس طرح ہر خاندان ہمیں فراہم کرتا ہے۔ اورا ایک باوقار سہولت کار ادارہ ہے نہ کہ کوئی تفتیشی ایجنسی، اس لیے ہر خاندان پر لازم ہے کہ وہ حتمی فیصلہ یا وعدہ کرنے سے قبل اپنے طور پر مکمل تصدیق اور چھان بین خود کرے۔",
+    ownerVerificationNote: "Explicit disclaimer: Aura does not verify families; independent family checks required",
   },
   {
     id: "overseas",

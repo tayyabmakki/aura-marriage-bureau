@@ -9,10 +9,10 @@ export const FollowUsSection = () => {
   return (
     <section className="relative bg-[#0d0b09] py-16 sm:py-20 border-t border-[rgba(201,162,75,0.18)]">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-xs uppercase tracking-widest text-[#ecd290]">
+        <p className="text-xs uppercase tracking-kicker text-[#ecd290] font-semibold">
           {t('eyebrow')}
         </p>
-        <h2 className="mt-2 font-serif text-2xl font-bold text-[#f4ecda] sm:text-3xl">
+        <h2 className="mt-2 font-display text-2xl font-semibold text-[#f4ecda] sm:text-3xl">
           {t('title')}
         </h2>
         <p className="mt-2 text-sm text-[#a79c82] max-w-lg mx-auto">

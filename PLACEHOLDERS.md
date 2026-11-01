@@ -7,10 +7,10 @@ This document tracks all external business details, URLs, and real content that 
 ## 1. Office Location & Consultation Hours
 | Item | Current Status / Placeholder in Config | Required Input from Client |
 | :--- | :--- | :--- |
-| **Office Address** | Supplied: `Mezzanine Floor, 95 - S Block, Opposite LACAS School System, Imperial Garden Homes, Paragon City, Barki Rd, Cantt, Lahore, Pakistan 5400` | In config. Displayed in Contact & Footer. |
-| **Postal Code** | Displayed as `5400` in address text; omitted from JSON-LD `postalCode`. | **postal code: verify against Google Business Profile** (4 digits provided; Pakistani standard codes are usually 5 digits). |
-| **Consultation Hours** | Supplied: `Daily, 10:00 AM – 7:00 PM (PKT)` (10:00 to 19:00, all 7 days) | In config. Displayed in Contact, Footer, Hero proof strip, and JSON-LD openingHoursSpecification. |
-| **Map Coordinates** | `null` (Click-to-load map iframe uses encoded address query embed) | Google Maps lat/lng coordinates or Google Maps Place ID |
+| **Office Address** | Placeholder status (`isAddressConfirmed: false`). Displays `Lahore, Pakistan (Consultation by Prior Appointment)`. Real address held until confirmed. | Client confirmation of whether Barki Rd / Paragon City address is active or from reference site. |
+| **Consultation Hours** | Placeholder status (`isHoursConfirmed: false`). Displays `Consultation by Prior Appointment`. | Client confirmation of standard in-person consultation hours. |
+| **Map Coordinates & Embed** | `null` (eager iframe removed; directs to WhatsApp for appointment & live location pin). | Confirmed Google Maps Place ID / location pin link. |
+| **Consultant Title** | Neutralized to `Matrimonial Consultant` / `میچ میکنگ کنسلٹنٹ` (removed unconfirmed "Senior" prefix). | Client preference if specific credential applies. |
 
 ---
 

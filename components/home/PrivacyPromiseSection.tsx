@@ -33,10 +33,10 @@ export const PrivacyPromiseSection = () => {
             <ShieldCheck className="h-4 w-4" />
             <span>{t('eyebrow')}</span>
           </div>
-          <h2 className="mt-3 font-serif text-2xl font-bold text-[#f4ecda] sm:text-4xl">
+          <h2 className="mt-3 font-display text-2xl font-semibold text-[#f4ecda] sm:text-4xl">
             {t('title')}
           </h2>
-          <p className="mt-2 font-serif text-lg text-[#d4af61]" lang="ur" dir="rtl">
+          <p className="mt-2 font-urdu-heading text-lg sm:text-xl text-[#d4af61]" lang="ur" dir="rtl">
             {t('urduSubtitle')}
           </p>
           <p className="mt-3 text-sm text-[#a79c82] max-w-2xl mx-auto sm:text-base">

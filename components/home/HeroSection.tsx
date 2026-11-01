@@ -41,7 +41,7 @@ export const HeroSection = () => {
         <div className="inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-[rgba(212,175,97,0.08)] px-4 py-1.5 backdrop-blur-md mb-2">
           <Sparkles className="h-3.5 w-3.5 text-[#d4af61]" />
           <p
-            className="font-serif text-base sm:text-lg lg:text-xl font-medium text-[#ecd290]"
+            className="font-urdu-heading text-lg sm:text-xl lg:text-2xl font-medium text-[#ecd290]"
             lang="ur"
             dir="rtl"
           >
@@ -50,46 +50,46 @@ export const HeroSection = () => {
         </div>
 
         {/* H1 Heading */}
-        <h1 className="mt-3 font-serif text-3xl font-bold tracking-tight text-[#f4ecda] sm:text-5xl lg:text-6xl leading-[1.15] text-center max-w-3xl">
+        <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-[#f4ecda] sm:text-5xl lg:text-6xl leading-[1.15] text-center max-w-3xl">
           <span className="block text-gold-gradient">{t('titleLine1')}</span>
           <span className="block">{t('titleLine2')}</span>
         </h1>
 
         {/* Tagline */}
-        <p className="mt-4 font-serif italic text-base text-[#ecd290]/90 sm:text-lg lg:text-xl max-w-2xl mx-auto text-center leading-relaxed">
+        <p className="mt-4 font-tagline italic text-base text-[#ecd290]/90 sm:text-lg lg:text-xl max-w-2xl mx-auto text-center leading-relaxed">
           &ldquo;{t('tagline')}&rdquo;
         </p>
 
         <StarDivider className="my-6 sm:my-8" />
 
-        {/* Modernized Luxury Action Buttons (Centered & Harmonized) */}
-        <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
+        {/* Harmonized Luxury Action Buttons (Identical Height, Balanced Width & Typography) */}
+        <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 max-w-3xl mx-auto">
           {/* Primary WhatsApp Button */}
           <a
             href={SITE_CONFIG.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full border border-[#d4af61]/60 bg-gradient-to-r from-[#d4af61] via-[#ecd290] to-[#b88a35] px-7 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-black shadow-[0_8px_24px_rgba(212,175,97,0.32)] hover:shadow-[0_12px_36px_rgba(212,175,97,0.5)] hover:scale-[1.02] transition-all"
+            className="w-full sm:w-auto inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full border border-[#d4af61]/70 bg-gradient-to-r from-[#d4af61] via-[#ecd290] to-[#b88a35] px-6 sm:px-7 text-xs sm:text-sm font-bold uppercase tracking-wider text-black shadow-[0_8px_24px_rgba(212,175,97,0.32)] hover:shadow-[0_12px_36px_rgba(212,175,97,0.5)] hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
           >
-            <MessageCircle className="h-4.5 w-4.5 text-[#144f2b] fill-current" />
+            <MessageCircle className="h-4.5 w-4.5 text-[#144f2b] fill-current shrink-0" />
             <span>{t('ctaWhatsApp')}</span>
           </a>
 
           {/* Fill Profile Form Button */}
           <Link
             href={`${prefix}/form`}
-            className="w-full sm:w-auto inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full border border-[rgba(201,162,75,0.4)] bg-black/60 px-6 py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#ecd290] backdrop-blur-md shadow-sm hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white hover:scale-[1.02] transition-all"
+            className="w-full sm:w-auto inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full border border-[#d4af61]/60 bg-black/70 px-6 sm:px-7 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ecd290] backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.5)] hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
           >
-            <FileText className="h-4 w-4 text-[#d4af61]" />
+            <FileText className="h-4.5 w-4.5 text-[#d4af61] shrink-0" />
             <span>{t('ctaForm')}</span>
           </Link>
 
           {/* Call Consultant Button */}
           <a
             href={`tel:${SITE_CONFIG.phoneRaw}`}
-            className="w-full sm:w-auto inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-5 py-3.5 text-xs sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md hover:border-[#d4af61]/50 hover:bg-white/5 hover:text-[#ecd290] transition-all"
+            className="w-full sm:w-auto inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full border border-[rgba(201,162,75,0.4)] bg-black/50 px-6 sm:px-7 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#f4ecda] backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:border-[#d4af61]/70 hover:bg-white/5 hover:text-[#ecd290] hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
           >
-            <Phone className="h-4 w-4 text-[#d4af61]" />
+            <Phone className="h-4.5 w-4.5 text-[#d4af61] shrink-0" />
             <span>{t('ctaCall')}</span>
           </a>
         </div>
@@ -118,16 +118,10 @@ export const HeroSection = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-3 pt-3 border-t border-[rgba(201,162,75,0.15)] text-xs text-[#a79c82] sm:grid-cols-3">
-            <a
-              href={SITE_CONFIG.directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 text-[#a79c82] hover:text-[#ecd290] transition-colors group"
-              title="View office location on Google Maps (opens in new tab)"
-            >
-              <MapPin className="h-4 w-4 text-[#d4af61] group-hover:scale-110 transition-transform" />
-              <span className="group-hover:underline">{t('proofCity')} ↗</span>
-            </a>
+            <div className="flex items-center justify-center gap-2 text-[#a79c82]">
+              <MapPin className="h-4 w-4 text-[#d4af61]" />
+              <span>{t('proofCity')}</span>
+            </div>
             <div className="flex items-center justify-center gap-2">
               <Clock className="h-4 w-4 text-[#d4af61]" />
               <span>

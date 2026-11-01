@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link as IntlLink, usePathname as useIntlPathname } from '@/i18n/routing';
 import { SITE_CONFIG } from '@/lib/config';
+import { BrandLogo } from '@/components/BrandLogo';
+
 import { MessageCircle, Phone, Menu, X, Globe, Sparkles } from 'lucide-react';
 
 export const Header = () => {
@@ -63,37 +65,14 @@ export const Header = () => {
       </a>
 
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-500 ${scrolled
+        className={`sticky top-0 z-40 w-full transform-gpu transition-all duration-300 ${scrolled
           ? 'border-b border-[rgba(201,162,75,0.25)] bg-[#0a0908]/90 backdrop-blur-xl shadow-[0_12px_36px_rgba(0,0,0,0.85)] py-2.5 sm:py-3'
           : 'border-b border-[rgba(201,162,75,0.16)] bg-[#0a0908]/75 backdrop-blur-md py-3 sm:py-3.5'
           }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Brand Logo with AURA Gold Emblem */}
-          <Link
-            href={prefix || '/'}
-            className="group flex items-center gap-2.5 sm:gap-3 transition-transform duration-300 hover:scale-105"
-            aria-label={t('ariaLogo')}
-          >
-            <div className="relative h-11 w-11 sm:h-12 sm:w-12 shrink-0 drop-shadow-[0_2px_12px_rgba(212,175,97,0.35)] rounded-full">
-              <Image
-                src="/logo.png"
-                alt="Aura Marriage Bureau"
-                fill
-                sizes="48px"
-                className="object-contain"
-                priority
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-gold-gradient leading-none">
-                AURA
-              </span>
-              <span className="text-[9px] sm:text-[10px] tracking-widest text-[#ecd290]/85 uppercase mt-0.5 font-medium">
-                Marriage Bureau
-              </span>
-            </div>
-          </Link>
+          {/* Reusable Brand Logo Component */}
+          <BrandLogo size="md" priority ariaLabel={t('ariaLogo')} />
 
           {/* Central Floating Frosted Pill Navigation (Desktop) */}
           <nav
@@ -102,14 +81,14 @@ export const Header = () => {
           >
             <Link
               href={`${prefix}/#how-it-works`}
-              className="rounded-full px-4 py-2 text-xs lg:text-[13px] font-medium tracking-wide text-[#f4ecda]/85 transition-all duration-300 hover:text-[#ecd290] hover:bg-[#d4af61]/10"
+              className="rounded-full px-4 py-2 text-xs lg:text-sm font-medium tracking-wide text-[#f4ecda]/85 transition-all duration-300 hover:text-[#ecd290] hover:bg-[#d4af61]/10"
             >
               {navT('howItWorks')}
             </Link>
 
             <Link
               href={`${prefix}/form`}
-              className="group relative rounded-full px-4 py-2 text-xs lg:text-[13px] font-semibold tracking-wide text-[#ecd290] transition-all duration-300 hover:bg-[#d4af61]/15"
+              className="group relative rounded-full px-4 py-2 text-xs lg:text-sm font-semibold tracking-wide text-[#ecd290] transition-all duration-300 hover:bg-[#d4af61]/15"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61] animate-pulse" />
@@ -117,16 +96,18 @@ export const Header = () => {
               </span>
             </Link>
 
+            {/* Temporarily commented out until reviews are available
             <Link
               href={`${prefix}/#reviews`}
-              className="rounded-full px-4 py-2 text-xs lg:text-[13px] font-medium tracking-wide text-[#f4ecda]/85 transition-all duration-300 hover:text-[#ecd290] hover:bg-[#d4af61]/10"
+              className="rounded-full px-4 py-2 text-xs lg:text-sm font-medium tracking-wide text-[#f4ecda]/85 transition-all duration-300 hover:text-[#ecd290] hover:bg-[#d4af61]/10"
             >
               {navT('reviews')}
             </Link>
+            */}
 
             <Link
               href={`${prefix}/#contact`}
-              className="rounded-full px-4 py-2 text-xs lg:text-[13px] font-medium tracking-wide text-[#f4ecda]/85 transition-all duration-300 hover:text-[#ecd290] hover:bg-[#d4af61]/10"
+              className="rounded-full px-4 py-2 text-xs lg:text-sm font-medium tracking-wide text-[#f4ecda]/85 transition-all duration-300 hover:text-[#ecd290] hover:bg-[#d4af61]/10"
             >
               {navT('contact')}
             </Link>
@@ -143,6 +124,7 @@ export const Header = () => {
               <Phone className="h-3.5 w-3.5 text-[#d4af61]" />
               <bdi dir="ltr">{SITE_CONFIG.phone}</bdi>
             </a>
+
 
             {/* Language Switcher Capsule (100% Reliable via next-intl routing) */}
             <IntlLink
@@ -196,25 +178,7 @@ export const Header = () => {
         >
           {/* Header row in mobile menu */}
           <div className="flex items-center justify-between border-b border-[rgba(201,162,75,0.2)] pb-4">
-            <div className="flex items-center gap-2.5">
-              <div className="relative h-10 w-10 shrink-0 drop-shadow-[0_2px_8px_rgba(212,175,97,0.3)] rounded-full">
-                <Image
-                  src="/logo.png"
-                  alt="Aura Marriage Bureau"
-                  fill
-                  sizes="40px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-base font-bold tracking-wider text-gold-gradient leading-none">
-                  AURA
-                </span>
-                <span className="text-[9px] tracking-widest text-[#ecd290]/85 uppercase mt-0.5 font-medium">
-                  Marriage Bureau
-                </span>
-              </div>
-            </div>
+            <BrandLogo size="sm" asLink={false} />
             <button
               ref={closeButtonRef}
               type="button"
@@ -249,6 +213,7 @@ export const Header = () => {
               <span className="text-xs text-[#d4af61]">✦</span>
             </Link>
 
+            {/* Temporarily commented out until reviews are available
             <Link
               href={`${prefix}/#reviews`}
               onClick={() => setMobileMenuOpen(false)}
@@ -257,6 +222,7 @@ export const Header = () => {
               <span>{navT('reviews')}</span>
               <span className="text-xs text-[#d4af61]">→</span>
             </Link>
+            */}
 
             <Link
               href={`${prefix}/#contact`}
@@ -288,6 +254,7 @@ export const Header = () => {
 
           {/* Mobile Bottom Quick Actions */}
           <div className="mt-auto space-y-3 pt-6 border-t border-[rgba(201,162,75,0.2)]">
+
             {/* Language Switcher in Mobile Drawer */}
             <IntlLink
               href={intlPathname || '/'}

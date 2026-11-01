@@ -15,7 +15,6 @@ export const MosaicSection = () => {
       titleUr: t('step1Ur'),
       src: '/images/mosaic-families.webp',
       alt: t('altFamilies'),
-      brighten: true,
     },
     {
       step: '02',
@@ -73,9 +72,7 @@ export const MosaicSection = () => {
             ? '(max-width: 768px) 100vw, 400px'
             : '(max-width: 768px) 50vw, 360px'
         }
-        className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
-          item.brighten ? 'brightness-[1.08] contrast-[1.05]' : ''
-        }`}
+        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
 
       {/* Multi-tier luxury vignette overlay */}
@@ -86,7 +83,7 @@ export const MosaicSection = () => {
 
       {/* Top Floating Badge for Featured Centerpiece */}
       {isFeatured && (
-        <div className="absolute top-4 start-4 z-20 flex items-center gap-1.5 rounded-full border border-[#d4af61]/50 bg-black/75 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#ecd290] backdrop-blur-md shadow-lg">
+        <div className="absolute top-4 start-4 z-20 flex items-center gap-1.5 rounded-full border border-[#d4af61]/50 bg-black/75 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#ecd290] backdrop-blur-md shadow-lg">
           <span className="text-[#ecd290]">✦</span>
           <span>{item.tag}</span>
         </div>
@@ -95,20 +92,20 @@ export const MosaicSection = () => {
       {/* Bottom Editorial Caption */}
       <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10">
         <div className="flex items-center gap-2 mb-1.5">
-          <span className="rounded-full bg-[#d4af61]/25 px-2 py-0.5 font-mono text-[10px] font-bold text-[#ecd290] border border-[#d4af61]/40">
+          <span className="rounded-full bg-[#d4af61]/25 px-2 py-0.5 font-mono text-xs font-bold text-[#ecd290] border border-[#d4af61]/40">
             {item.step}
           </span>
-          <span className="text-[10.5px] uppercase tracking-wider text-[#cfc4a8] font-medium">
+          <span className="text-xs uppercase tracking-wider text-[#cfc4a8] font-medium">
             {item.tag}
           </span>
         </div>
 
-        <h3 className="font-serif text-base sm:text-lg font-semibold text-[#f4ecda] leading-snug transition-colors group-hover:text-[#ecd290]">
+        <h3 className="font-display text-base sm:text-lg font-semibold text-[#f4ecda] leading-snug transition-colors group-hover:text-[#ecd290]">
           {item.title}
         </h3>
 
         <p
-          className="urdu-text text-xs text-[#d4af61]/90 mt-0.5 line-clamp-1"
+          className="font-urdu-ui text-sm text-[#d4af61]/90 mt-0.5 line-clamp-1"
           dir="rtl"
         >
           {item.titleUr}
@@ -128,13 +125,13 @@ export const MosaicSection = () => {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Curated Editorial Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#ecd290] font-semibold">
+          <p className="font-sans text-xs uppercase tracking-kicker text-[#ecd290] font-semibold">
             {t('eyebrow')}
           </p>
-          <h2 className="mt-2.5 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#f4ecda] tracking-tight">
+          <h2 className="mt-2.5 font-display text-3xl sm:text-4xl lg:text-5xl font-normal text-[#f4ecda] tracking-tight">
             {t('title')}
           </h2>
-          <p className="mt-2.5 font-serif text-base sm:text-lg text-[#d4af61]" lang="ur" dir="rtl">
+          <p className="mt-2.5 font-urdu-heading text-lg sm:text-xl text-[#d4af61]" lang="ur" dir="rtl">
             {t('urduSubtitle')}
           </p>
           <StarDivider className="my-5" />

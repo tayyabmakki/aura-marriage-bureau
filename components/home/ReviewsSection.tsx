@@ -21,10 +21,10 @@ export const ReviewsSection = () => {
     <section id="reviews" className="relative bg-[#0a0908] py-18 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-widest text-[#ecd290]">
+          <p className="text-xs uppercase tracking-kicker text-[#ecd290] font-semibold">
             {t('eyebrow')}
           </p>
-          <h2 className="mt-2 font-serif text-2xl font-bold text-[#f4ecda] sm:text-4xl">
+          <h2 className="mt-2 font-display text-2xl font-semibold text-[#f4ecda] sm:text-4xl">
             {t('title')}
           </h2>
         </div>
@@ -37,7 +37,7 @@ export const ReviewsSection = () => {
             <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#d4af61]/40 bg-[#d4af61]/10 text-[#ecd290]">
               <MessageSquarePlus className="h-6 w-6" />
             </div>
-            <h3 className="mt-4 font-serif text-xl font-bold text-[#f4ecda]">
+            <h3 className="mt-4 font-display text-xl font-semibold text-[#f4ecda]">
               {t('emptyTitle')}
             </h3>
             <p className="mt-2 text-sm text-[#a79c82] leading-relaxed">
@@ -70,8 +70,8 @@ export const ReviewsSection = () => {
                     <span className="font-semibold text-sm text-[#f4ecda]">{rev.author}</span>
                     <span className="text-xs text-[#a79c82]">{rev.date}</span>
                   </div>
-                  <p className="mt-4 text-sm text-[#f4ecda]/90 leading-relaxed">
-                    {rev.commentEn}
+                  <p className="mt-4 font-tagline italic text-sm text-[#f4ecda]/90 leading-relaxed">
+                    &ldquo;{rev.commentEn}&rdquo;
                   </p>
                 </div>
               </div>

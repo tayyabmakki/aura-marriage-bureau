@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { SITE_CONFIG } from '@/lib/config';
+import { BrandLogo } from '@/components/BrandLogo';
 import {
   Phone,
   Mail,
@@ -60,7 +61,7 @@ export const Footer = () => {
                 <Sparkles className="h-3.5 w-3.5 text-[#d4af61]" />
                 <span>{t('prefooterEyebrow')}</span>
               </div>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#f4ecda] tracking-wide leading-tight">
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#f4ecda] tracking-wide leading-tight">
                 {t('prefooterTitle')}
               </h2>
               <p className="text-xs sm:text-sm text-[#c4b99f] leading-relaxed">
@@ -92,56 +93,38 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Main 4-Column Architectural Grid */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
-          {/* Column 1: Brand Heritage & Credibility */}
-          <div className="space-y-5">
-            {/* AURA Gold Emblem Brand Logo */}
-            <Link
-              href={prefix || '/'}
-              className="group inline-flex items-center gap-3.5 sm:gap-4 transition-transform duration-300 hover:scale-105"
-              aria-label="Aura Marriage Bureau Home"
-            >
-              <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 drop-shadow-[0_4px_16px_rgba(212,175,97,0.3)] rounded-full">
-                <Image
-                  src="/logo.png"
-                  alt="Aura Marriage Bureau"
-                  fill
-                  sizes="(max-width: 640px) 80px, 96px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-gold-gradient leading-none">
-                  AURA
-                </span>
-                <span className="text-[11px] sm:text-xs uppercase tracking-widest text-[#ecd290]/90 font-medium mt-1">
-                  Marriage Bureau
-                </span>
-                <span className="text-[9px] text-[#a79c82] tracking-wider uppercase mt-0.5">
-                  Lahore &bull; Pakistan &bull; Overseas
-                </span>
-              </div>
-            </Link>
+        {/* Main 4-Column Architectural Grid with Intelligent Proportions */}
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-10">
+          {/* Column 1: Brand Heritage & Credibility (Span 4) */}
+          <div className="space-y-5 lg:col-span-4 flex flex-col items-start">
+            {/* Reusable Brand Logo Component */}
+            <BrandLogo
+              size="lg"
+              layout="vertical"
+              locationSuffix="Lahore • Pakistan • Overseas"
+              ariaLabel="Aura Marriage Bureau Home"
+            />
 
-            <p className="font-serif italic text-sm text-[#ecd290]/90 leading-snug">
-              &ldquo;{SITE_CONFIG.tagline}&rdquo;
-            </p>
+            <div className="space-y-1 w-full">
+              <p className="font-tagline italic text-sm text-[#ecd290]/90 leading-snug text-left rtl:text-right">
+                &ldquo;{SITE_CONFIG.tagline}&rdquo;
+              </p>
 
-            <p className="font-urdu text-sm text-[#ecd290]/80">
-              جہاں تقدیریں ملیں اور روحیں جڑیں
-            </p>
+              <p className="font-urdu-heading text-lg text-[#ecd290]/85 text-left rtl:text-right" lang="ur" dir="rtl">
+                جہاں تقدیریں ملیں اور روحیں جڑیں
+              </p>
+            </div>
 
             {/* Bureau Distinction Tags */}
             <div className="flex flex-wrap gap-1.5 pt-1">
-              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-[11px] text-[#ecd290]/90">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-xs text-[#ecd290]/90">
                 <ShieldCheck className="h-3 w-3 text-[#d4af61]" />
                 Family-Led
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-[11px] text-[#ecd290]/90">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-xs text-[#ecd290]/90">
                 Ref ID Only
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-[11px] text-[#ecd290]/90">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-xs text-[#ecd290]/90">
                 Pakistan &amp; Overseas
               </span>
             </div>
@@ -178,11 +161,11 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Direct Consultation & Office */}
-          <div className="space-y-4">
+          {/* Column 2: Direct Consultation & Office (Span 3, min-w-0 for clean email text) */}
+          <div className="space-y-4 lg:col-span-3 min-w-0">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61]" />
-              <h3 className="font-serif text-sm font-semibold uppercase tracking-wider text-[#ecd290]">
+              <h3 className="font-sans text-xs font-semibold uppercase tracking-kicker text-[#ecd290]">
                 {t('colContact')}
               </h3>
             </div>
@@ -196,61 +179,58 @@ export const Footer = () => {
               <li>
                 <a
                   href={`tel:${SITE_CONFIG.phoneRaw}`}
-                  className="group flex items-center gap-3 text-[#c4b99f] hover:text-[#f4ecda] transition-colors"
+                  className="group flex items-center gap-2.5 sm:gap-3 text-[#c4b99f] hover:text-[#f4ecda] transition-colors min-w-0"
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/20 group-hover:scale-105 transition-all">
-                    <Phone className="h-5 w-5 text-[#ecd290]" />
+                  <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/20 group-hover:scale-105 transition-all">
+                    <Phone className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-[#ecd290]" />
                   </div>
                   <bdi dir="ltr" className="text-xs sm:text-sm font-medium">{SITE_CONFIG.phone}</bdi>
                 </a>
               </li>
 
-              {/* Email Row (Resolved Mail Icon Issue: Big, Round & Crystal Clear) */}
-              <li>
+              {/* Email Row (Responsive wrapping, no overflow into navigation) */}
+              <li className="min-w-0">
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="group flex items-center gap-3 text-[#c4b99f] hover:text-[#f4ecda] transition-colors"
+                  className="group flex items-center gap-2.5 sm:gap-3 text-[#c4b99f] hover:text-[#f4ecda] transition-colors min-w-0"
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/20 group-hover:scale-105 transition-all">
-                    <Mail className="h-5 w-5 text-[#ecd290]" />
+                  <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] group-hover:border-[#d4af61] group-hover:bg-[#d4af61]/20 group-hover:scale-105 transition-all">
+                    <Mail className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-[#ecd290]" />
                   </div>
-                  <span className="truncate text-xs sm:text-sm font-medium">{SITE_CONFIG.email}</span>
+                  <span className="[overflow-wrap:anywhere] break-all text-xs sm:text-xs xl:text-xs 2xl:text-sm font-medium min-w-0 tracking-tight leading-snug">
+                    {SITE_CONFIG.email}
+                  </span>
                 </a>
               </li>
 
-              {/* Address Row (Interactive - Opens Google Maps in New Tab) */}
-              <li className="flex items-start gap-3 text-xs sm:text-sm text-[#a79c82]">
-                <a
-                  href={SITE_CONFIG.directionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open office location in Google Maps (opens in new tab)"
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] hover:border-[#d4af61] hover:bg-[#d4af61]/20 hover:scale-105 transition-all mt-0.5"
-                >
-                  <MapPin className="h-5 w-5 text-[#ecd290]" />
-                </a>
-                <div className="leading-relaxed">
-                  <a
-                    href={SITE_CONFIG.directionsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block text-[#c4b99f] hover:text-[#ecd290] transition-colors"
-                    title="Click to open office location in Google Maps (opens in new tab)"
-                  >
-                    <span>{SITE_CONFIG.officeAddress}</span>
-                    <span className="ms-1.5 inline-flex items-center text-[11px] font-semibold text-[#d4af61] group-hover:underline">
+              {/* Address Row */}
+              <li className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-[#a79c82] min-w-0">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)] mt-0.5">
+                  <MapPin className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-[#ecd290]" />
+                </div>
+                <div className="leading-relaxed min-w-0">
+                  <span className="block text-[#c4b99f]">
+                    {locale === 'ur' ? SITE_CONFIG.officeAddressUr : SITE_CONFIG.officeAddress}
+                  </span>
+                  {SITE_CONFIG.directionsUrl && (
+                    <a
+                      href={SITE_CONFIG.directionsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ms-1 inline-flex items-center text-xs font-semibold text-[#d4af61] hover:underline"
+                    >
                       ↗ Google Maps
-                    </span>
-                  </a>
+                    </a>
+                  )}
                 </div>
               </li>
 
               {/* Hours Row */}
-              <li className="flex items-center gap-3 text-xs sm:text-sm text-[#a79c82]">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)]">
-                  <Clock className="h-5 w-5 text-[#ecd290]" />
+              <li className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[#a79c82] min-w-0">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 text-[#ecd290] shadow-[0_4px_14px_rgba(0,0,0,0.5)]">
+                  <Clock className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-[#ecd290]" />
                 </div>
-                <span>
+                <span className="min-w-0">
                   <bdi dir="ltr">
                     {locale === 'ur' ? SITE_CONFIG.openingHoursDisplayUr : SITE_CONFIG.openingHoursDisplay}
                   </bdi>
@@ -259,11 +239,11 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Navigation & Services */}
-          <div className="space-y-4">
+          {/* Column 3: Navigation & Services (Span 2) */}
+          <div className="space-y-4 lg:col-span-2">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61]" />
-              <h3 className="font-serif text-sm font-semibold uppercase tracking-wider text-[#ecd290]">
+              <h3 className="font-sans text-xs font-semibold uppercase tracking-kicker text-[#ecd290]">
                 {t('colNav')}
               </h3>
             </div>
@@ -285,11 +265,9 @@ export const Footer = () => {
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-[#ecd290] animate-pulse" />
                   <span>{navT('fillForm')}</span>
-                  <span className="rounded bg-[#d4af61]/20 px-1.5 py-0.5 text-[10px] text-[#ecd290] border border-[rgba(201,162,75,0.3)]">
-                    VIP
-                  </span>
                 </Link>
               </li>
+              {/* Temporarily commented out until reviews are available
               <li>
                 <Link
                   href={`${prefix}/#reviews`}
@@ -299,6 +277,7 @@ export const Footer = () => {
                   <span>{navT('reviews')}</span>
                 </Link>
               </li>
+              */}
               <li>
                 <Link
                   href={`${prefix}/#moments-of-union`}
@@ -329,11 +308,11 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4: Confidentiality & Trust */}
-          <div className="space-y-4">
+          {/* Column 4: Confidentiality & Trust (Span 3) */}
+          <div className="space-y-4 lg:col-span-3">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#d4af61]" />
-              <h3 className="font-serif text-sm font-semibold uppercase tracking-wider text-[#ecd290]">
+              <h3 className="font-sans text-xs font-semibold uppercase tracking-kicker text-[#ecd290]">
                 {t('colTrust')}
               </h3>
             </div>
@@ -347,7 +326,7 @@ export const Footer = () => {
                 <ShieldCheck className="h-4 w-4 text-[#d4af61]" />
                 <span>{locale === 'ur' ? 'رازداری کی ضمانت' : 'Strict Confidentiality'}</span>
               </div>
-              <p className="text-[11px] text-[#a79c82] leading-normal">
+              <p className="text-xs text-[#a79c82] leading-normal">
                 {t('privacyPromise')}
               </p>
             </div>
@@ -374,7 +353,7 @@ export const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-start">
             <p>{t('rights')}</p>
             <span className="hidden sm:inline text-[rgba(201,162,75,0.3)]">&bull;</span>
-            <span className="text-[11px] text-[#a79c82]/60">
+            <span className="text-xs text-[#a79c82]">
               Lahore, Pakistan &bull; Worldwide Consultancy
             </span>
           </div>

@@ -16,7 +16,7 @@ export const StickyBottomBar = () => {
   }
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 border-t border-[rgba(201,162,75,0.25)] bg-[#0a0908]/95 px-4 py-3 backdrop-blur-lg md:hidden safe-bottom">
+    <div className="fixed bottom-0 inset-x-0 z-40 transform-gpu border-t border-[rgba(201,162,75,0.25)] bg-[#0a0908]/95 px-4 py-3 backdrop-blur-lg md:hidden safe-bottom">
       <div className="mx-auto flex max-w-md items-center gap-3">
         {/* Call Button */}
         <a

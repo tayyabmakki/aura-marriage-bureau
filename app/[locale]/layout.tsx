@@ -120,6 +120,18 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+        { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+        { url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
+      ],
+      apple: [
+        { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      ],
+      shortcut: '/favicon.ico',
+    },
   };
 }
 
@@ -156,8 +168,18 @@ export default async function LocaleLayout({
       '@type': 'PostalAddress',
       streetAddress: SITE_CONFIG.streetAddress,
       addressLocality: SITE_CONFIG.city,
+      postalCode: SITE_CONFIG.postalCode,
       addressCountry: 'PK',
     },
+    ...(SITE_CONFIG.mapCoordinates
+      ? {
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: SITE_CONFIG.mapCoordinates.lat,
+            longitude: SITE_CONFIG.mapCoordinates.lng,
+          },
+        }
+      : {}),
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -186,19 +208,29 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isUrdu ? 'rtl' : 'ltr'}
-      className={`${cormorant.variable} ${lora.variable} ${montserrat.variable} ${notoUrdu.variable} ${notoNaskh.variable}`}
+      className={`bg-[#0a0908] ${cormorant.variable} ${lora.variable} ${montserrat.variable} ${notoUrdu.variable} ${notoNaskh.variable}`}
+      style={{ backgroundColor: '#0a0908', colorScheme: 'dark' }}
     >
       <head>
+        <meta name="color-scheme" content="dark" />
+        <meta name="theme-color" content="#0a0908" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#0a0908] text-[#f4ecda] antialiased selection:bg-[#d4af61]/30 selection:text-[#ecd290]">
+      <body
+        className="bg-[#0a0908] text-[#f4ecda] antialiased selection:bg-[#d4af61]/30 selection:text-[#ecd290]"
+        style={{ backgroundColor: '#0a0908', colorScheme: 'dark' }}
+      >
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Preloader />
           <Header />
-          <main id="main-content" tabIndex={-1}>
+          <main id="main-content" tabIndex={-1} className="min-h-screen bg-[#0a0908]">
             {children}
           </main>
           <Footer />

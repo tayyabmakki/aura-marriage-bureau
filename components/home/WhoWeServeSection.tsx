@@ -36,10 +36,10 @@ export const WhoWeServeSection = () => {
     <section className="relative bg-[#0a0908] py-18 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-widest text-[#ecd290]">
+          <p className="text-xs uppercase tracking-kicker text-[#ecd290] font-semibold">
             {t('eyebrow')}
           </p>
-          <h2 className="mt-2 font-serif text-2xl font-bold text-[#f4ecda] sm:text-4xl">
+          <h2 className="mt-2 font-display text-2xl font-semibold text-[#f4ecda] sm:text-4xl">
             {t('title')}
           </h2>
         </div>
@@ -64,7 +64,7 @@ export const WhoWeServeSection = () => {
 
               <div className="flex flex-1 flex-col justify-between p-5">
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-[#ecd290]">
+                  <h3 className="font-display text-lg font-semibold text-[#ecd290]">
                     {c.title}
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-[#a79c82] leading-relaxed">

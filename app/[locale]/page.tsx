@@ -11,7 +11,7 @@ import { HowItWorksSection } from '@/components/home/HowItWorksSection';
 import { PrivacyPromiseSection } from '@/components/home/PrivacyPromiseSection';
 import { ProfileSampleSection } from '@/components/home/ProfileSampleSection';
 import { FormPromoSection } from '@/components/home/FormPromoSection';
-import { ReviewsSection } from '@/components/home/ReviewsSection';
+// import { ReviewsSection } from '@/components/home/ReviewsSection';
 import { FollowUsSection } from '@/components/home/FollowUsSection';
 import { WhoWeServeSection } from '@/components/home/WhoWeServeSection';
 import { FaqSection } from '@/components/home/FaqSection';
@@ -45,8 +45,8 @@ export default async function HomePage({
       {/* 7. Form Promo */}
       <FormPromoSection />
 
-      {/* 8. Reviews */}
-      <ReviewsSection />
+      {/* 8. Reviews - temporarily commented out until reviews are gathered */}
+      {/* <ReviewsSection /> */}
 
       {/* 9. Follow Us */}
       <FollowUsSection />

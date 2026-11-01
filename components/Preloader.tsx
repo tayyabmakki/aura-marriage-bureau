@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { BrandLogo } from '@/components/BrandLogo';
 
 export const Preloader = () => {
   const [visible, setVisible] = useState(false);
@@ -39,31 +39,19 @@ export const Preloader = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,97,0.15)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center">
-        {/* Logo Container with Golden Circular Reveal */}
-        <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-full drop-shadow-[0_4px_24px_rgba(212,175,97,0.35)] transition-transform duration-500 hover:scale-105">
-          <Image
-            src="/logo.png"
-            alt="Aura Marriage Bureau"
-            fill
-            sizes="(max-width: 640px) 96px, 112px"
-            className="object-contain"
-            priority
-          />
-        </div>
+        {/* Unified Brand Logo Component */}
+        <BrandLogo
+          size="xl"
+          layout="vertical"
+          asLink={false}
+          priority
+        />
 
-        <div className="mt-5 flex items-center gap-2">
-          <div className="h-1.5 w-1.5 rounded-full bg-[#d4af61] animate-ping" />
-          <span className="font-serif text-xs tracking-[0.25em] text-[#ecd290] uppercase font-semibold">
-            Aura Marriage Bureau
-          </span>
-          <div className="h-1.5 w-1.5 rounded-full bg-[#d4af61] animate-ping" />
-        </div>
-
-        <p className="mt-2 font-serif italic text-xs text-[#a79c82]">
+        <p className="mt-2 font-tagline italic text-sm text-[#a79c82]">
           Where Destinies Align &amp; Aura’s Connect
         </p>
 
-        <span className="mt-6 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-3 py-1 text-[10px] tracking-wider text-[#a79c82]/80 transition hover:text-[#ecd290]">
+        <span className="mt-6 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-3 py-1 text-xs tracking-wider text-[#a79c82]/80 transition hover:text-[#ecd290]">
           Tap anywhere to enter
         </span>
       </div>
