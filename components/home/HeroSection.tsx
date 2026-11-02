@@ -63,33 +63,33 @@ export const HeroSection = () => {
         <StarDivider className="my-6 sm:my-8" />
 
         {/* Harmonized Luxury Action Buttons (Identical Height, Balanced Width & Typography) */}
-        <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 max-w-3xl mx-auto">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3.5 max-w-3xl mx-auto">
           {/* Primary WhatsApp Button */}
           <a
             href={SITE_CONFIG.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full border border-[#d4af61]/70 bg-gradient-to-r from-[#d4af61] via-[#ecd290] to-[#b88a35] px-6 sm:px-7 text-xs sm:text-sm font-bold uppercase tracking-wider text-black shadow-[0_8px_24px_rgba(212,175,97,0.32)] hover:shadow-[0_12px_36px_rgba(212,175,97,0.5)] hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
+            className="w-full sm:w-auto inline-flex h-[46px] sm:h-[52px] items-center justify-center gap-2 sm:gap-2.5 rounded-full border border-[#d4af61]/70 bg-gradient-to-r from-[#d4af61] via-[#ecd290] to-[#b88a35] px-4 sm:px-7 text-[11px] sm:text-sm font-bold uppercase tracking-normal sm:tracking-wider text-black shadow-[0_8px_24px_rgba(212,175,97,0.32)] hover:shadow-[0_12px_36px_rgba(212,175,97,0.5)] hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
           >
-            <MessageCircle className="h-4.5 w-4.5 text-[#144f2b] fill-current shrink-0" />
+            <MessageCircle className="h-4 w-4 sm:h-4.5 sm:w-4.5 text-[#144f2b] fill-current shrink-0" />
             <span>{t('ctaWhatsApp')}</span>
           </a>
 
           {/* Fill Profile Form Button */}
           <Link
             href={`${prefix}/form`}
-            className="w-full sm:w-auto inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full border border-[#d4af61]/60 bg-black/70 px-6 sm:px-7 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ecd290] backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.5)] hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
+            className="w-full sm:w-auto inline-flex h-[46px] sm:h-[52px] items-center justify-center gap-2 sm:gap-2.5 rounded-full border border-[#d4af61]/60 bg-black/70 px-4 sm:px-7 text-[11px] sm:text-sm font-bold uppercase tracking-normal sm:tracking-wider text-[#ecd290] backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.5)] hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
           >
-            <FileText className="h-4.5 w-4.5 text-[#d4af61] shrink-0" />
+            <FileText className="h-4 w-4 sm:h-4.5 sm:w-4.5 text-[#d4af61] shrink-0" />
             <span>{t('ctaForm')}</span>
           </Link>
 
           {/* Call Consultant Button */}
           <a
             href={`tel:${SITE_CONFIG.phoneRaw}`}
-            className="w-full sm:w-auto inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full border border-[rgba(201,162,75,0.4)] bg-black/50 px-6 sm:px-7 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#f4ecda] backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:border-[#d4af61]/70 hover:bg-white/5 hover:text-[#ecd290] hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
+            className="w-full sm:w-auto inline-flex h-[46px] sm:h-[52px] items-center justify-center gap-2 sm:gap-2.5 rounded-full border border-[rgba(201,162,75,0.4)] bg-black/50 px-4 sm:px-7 text-[11px] sm:text-sm font-bold uppercase tracking-normal sm:tracking-wider text-[#f4ecda] backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:border-[#d4af61]/70 hover:bg-white/5 hover:text-[#ecd290] hover:scale-[1.02] transition-all whitespace-nowrap shrink-0"
           >
-            <Phone className="h-4.5 w-4.5 text-[#d4af61] shrink-0" />
+            <Phone className="h-4 w-4 sm:h-4.5 sm:w-4.5 text-[#d4af61] shrink-0" />
             <span>{t('ctaCall')}</span>
           </a>
         </div>
@@ -117,22 +117,22 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 pt-3 border-t border-[rgba(201,162,75,0.15)] text-xs text-[#a79c82] sm:grid-cols-3">
-            <div className="flex items-center justify-center gap-2 text-[#a79c82]">
-              <MapPin className="h-4 w-4 text-[#d4af61]" />
-              <span>{t('proofCity')}</span>
+          <div className="grid grid-cols-1 gap-2.5 sm:gap-3 pt-3.5 border-t border-[rgba(201,162,75,0.15)] text-xs text-[#a79c82] sm:grid-cols-3">
+            <div className="flex items-center justify-center gap-2 text-center">
+              <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#d4af61] shrink-0" />
+              <span className="whitespace-nowrap">{t('proofCity')}</span>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <Clock className="h-4 w-4 text-[#d4af61]" />
-              <span>
+            <div className="flex items-center justify-center gap-2 text-center">
+              <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#d4af61] shrink-0" />
+              <span className="whitespace-nowrap">
                 <bdi dir="ltr">
                   {locale === 'ur' ? SITE_CONFIG.openingHoursDisplayUr : SITE_CONFIG.openingHoursDisplay}
                 </bdi>
               </span>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <Users className="h-4 w-4 text-[#d4af61]" />
-              <span>{t('proofGuardian')}</span>
+            <div className="flex items-center justify-center gap-2 text-center">
+              <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#d4af61] shrink-0" />
+              <span className="whitespace-nowrap">{t('proofGuardian')}</span>
             </div>
           </div>
         </div>

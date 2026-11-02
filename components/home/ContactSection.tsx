@@ -63,12 +63,12 @@ export const ContactSection = () => {
             {/* Embedded Live Map - DISPLAYING LOCATION PIN */}
             <div className="relative flex-1 min-h-[280px] sm:min-h-[320px] w-full border-t border-[rgba(201,162,75,0.18)] overflow-hidden">
               {/* Pinned Marker Indicator Pill */}
-              <div className="pointer-events-none absolute top-3 end-3 z-10 flex items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.45)] bg-[#14120e]/95 px-3 py-1 text-[11px] font-medium text-[#ecd290] shadow-[0_4px_16px_rgba(0,0,0,0.6)] backdrop-blur-md">
-                <span className="relative flex h-2 w-2">
+              <div className="pointer-events-none absolute top-3 end-3 z-10 flex items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.45)] bg-[#14120e]/95 px-2.5 sm:px-3 py-1 text-[10px] sm:text-[11px] font-medium text-[#ecd290] shadow-[0_4px_16px_rgba(0,0,0,0.6)] backdrop-blur-md max-w-[calc(100%-24px)] truncate">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d4af61] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d4af61]"></span>
                 </span>
-                <span>{locale === 'ur' ? 'پن لوکیشن: 31°31\'25.0"N 74°27\'12.0"E' : 'Pinned: 31°31\'25.0"N 74°27\'12.0"E'}</span>
+                <span className="truncate">{locale === 'ur' ? 'پن لوکیشن: 31°31\'25.0"N 74°27\'12.0"E' : 'Pinned: 31°31\'25.0"N 74°27\'12.0"E'}</span>
               </div>
 
               <iframe
@@ -212,16 +212,16 @@ export const ContactSection = () => {
             </div>
 
             {/* Action Buttons (Spacious 2-column grid so WhatsApp Chat never wraps) */}
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 shrink-0">
+            <div className="grid grid-cols-1 gap-2.5 sm:gap-3 sm:grid-cols-2 shrink-0">
               {/* WhatsApp Button */}
               <a
                 href={SITE_CONFIG.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Message Aura Marriage Bureau on WhatsApp"
-                className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 px-5 py-3 text-xs sm:text-sm font-semibold text-[#ecd290] backdrop-blur-md shadow-sm transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white hover:shadow-[0_0_16px_rgba(212,175,97,0.25)]"
+                className="flex min-h-[42px] sm:min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 px-3.5 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold text-[#ecd290] backdrop-blur-md shadow-sm transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white hover:shadow-[0_0_16px_rgba(212,175,97,0.25)]"
               >
-                <MessageCircle className="h-4.5 w-4.5 text-[#25D366] shrink-0" />
+                <MessageCircle className="h-4 w-4 sm:h-4.5 sm:w-4.5 text-[#25D366] shrink-0" />
                 <span className="whitespace-nowrap">{t('btnWhatsApp')}</span>
               </a>
 
@@ -229,9 +229,9 @@ export const ContactSection = () => {
               <a
                 href={`tel:${SITE_CONFIG.phoneRaw}`}
                 aria-label={`Call ${SITE_CONFIG.name}`}
-                className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-5 py-3 text-xs sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
+                className="flex min-h-[42px] sm:min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-3.5 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
               >
-                <Phone className="h-4 w-4 text-[#d4af61] shrink-0" />
+                <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#d4af61] shrink-0" />
                 <span className="whitespace-nowrap">{t('btnCall')}</span>
               </a>
 
@@ -239,9 +239,9 @@ export const ContactSection = () => {
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
                 aria-label={`Email ${SITE_CONFIG.name}`}
-                className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-5 py-3 text-xs sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
+                className="flex min-h-[42px] sm:min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-3.5 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
               >
-                <Mail className="h-4 w-4 text-[#d4af61] shrink-0" />
+                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#d4af61] shrink-0" />
                 <span className="whitespace-nowrap">{t('btnEmail')}</span>
               </a>
 
@@ -251,9 +251,9 @@ export const ContactSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={locale === 'ur' ? 'اورا میرج بیورو کی لوکیشن اور راستہ' : 'Directions to Aura Marriage Bureau'}
-                className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-5 py-3 text-xs sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
+                className="flex min-h-[42px] sm:min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-3.5 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold text-[#f4ecda] backdrop-blur-md transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/10 hover:text-[#ecd290]"
               >
-                <Navigation className="h-4 w-4 text-[#d4af61] shrink-0" />
+                <Navigation className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#d4af61] shrink-0" />
                 <span className="whitespace-nowrap">{t('btnDirections')}</span>
               </a>
             </div>

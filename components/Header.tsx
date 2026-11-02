@@ -131,11 +131,11 @@ export const Header = () => {
               href={intlPathname || '/'}
               locale={targetLocale}
               lang={targetLocale}
-              className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.28)] bg-black/60 px-3.5 sm:px-4 text-xs font-semibold tracking-wider text-[#ecd290] shadow-sm transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:shadow-[0_0_16px_rgba(212,175,97,0.25)]"
+              className="inline-flex min-h-[40px] sm:min-h-[44px] items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.28)] bg-black/60 px-3 sm:px-4 text-[11px] sm:text-xs font-semibold tracking-normal sm:tracking-wider text-[#ecd290] shadow-sm transition-all duration-300 hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:shadow-[0_0_16px_rgba(212,175,97,0.25)]"
               aria-label={`Switch language to ${targetLocale === 'ur' ? 'Urdu' : 'English'}`}
             >
-              <Globe className="h-3.5 w-3.5 text-[#d4af61]" />
-              <span className={targetLocale === 'ur' ? 'urdu-text text-sm' : 'text-xs'}>
+              <Globe className="h-3.5 w-3.5 text-[#d4af61] shrink-0" />
+              <span className={targetLocale === 'ur' ? 'urdu-text text-xs sm:text-sm' : 'text-[11px] sm:text-xs'}>
                 {t('langToggle')}
               </span>
             </IntlLink>
@@ -174,7 +174,7 @@ export const Header = () => {
           aria-modal="true"
           aria-label="Navigation Menu"
           ref={menuRef}
-          className="fixed inset-0 z-50 flex flex-col bg-[#0a0908]/98 px-6 py-7 backdrop-blur-2xl md:hidden"
+          className="fixed inset-0 z-50 flex flex-col bg-[#0a0908]/98 px-6 py-7 backdrop-blur-2xl md:hidden overflow-y-auto overflow-x-hidden w-full max-w-full"
         >
           {/* Header row in mobile menu */}
           <div className="flex items-center justify-between border-b border-[rgba(201,162,75,0.2)] pb-4">

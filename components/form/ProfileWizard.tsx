@@ -1349,22 +1349,24 @@ export const ProfileWizard = () => {
       {/* Sleek, Mobile-First Header */}
       <header className="relative border-b border-[rgba(201,162,75,0.18)] bg-gradient-to-b from-[#14100b] to-[#0a0908] pt-6 pb-6 px-4">
         <div className="mx-auto max-w-3xl">
-          {/* Top Bar: Brand Logo + Return Link + Confidential Badge */}
-          <div className="flex flex-wrap items-center justify-between gap-3 text-xs mb-5">
-            <BrandLogo size="md" layout="vertical" asLink href={isUrdu ? '/ur' : '/'} locationSuffix="Lahore • Pakistan • Overseas" ariaLabel="Aura Marriage Bureau Home" />
+          {/* Top Bar: Return Link + Confidential Badge (Logo on sm+ since mobile sticky header already has brand logo) */}
+          <div className="flex items-center justify-between gap-2.5 text-xs mb-4 sm:mb-5">
+            <div className="hidden sm:block">
+              <BrandLogo size="md" layout="vertical" asLink href={isUrdu ? '/ur' : '/'} locationSuffix="Lahore • Pakistan • Overseas" ariaLabel="Aura Marriage Bureau Home" />
+            </div>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center justify-between sm:justify-end gap-1.5 sm:gap-2.5 w-full sm:w-auto shrink-0">
               <Link
                 href={isUrdu ? '/ur' : '/'}
-                className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.25)] bg-[#14100b] px-3 py-1.5 text-xs text-[#a79c82] hover:text-[#ecd290] hover:border-[#d4af61] transition-colors"
+                className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(201,162,75,0.25)] bg-[#14100b] px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs text-[#a79c82] hover:text-[#ecd290] hover:border-[#d4af61] transition-colors"
               >
-                <ArrowLeft className="h-3.5 w-3.5" />
-                <span>{isUrdu ? 'واپس ہوم پیج' : 'Back to Home'}</span>
+                <ArrowLeft className="h-3 w-3 sm:h-3.5 sm:w-3.5 rtl:rotate-180" />
+                <span>{isUrdu ? 'واپس ہوم' : 'Back to Home'}</span>
               </Link>
 
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d4af61]/30 bg-[#d4af61]/10 px-3 py-1.5 font-medium text-[#ecd290] text-[11px] uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#d4af61]/30 bg-[#d4af61]/10 px-2.5 sm:px-3 py-1 sm:py-1.5 font-medium text-[#ecd290] text-[10px] sm:text-[11px] uppercase tracking-wider">
                 <ShieldCheck className="h-3 w-3 text-[#d4af61]" />
-                {isUrdu ? '100% آپ کی ڈیوائس پر محفوظ' : '100% Private'}
+                <span>{isUrdu ? '100% پرائیویٹ' : '100% Private'}</span>
               </span>
             </div>
           </div>
@@ -1854,18 +1856,18 @@ export const ProfileWizard = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-2">
                 {/* Copy Button with Strict Text Rules */}
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className={`w-full text-center text-xs font-bold py-3.5 px-4 rounded-full flex items-center justify-center gap-2 shadow-lg transition-all ${
+                  className={`w-full text-center text-[11px] sm:text-xs font-bold py-2.5 sm:py-3.5 px-3.5 sm:px-4 rounded-full flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg transition-all ${
                     copied
                       ? 'bg-emerald-600 text-white'
                       : 'btn-gold'
                   }`}
                 >
-                  {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  {copied ? <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> : <Copy className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
                   <span>
                     {copied
                       ? isUrdu
@@ -1883,9 +1885,9 @@ export const ProfileWizard = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleOpenWhatsApp}
-                  className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-full bg-[#25d366] px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-[#052e14] shadow-lg transition-transform hover:-translate-y-0.5"
+                  className="inline-flex min-h-[42px] sm:min-h-[46px] items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-[#25d366] px-3.5 sm:px-5 py-2.5 sm:py-3.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#052e14] shadow-lg transition-transform hover:-translate-y-0.5"
                 >
-                  <MessageCircle className="h-4 w-4 shrink-0" />
+                  <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
                   <span>{isUrdu ? 'واٹس ایپ پر بھیجیں' : 'Open WhatsApp'}</span>
                 </a>
 
@@ -1893,9 +1895,9 @@ export const ProfileWizard = () => {
                 <button
                   type="button"
                   onClick={handleClear}
-                  className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] px-4 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#a79c82] hover:text-rose-400 hover:border-rose-500/50 transition-colors"
+                  className="inline-flex min-h-[42px] sm:min-h-[46px] items-center justify-center gap-1.5 sm:gap-2 rounded-full border border-[rgba(201,162,75,0.25)] px-3 sm:px-4 py-2.5 sm:py-3.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#a79c82] hover:text-rose-400 hover:border-rose-500/50 transition-colors"
                 >
-                  <Trash2 className="h-3.5 w-3.5" />
+                  <Trash2 className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                   <span>{isUrdu ? 'ڈیٹا صاف کریں' : 'Clear Form'}</span>
                 </button>
               </div>
@@ -1903,16 +1905,16 @@ export const ProfileWizard = () => {
           )}
 
           {/* Desktop/Card In-Flow Navigation */}
-          <div className="mt-8 flex items-center justify-between gap-3 border-t border-[rgba(201,162,75,0.15)] pt-5">
+          <div className="mt-8 flex items-center justify-between gap-2.5 sm:gap-3 border-t border-[rgba(201,162,75,0.15)] pt-5">
             <button
               type="button"
               onClick={() => goToStep(cur - 1)}
               disabled={cur === 0}
-              className={`inline-flex items-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#a79c82] transition-colors hover:text-[#ecd290] hover:border-[#d4af61] ${
+              className={`inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[rgba(201,162,75,0.25)] px-3.5 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#a79c82] transition-colors hover:text-[#ecd290] hover:border-[#d4af61] ${
                 cur === 0 ? 'opacity-30 cursor-not-allowed' : ''
               }`}
             >
-              <ArrowLeft className="h-3.5 w-3.5" />
+              <ArrowLeft className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
               <span>{isUrdu ? 'پیچھے' : 'Back'}</span>
             </button>
 
@@ -1920,16 +1922,16 @@ export const ProfileWizard = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="btn-gold inline-flex items-center gap-2 text-xs font-semibold px-6 py-2.5 shadow-md"
+                className="btn-gold inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold px-4 sm:px-6 py-2 sm:py-2.5 shadow-md"
               >
                 <span>{isUrdu ? `اگلا: ${STEPS[cur + 1].ur}` : `Next: ${STEPS[cur + 1].t}`}</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
               </button>
             ) : (
               <button
                 type="button"
                 onClick={handleClear}
-                className="rounded-full border border-[rgba(201,162,75,0.25)] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#a79c82] hover:text-rose-400 hover:border-rose-500/50 transition-colors"
+                className="rounded-full border border-[rgba(201,162,75,0.25)] px-3.5 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#a79c82] hover:text-rose-400 hover:border-rose-500/50 transition-colors"
               >
                 {isUrdu ? 'فارم صاف کریں' : 'Clear Form'}
               </button>
@@ -1950,16 +1952,14 @@ export const ProfileWizard = () => {
           )}
         </div>
 
-        {/* Quiet Reassurance Banner Below Form */}
+        {/* Quiet Reassurance Banner Below Form (Clean, no duplicate logo since header already displays brand) */}
         <div className="mt-8 rounded-2xl border border-[rgba(201,162,75,0.22)] bg-gradient-to-b from-[#14100b]/80 via-[#0d0b08]/90 to-[#070605] p-5 sm:p-6 text-center text-xs text-[#a79c82] flex flex-col items-center justify-center shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
-          <BrandLogo
-            size="md"
-            layout="vertical"
-            asLink
-            href={isUrdu ? '/ur' : '/'}
-            locationSuffix="Lahore • Pakistan • Overseas"
-            className="mb-3.5"
-          />
+          <div className="flex items-center justify-center gap-2 mb-2.5" aria-hidden="true">
+            <span className="h-px w-6 sm:w-10 bg-gradient-to-r from-transparent to-[#d4af61]/40" />
+            <ShieldCheck className="h-4 w-4 text-[#d4af61]" />
+            <span className="h-px w-6 sm:w-10 bg-gradient-to-l from-transparent to-[#d4af61]/40" />
+          </div>
+
           <p className="font-display font-medium text-xs sm:text-sm text-[#ecd290] tracking-wide flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
             <span>{isUrdu ? 'خاندانی وقار' : 'Family-Led Dignity'}</span>
             <span className="text-[#d4af61]/60" aria-hidden="true">•</span>
@@ -1969,7 +1969,7 @@ export const ProfileWizard = () => {
           </p>
 
           <div
-            className="mt-2.5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-[#a79c82] leading-relaxed max-w-xl mx-auto"
+            className="mt-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-[#a79c82] leading-relaxed max-w-xl mx-auto"
             dir={isUrdu ? 'rtl' : 'ltr'}
           >
             {isUrdu ? (
@@ -2002,20 +2002,20 @@ export const ProfileWizard = () => {
       </main>
 
       {/* Floating Bottom Bar on Mobile */}
-      <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 border-t border-[rgba(201,162,75,0.22)] bg-[#0a0908]/95 px-4 py-3 backdrop-blur-lg safe-bottom">
-        <div className="flex items-center justify-between gap-3">
+      <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 border-t border-[rgba(201,162,75,0.22)] bg-[#0a0908]/95 px-3.5 py-2.5 backdrop-blur-lg safe-bottom">
+        <div className="flex items-center justify-between gap-2.5">
           <button
             type="button"
             onClick={() => goToStep(cur - 1)}
             disabled={cur === 0}
-            className={`rounded-full border border-[rgba(201,162,75,0.25)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#a79c82] ${
+            className={`rounded-full border border-[rgba(201,162,75,0.25)] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#a79c82] ${
               cur === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:text-[#ecd290]'
             }`}
           >
             {isUrdu ? 'پیچھے' : 'Back'}
           </button>
 
-          <span className="text-[11px] font-medium text-[#ecd290]">
+          <span className="text-[10px] font-medium text-[#ecd290] px-1">
             {cur + 1} / {STEPS.length}
           </span>
 
@@ -2023,7 +2023,7 @@ export const ProfileWizard = () => {
             <button
               type="button"
               onClick={handleNext}
-              className="btn-gold px-5 py-2 text-xs font-bold shadow-md"
+              className="btn-gold px-4 py-1.5 text-[11px] font-bold shadow-md"
             >
               {isUrdu ? 'اگلا' : 'Next'}
             </button>
@@ -2031,7 +2031,7 @@ export const ProfileWizard = () => {
             <button
               type="button"
               onClick={handleCopy}
-              className={`px-4 py-2 text-xs font-bold rounded-full shadow-md transition-all ${
+              className={`px-3.5 py-1.5 text-[11px] font-bold rounded-full shadow-md transition-all ${
                 copied ? 'bg-emerald-600 text-white' : 'btn-gold'
               }`}
             >

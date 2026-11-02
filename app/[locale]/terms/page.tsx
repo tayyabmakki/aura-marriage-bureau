@@ -55,7 +55,7 @@ export default async function TermsPage({
         </div>
 
         {/* Header Hero Card */}
-        <div className="rounded-2xl border border-[rgba(201,162,75,0.25)] bg-gradient-to-b from-[#18140f] to-[#110e0b] p-6 sm:p-10 shadow-2xl relative overflow-hidden mb-8">
+        <div className="rounded-2xl border border-[rgba(201,162,75,0.25)] bg-gradient-to-b from-[#18140f] to-[#110e0b] p-5 sm:p-10 shadow-2xl relative overflow-hidden mb-8">
           <div
             className="pointer-events-none absolute -top-24 right-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(212,175,97,0.15)_0%,transparent_70%)]"
             aria-hidden="true"
@@ -76,7 +76,7 @@ export default async function TermsPage({
               </p>
             </div>
 
-            <div className="shrink-0">
+            <div className="shrink-0 hidden sm:block">
               <BrandLogo size="md" asLink={false} />
             </div>
           </div>
@@ -90,7 +90,7 @@ export default async function TermsPage({
         </div>
 
         {/* Main Content Card */}
-        <div className="rounded-2xl border border-[rgba(201,162,75,0.22)] bg-[#14110d] p-6 sm:p-10 shadow-xl space-y-8">
+        <div className="rounded-2xl border border-[rgba(201,162,75,0.22)] bg-[#14110d] p-5 sm:p-10 shadow-xl space-y-8 overflow-hidden break-words">
           {isUrdu ? (
             <div className="space-y-8 font-urdu-ui text-sm leading-relaxed sm:text-base text-[#f4ecda]/90 text-right" dir="rtl">
               {/* 1. Form Submission */}
@@ -334,24 +334,24 @@ export default async function TermsPage({
           )}
 
           {/* Quick Actions Footer */}
-          <div className="pt-8 border-t border-[rgba(201,162,75,0.18)] flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
+          <div className="pt-8 border-t border-[rgba(201,162,75,0.18)] flex flex-wrap items-center justify-between gap-3.5">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <a
                 href={SITE_CONFIG.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#25d366]/15 border border-[#25d366]/40 px-4 py-2 text-xs font-semibold text-[#4ade80] hover:bg-[#25d366]/25 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#25d366]/15 border border-[#25d366]/40 px-3.5 sm:px-4 py-2 text-xs font-semibold text-[#4ade80] hover:bg-[#25d366]/25 transition-colors"
               >
                 <MessageCircle className="h-3.5 w-3.5" />
-                <span>WhatsApp ({SITE_CONFIG.phone})</span>
+                <span>{isUrdu ? 'واٹس ایپ' : 'WhatsApp'}</span>
               </a>
 
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-4 py-2 text-xs font-semibold text-[#c4b99f] hover:text-[#ecd290] hover:border-[#d4af61]/40 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.25)] bg-black/40 px-3.5 sm:px-4 py-2 text-xs font-semibold text-[#c4b99f] hover:text-[#ecd290] hover:border-[#d4af61]/40 transition-colors"
               >
                 <Mail className="h-3.5 w-3.5 text-[#ecd290]" />
-                <span>{SITE_CONFIG.email}</span>
+                <span>{isUrdu ? 'ای میل' : 'Email Us'}</span>
               </a>
             </div>
 

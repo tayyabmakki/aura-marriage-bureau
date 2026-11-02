@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { SITE_CONFIG } from '@/lib/config';
 import { BrandLogo } from '@/components/BrandLogo';
@@ -28,6 +29,8 @@ export const Footer = () => {
   const navT = useTranslations('nav');
   const locale = useLocale();
   const prefix = locale === 'ur' ? '/ur' : '';
+  const pathname = usePathname();
+  const isForm = pathname?.includes('/form');
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -47,51 +50,53 @@ export const Footer = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Pre-Footer Floating Luxury Trust Card */}
-        <div className="relative mb-16 overflow-hidden rounded-3xl border border-[rgba(201,162,75,0.24)] bg-gradient-to-b from-[#14120e]/95 via-[#0e0c0a]/95 to-[#070605]/95 p-6 sm:p-10 lg:p-12 shadow-[0_24px_60px_rgba(0,0,0,0.7)] backdrop-blur-xl">
-          {/* Subtle interior glow */}
-          <div
-            className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-96 rounded-full bg-[radial-gradient(ellipse,rgba(212,175,97,0.15),transparent_70%)] blur-2xl"
-            aria-hidden="true"
-          />
+        {/* Pre-Footer Floating Luxury Trust Card (Hidden on /form so user is not prompted to fill a form they are already on) */}
+        {!isForm && (
+          <div className="relative mb-16 overflow-hidden rounded-3xl border border-[rgba(201,162,75,0.24)] bg-gradient-to-b from-[#14120e]/95 via-[#0e0c0a]/95 to-[#070605]/95 p-6 sm:p-10 lg:p-12 shadow-[0_24px_60px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+            {/* Subtle interior glow */}
+            <div
+              className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-96 rounded-full bg-[radial-gradient(ellipse,rgba(212,175,97,0.15),transparent_70%)] blur-2xl"
+              aria-hidden="true"
+            />
 
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <div className="max-w-2xl space-y-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-[rgba(212,175,97,0.08)] px-3.5 py-1 text-xs font-medium text-[#ecd290]">
-                <Sparkles className="h-3.5 w-3.5 text-[#d4af61]" />
-                <span>{t('prefooterEyebrow')}</span>
+            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+              <div className="max-w-2xl space-y-3">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,162,75,0.25)] bg-[rgba(212,175,97,0.08)] px-3.5 py-1 text-xs font-medium text-[#ecd290]">
+                  <Sparkles className="h-3.5 w-3.5 text-[#d4af61]" />
+                  <span>{t('prefooterEyebrow')}</span>
+                </div>
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#f4ecda] tracking-wide leading-tight">
+                  {t('prefooterTitle')}
+                </h2>
+                <p className="text-xs sm:text-sm text-[#c4b99f] leading-relaxed">
+                  {t('prefooterSubtitle')}
+                </p>
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#f4ecda] tracking-wide leading-tight">
-                {t('prefooterTitle')}
-              </h2>
-              <p className="text-xs sm:text-sm text-[#c4b99f] leading-relaxed">
-                {t('prefooterSubtitle')}
-              </p>
-            </div>
 
-            <div className="flex flex-wrap items-center gap-3.5 shrink-0">
-              <Link
-                href={`${prefix}/form`}
-                className="btn-gold group inline-flex items-center gap-2.5 px-6 py-3.5 text-xs font-bold uppercase tracking-wider shadow-[0_8px_24px_rgba(212,175,97,0.25)] hover:shadow-[0_12px_32px_rgba(212,175,97,0.4)] transition-all"
-              >
-                <FileText className="h-4 w-4" />
-                <span>{navT('fillForm')}</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180" />
-              </Link>
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 shrink-0">
+                <Link
+                  href={`${prefix}/form`}
+                  className="btn-gold group inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3.5 text-[11px] sm:text-xs font-bold uppercase tracking-normal sm:tracking-wider shadow-[0_8px_24px_rgba(212,175,97,0.25)] hover:shadow-[0_12px_32px_rgba(212,175,97,0.4)] transition-all"
+                >
+                  <FileText className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                  <span>{navT('fillForm')}</span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180" />
+                </Link>
 
-              <a
-                href={SITE_CONFIG.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 px-6 py-3.5 text-xs font-semibold text-[#ecd290] backdrop-blur-md transition-all hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white"
-                aria-label="Message on WhatsApp"
-              >
-                <MessageCircle className="h-4 w-4 text-[#25D366]" />
-                <span>WhatsApp</span>
-              </a>
+                <a
+                  href={SITE_CONFIG.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,162,75,0.35)] bg-black/60 px-4 sm:px-6 py-2.5 sm:py-3.5 text-[11px] sm:text-xs font-semibold text-[#ecd290] backdrop-blur-md transition-all hover:border-[#d4af61] hover:bg-[#d4af61]/15 hover:text-white"
+                  aria-label="Message on WhatsApp"
+                >
+                  <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#25D366]" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Main 4-Column Architectural Grid with Intelligent Proportions */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-10">
@@ -101,30 +106,31 @@ export const Footer = () => {
             <BrandLogo
               size="lg"
               layout="vertical"
+              align="start"
               locationSuffix="Lahore • Pakistan • Overseas"
               ariaLabel="Aura Marriage Bureau Home"
             />
 
-            <div className="space-y-1 w-full">
-              <p className="font-tagline italic text-sm text-[#ecd290]/90 leading-snug text-left rtl:text-right">
+            <div className="space-y-1 w-full text-left rtl:text-right">
+              <p className="font-tagline italic text-xs sm:text-sm text-[#ecd290]/90 leading-snug">
                 &ldquo;{SITE_CONFIG.tagline}&rdquo;
               </p>
 
-              <p className="font-urdu-heading text-lg text-[#ecd290]/85 text-left rtl:text-right" lang="ur" dir="rtl">
-                جہاں تقدیریں ملیں اور روحیں جڑیں
+              <p className="font-urdu-heading text-base sm:text-lg text-[#ecd290]/85" lang="ur">
+                <bdi dir="rtl">جہاں تقدیریں ملیں اور روحیں جڑیں</bdi>
               </p>
             </div>
 
             {/* Bureau Distinction Tags */}
             <div className="flex flex-wrap gap-1.5 pt-1">
-              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-xs text-[#ecd290]/90">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-[11px] sm:text-xs text-[#ecd290]/90">
                 <ShieldCheck className="h-3 w-3 text-[#d4af61]" />
                 Family-Led
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-xs text-[#ecd290]/90">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-[11px] sm:text-xs text-[#ecd290]/90">
                 Ref ID Only
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-xs text-[#ecd290]/90">
+              <span className="inline-flex items-center gap-1 rounded-full border border-[rgba(201,162,75,0.2)] bg-black/40 px-2.5 py-1 text-[11px] sm:text-xs text-[#ecd290]/90">
                 Pakistan &amp; Overseas
               </span>
             </div>

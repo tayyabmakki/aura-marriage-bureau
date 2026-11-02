@@ -48,10 +48,10 @@ export const FormPromoSection = () => {
             <div className="mt-6">
               <Link
                 href={`${prefix}/form`}
-                className="btn-gold inline-flex text-base py-3 px-6 font-semibold shadow-lg"
+                className="btn-gold inline-flex text-xs sm:text-base py-2.5 sm:py-3 px-4 sm:px-6 font-semibold shadow-lg"
               >
                 <span>{t('cta')}</span>
-                <ArrowRight className="ms-2 h-4 w-4 rtl:rotate-180" />
+                <ArrowRight className="ms-2 h-3.5 w-3.5 sm:h-4 sm:w-4 rtl:rotate-180" />
               </Link>
             </div>
           </div>

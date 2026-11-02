@@ -103,13 +103,13 @@ export const HowItWorksSection = () => {
 
                 {/* Specific CTA after Step 3 to /form */}
                 {step.showCtaAfter && (
-                  <div className="ms-14 my-3">
+                  <div className="ms-4 sm:ms-14 my-3">
                     <Link
                       href={`${prefix}/form`}
-                      className="btn-gold inline-flex text-sm py-2.5 px-6 font-semibold shadow-lg transition-transform hover:scale-[1.02]"
+                      className="btn-gold inline-flex text-xs sm:text-sm py-2 sm:py-2.5 px-4 sm:px-6 font-semibold shadow-lg transition-transform hover:scale-[1.02]"
                     >
                       <span>{t('step3Cta')}</span>
-                      <ArrowRight className="ms-2 h-4 w-4 rtl:rotate-180" />
+                      <ArrowRight className="ms-2 h-3.5 w-3.5 sm:h-4 sm:w-4 rtl:rotate-180" />
                     </Link>
                   </div>
                 )}

@@ -19,16 +19,16 @@ export const FollowUsSection = () => {
           {t('desc')}
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
           {/* Instagram */}
           <a
             href={SITE_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Aura on Instagram"
-            className="btn-line inline-flex items-center gap-2 text-xs sm:text-sm font-medium py-2.5 px-4"
+            className="btn-line inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-medium py-2 sm:py-2.5 px-3 sm:px-4"
           >
-            <Instagram className="h-4 w-4 text-[#ecd290]" />
+            <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#ecd290]" />
             <span>{SITE_CONFIG.instagramHandle}</span>
           </a>
 
@@ -38,9 +38,9 @@ export const FollowUsSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Aura on Threads"
-            className="btn-line inline-flex items-center gap-2 text-xs sm:text-sm font-medium py-2.5 px-4"
+            className="btn-line inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-medium py-2 sm:py-2.5 px-3 sm:px-4"
           >
-            <AtSign className="h-4 w-4 text-[#ecd290]" />
+            <AtSign className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#ecd290]" />
             <span>{SITE_CONFIG.threadsHandle}</span>
           </a>
 
@@ -50,9 +50,9 @@ export const FollowUsSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Aura on Facebook"
-            className="btn-line inline-flex items-center gap-2 text-xs sm:text-sm font-medium py-2.5 px-4"
+            className="btn-line inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-medium py-2 sm:py-2.5 px-3 sm:px-4"
           >
-            <Facebook className="h-4 w-4 text-[#ecd290]" />
+            <Facebook className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#ecd290]" />
             <span>{SITE_CONFIG.facebookName}</span>
           </a>
         </div>

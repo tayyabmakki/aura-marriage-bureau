@@ -83,7 +83,7 @@ export const ProfileSampleSection = () => {
 
         {/* Triple Tab Switcher: WhatsApp | Instagram Post | Instagram Reel */}
         <div
-          className="mt-8 flex flex-wrap items-center justify-center gap-2"
+          className="mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
           role="tablist"
           aria-label="Profile sample formats"
         >
@@ -95,13 +95,13 @@ export const ProfileSampleSection = () => {
             aria-controls="panel-post"
             type="button"
             onClick={() => setActiveTab('post')}
-            className={`min-h-[46px] inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold tracking-wider transition-all duration-300 ${
+            className={`min-h-[38px] sm:min-h-[46px] inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold tracking-normal sm:tracking-wider transition-all duration-300 ${
               activeTab === 'post'
                 ? 'bg-gradient-to-r from-[#b88a35] via-[#ecd290] to-[#c9a24b] text-[#1a1306] font-bold shadow-lg shadow-[#d4af61]/20 scale-105'
                 : 'border border-[rgba(201,162,75,0.25)] bg-[#14110d] text-[#e6dcc3] hover:border-[#d4af61] hover:text-[#ecd290]'
             }`}
           >
-            <Instagram className="h-4 w-4" />
+            <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             <span>{t('tabInstagram')} (4:5)</span>
           </button>
 
@@ -113,13 +113,13 @@ export const ProfileSampleSection = () => {
             aria-controls="panel-reel"
             type="button"
             onClick={() => setActiveTab('reel')}
-            className={`min-h-[46px] inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold tracking-wider transition-all duration-300 ${
+            className={`min-h-[38px] sm:min-h-[46px] inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold tracking-normal sm:tracking-wider transition-all duration-300 ${
               activeTab === 'reel'
                 ? 'bg-gradient-to-r from-[#b88a35] via-[#ecd290] to-[#c9a24b] text-[#1a1306] font-bold shadow-lg shadow-[#d4af61]/20 scale-105'
                 : 'border border-[rgba(201,162,75,0.25)] bg-[#14110d] text-[#e6dcc3] hover:border-[#d4af61] hover:text-[#ecd290]'
             }`}
           >
-            <Play className="h-4 w-4 fill-current" />
+            <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-current" />
             <span>{t('tabReel')} (9:16)</span>
           </button>
 
@@ -131,13 +131,13 @@ export const ProfileSampleSection = () => {
             aria-controls="panel-whatsapp"
             type="button"
             onClick={() => setActiveTab('whatsapp')}
-            className={`min-h-[46px] inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold tracking-wider transition-all duration-300 ${
+            className={`min-h-[38px] sm:min-h-[46px] inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold tracking-normal sm:tracking-wider transition-all duration-300 ${
               activeTab === 'whatsapp'
                 ? 'bg-gradient-to-r from-[#b88a35] via-[#ecd290] to-[#c9a24b] text-[#1a1306] font-bold shadow-lg shadow-[#d4af61]/20 scale-105'
                 : 'border border-[rgba(201,162,75,0.25)] bg-[#14110d] text-[#e6dcc3] hover:border-[#d4af61] hover:text-[#ecd290]'
             }`}
           >
-            <MessageCircle className="h-4 w-4" />
+            <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             <span>{t('tabWhatsApp')}</span>
           </button>
         </div>
