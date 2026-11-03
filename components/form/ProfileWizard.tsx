@@ -1288,13 +1288,41 @@ export const ProfileWizard = () => {
   };
 
   const handleOpenWhatsApp = () => {
+    // 1. Immediately copy the exact formatted profile to clipboard so it's always ready to paste
+    const txt = buildOutputText();
+    const copyFallback = () => {
+      try {
+        const a = document.createElement('textarea');
+        a.value = txt;
+        document.body.appendChild(a);
+        a.select();
+        document.execCommand('copy');
+        a.remove();
+      } catch {}
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(txt).catch(copyFallback);
+    } else {
+      copyFallback();
+    }
+
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
+    showToast(
+      isUrdu
+        ? 'پروفائل کاپی ہو گئی ہے ✓ واٹس ایپ کھل رہا ہے'
+        : 'Profile copied ✓ Opening WhatsApp'
+    );
+
+    // 2. Open confirmation modal for privacy after WhatsApp has opened
     setTimeout(() => {
       setConfirmModal({
         isOpen: true,
         title: isUrdu ? 'محفوظ شدہ ڈیٹا صاف کریں؟' : 'Clear Saved Data?',
         message: isUrdu
-          ? 'واٹس ایپ کھول دیا گیا ہے۔ کیا آپ اس ڈیوائس سے اپنا محفوظ کردہ فارم ڈیٹا صاف کرنا چاہتے ہیں؟'
-          : 'WhatsApp has been opened. Would you like to clear your saved form data from this device for privacy?',
+          ? 'واٹس ایپ کھول دیا گیا ہے اور پروفائل کلپ بورڈ پر کاپی ہو چکی ہے۔ کیا آپ اس ڈیوائس سے اپنا فارم ڈیٹا صاف کرنا چاہتے ہیں؟'
+          : 'WhatsApp has been opened and your formatted profile is copied to your clipboard. Would you like to clear your saved form data from this device for privacy?',
         confirmText: isUrdu ? 'ڈیٹا صاف کریں' : 'Clear Data',
         cancelText: isUrdu ? 'محفوظ رکھیں' : 'Keep Data',
         variant: 'gold',
@@ -1309,7 +1337,7 @@ export const ProfileWizard = () => {
           showToast(isUrdu ? 'ڈیٹا صاف کر دیا گیا ہے' : 'Data cleared from device');
         },
       });
-    }, 1500);
+    }, 2500);
   };
 
   const getMissingFields = () => {
@@ -1329,9 +1357,15 @@ export const ProfileWizard = () => {
 
   const currentStepDef = STEPS[cur];
   const progressPercent = ((cur + 1) / STEPS.length) * 100;
-  const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-    buildOutputText()
-  )}`;
+
+  // Build direct WhatsApp API URL safely encoding reserved characters (+ and &) to prevent redirect truncations
+  const buildWhatsAppUrl = (text: string) => {
+    const encoded = encodeURIComponent(text)
+      .replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`)
+      .replace(/\+/g, '%2B');
+    return `https://api.whatsapp.com/send?phone=${SITE_CONFIG.whatsappNumber}&text=${encoded}`;
+  };
+  const whatsappUrl = buildWhatsAppUrl(buildOutputText());
 
   return (
     <div className="relative min-h-screen bg-[#0a0908] text-[#f4ecda]">
@@ -1901,6 +1935,13 @@ export const ProfileWizard = () => {
                   <span>{isUrdu ? 'ڈیٹا صاف کریں' : 'Clear Form'}</span>
                 </button>
               </div>
+
+              {/* Instant Clipboard Reassurance Note */}
+              <p className="text-[11px] text-center text-[#a79c82]/90 mt-2 leading-relaxed">
+                {isUrdu
+                  ? 'نوٹ: "واٹس ایپ پر بھیجیں" دبانے پر بھی یہی مکمل پروفائل خودکار طور پر آپ کے کلپ بورڈ پر محفوظ ہو جاتی ہے۔ اگر واٹس ایپ چیٹ میں خودکار طور پر متن نہ آئے تو صرف پیسٹ (Paste) کر دیں۔'
+                  : 'Note: Tapping "Open WhatsApp" also copies this exact complete profile to your clipboard. If WhatsApp does not pre-fill on your device, simply paste (Ctrl+V / Long-press Paste).'}
+              </p>
             </div>
           )}
 
@@ -2028,15 +2069,27 @@ export const ProfileWizard = () => {
               {isUrdu ? 'اگلا' : 'Next'}
             </button>
           ) : (
-            <button
-              type="button"
-              onClick={handleCopy}
-              className={`px-3.5 py-1.5 text-[11px] font-bold rounded-full shadow-md transition-all ${
-                copied ? 'bg-emerald-600 text-white' : 'btn-gold'
-              }`}
-            >
-              {copied ? '✓' : isUrdu ? 'کاپی' : 'Copy'}
-            </button>
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <button
+                type="button"
+                onClick={handleCopy}
+                className={`px-3 py-1.5 text-[11px] font-bold rounded-full shadow-md transition-all ${
+                  copied ? 'bg-emerald-600 text-white' : 'btn-gold'
+                }`}
+              >
+                {copied ? '✓' : isUrdu ? 'کاپی' : 'Copy'}
+              </button>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleOpenWhatsApp}
+                className="inline-flex items-center gap-1 rounded-full bg-[#25d366] px-3 py-1.5 text-[11px] font-bold text-[#052e14] shadow-md active:scale-95 transition-transform"
+              >
+                <MessageCircle className="h-3 w-3 shrink-0" />
+                <span>{isUrdu ? 'واٹس ایپ' : 'WhatsApp'}</span>
+              </a>
+            </div>
           )}
         </div>
       </div>
