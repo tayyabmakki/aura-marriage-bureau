@@ -4,18 +4,13 @@ import React from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import reviewsData from '@/content/reviews.json';
 import { SITE_CONFIG } from '@/lib/config';
-import { Star, ExternalLink, ShieldCheck, CheckCircle2, MessageSquarePlus, Quote } from 'lucide-react';
+import { Star, ExternalLink, ShieldCheck, CheckCircle2, MessageSquarePlus } from 'lucide-react';
 import { StarDivider } from '@/components/BrandIcons';
 
 interface Review {
   id: string;
   author: string;
-  roleEn?: string;
-  roleUr?: string;
-  locationEn?: string;
-  locationUr?: string;
-  dateEn: string;
-  dateUr: string;
+  date: string;
   rating?: number;
   commentEn: string;
   commentUr?: string;
@@ -60,7 +55,7 @@ export const ReviewsSection = () => {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center">
           <p className="text-xs uppercase tracking-kicker text-[#ecd290] font-semibold">
@@ -76,153 +71,114 @@ export const ReviewsSection = () => {
 
         <StarDivider className="my-6" />
 
-        {/* Google Reviews Trust Strip Banner */}
-        <div className="mx-auto max-w-4xl mb-10 sm:mb-12 rounded-2xl sm:rounded-3xl border border-[rgba(201,162,75,0.25)] bg-gradient-to-r from-[#18140f] via-[#14100c] to-[#18140f] p-4 sm:p-6 shadow-[0_12px_36px_rgba(0,0,0,0.5)]">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
-            {/* Left: Google Logo + Rating */}
-            <div className="flex items-center gap-3.5">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(201,162,75,0.3)] bg-black/40 shadow-inner">
+        {/* Primary Google Reviews Showcase Card */}
+        <div className="mx-auto max-w-2xl rounded-3xl border border-[rgba(201,162,75,0.28)] bg-gradient-to-b from-[#18140f] via-[#120f0c] to-[#0a0908] p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-md">
+          {/* Top Badge Strip: Google Icon, 5 Gold Stars, and Verified Badge */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[rgba(201,162,75,0.18)] pb-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.3)] bg-white/5 shadow-inner">
                 <GoogleIcon className="h-6 w-6" />
               </div>
-              <div className="text-left rtl:text-right">
-                <div className="flex items-center gap-2">
-                  <span className="font-display font-bold text-sm sm:text-base text-[#f4ecda] tracking-wide">
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="font-display font-semibold text-sm sm:text-base text-[#f4ecda] tracking-wide">
                     Google Reviews
                   </span>
-                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#4ade80] bg-[#4ade80]/10 px-2 py-0.5 rounded-full border border-[#4ade80]/30">
-                    <CheckCircle2 className="h-3 w-3" />
-                    <span>{t('verifiedBadge')}</span>
-                  </span>
+                  <CheckCircle2 className="h-4 w-4 text-[#4ade80]" aria-hidden="true" />
                 </div>
-                <div className="flex items-center gap-2 mt-1">
-                  <div className="flex items-center gap-0.5 text-[#eab308]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-xs font-bold text-[#ecd290]">5.0 / 5.0</span>
-                  <span className="text-[11px] text-[#a79c82] hidden xs:inline">• {t('ratingNote')}</span>
-                </div>
+                <span className="block text-[11px] text-[#a79c82]">
+                  {t('verifiedBadge')}
+                </span>
               </div>
             </div>
 
-            {/* Right: Quick Review on Google Action */}
-            <div className="flex items-center gap-2.5 w-full sm:w-auto shrink-0 justify-center">
-              <a
-                href={googleUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-line w-full sm:w-auto inline-flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-semibold hover:border-[#d4af61] hover:text-[#ecd290]"
-              >
-                <MessageSquarePlus className="h-3.5 w-3.5 text-[#d4af61]" />
-                <span>{t('writeReview')}</span>
-              </a>
+            {/* 5-Star Rating Pill */}
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(201,162,75,0.25)] bg-[#1c1712] px-3.5 py-1.5">
+              <div className="flex items-center gap-0.5 text-[#eab308]">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                ))}
+              </div>
+              <span className="text-xs font-bold text-[#ecd290]">5.0</span>
             </div>
           </div>
-        </div>
 
-        {/* Reviews Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {reviews.map((rev) => {
-            const role = isUrdu && rev.roleUr ? rev.roleUr : rev.roleEn;
-            const location = isUrdu && rev.locationUr ? rev.locationUr : rev.locationEn;
-            const date = isUrdu && rev.dateUr ? rev.dateUr : rev.dateEn;
-            const comment = isUrdu && rev.commentUr ? rev.commentUr : rev.commentEn;
+          {/* Card Body */}
+          <div className="py-6 sm:py-8 text-center space-y-3">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-[#f4ecda]">
+              {t('emptyTitle')}
+            </h3>
+            <p className="max-w-lg mx-auto text-xs sm:text-sm text-[#c4b99f] leading-relaxed">
+              {t('emptyDesc')}
+            </p>
+          </div>
 
-            return (
-              <div
-                key={rev.id}
-                className="group relative rounded-2xl border border-[rgba(201,162,75,0.2)] bg-[#14110d] p-5 sm:p-6 shadow-[0_8px_24px_rgba(0,0,0,0.35)] flex flex-col justify-between transition-all duration-300 hover:border-[#d4af61]/50 hover:bg-[#18140f] hover:-translate-y-0.5"
-              >
-                <div>
-                  {/* Reviewer Header */}
-                  <div className="flex items-start justify-between gap-3 border-b border-[rgba(201,162,75,0.12)] pb-4">
-                    <div className="flex items-center gap-3">
-                      {/* Avatar with luxury gold initial */}
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[rgba(201,162,75,0.35)] bg-gradient-to-br from-[#d4af61]/25 via-[#1a150f] to-black text-[#ecd290] font-bold text-sm shadow-inner">
-                        {rev.author.charAt(0)}
-                      </div>
-                      <div className="min-w-0">
-                        <span className="font-semibold text-xs sm:text-sm text-[#f4ecda] block truncate">
-                          {rev.author}
-                        </span>
-                        {(role || location) && (
-                          <span className="text-[11px] text-[#a79c82] block truncate">
-                            {[role, location].filter(Boolean).join(' • ')}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Google G watermark */}
-                    <div className="shrink-0 p-1.5 rounded-full bg-white/5 border border-[rgba(201,162,75,0.15)] opacity-85">
-                      <GoogleIcon className="h-4 w-4" />
-                    </div>
-                  </div>
-
-                  {/* Rating Stars & Relative Date */}
-                  <div className="flex items-center justify-between mt-3.5 text-xs text-[#a79c82]">
-                    <div className="flex items-center gap-0.5 text-[#eab308]">
-                      {[...Array(rev.rating || 5)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-[11px]">{date}</span>
-                  </div>
-
-                  {/* Review Quote Body */}
-                  <div className="mt-3 relative">
-                    <Quote className="h-5 w-5 text-[#d4af61]/25 absolute -top-1 -left-1 rtl:-right-1 rtl:left-auto" aria-hidden="true" />
-                    <p className="pl-4 rtl:pr-4 rtl:pl-0 font-tagline italic text-xs sm:text-sm text-[#f4ecda]/90 leading-relaxed">
-                      &ldquo;{comment}&rdquo;
-                    </p>
-                  </div>
-                </div>
-
-                {/* Card Footer: Verified Family Google Feedback */}
-                <div className="mt-5 pt-3 border-t border-[rgba(201,162,75,0.1)] flex items-center justify-between text-[10.5px] text-[#a79c82]">
-                  <span className="inline-flex items-center gap-1 text-[#4ade80]">
-                    <CheckCircle2 className="h-3 w-3" />
-                    <span>{isUrdu ? 'گوگل تصدیق شدہ' : 'Google Verified'}</span>
-                  </span>
-                  <span className="text-[#ecd290]/80">5.0 ★</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Bottom Section Actions & Direct Link to Google Reviews */}
-        <div className="mt-12 text-center space-y-4">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          {/* Action Buttons: View on Google & Write a Review */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <a
               href={googleUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold inline-flex items-center justify-center gap-2.5 py-3 px-6 sm:px-8 text-xs sm:text-sm font-bold shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95"
+              className="btn-gold w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-6 text-xs sm:text-sm font-bold shadow-lg transition-transform active:scale-[0.98]"
             >
               <GoogleIcon className="h-4 w-4 shrink-0" />
               <span>{t('readReview')}</span>
-              <ExternalLink className="h-3.5 w-3.5 opacity-75" />
+              <ExternalLink className="h-3.5 w-3.5 opacity-70" />
             </a>
 
             <a
               href={googleUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-line inline-flex items-center justify-center gap-2 py-3 px-6 text-xs sm:text-sm font-semibold hover:border-[#d4af61] hover:text-[#ecd290]"
+              className="btn-line w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-6 text-xs sm:text-sm font-semibold transition-all hover:border-[#d4af61] hover:text-[#ecd290]"
             >
               <MessageSquarePlus className="h-4 w-4 text-[#d4af61] shrink-0" />
               <span>{t('writeReview')}</span>
             </a>
           </div>
 
-          {/* Privacy & Discretion Reassurance */}
-          <div className="pt-4 flex items-center justify-center gap-2 text-center text-[11px] text-[#a79c82]">
+          {/* Confidentiality & Discretion Footer Strip */}
+          <div className="mt-8 pt-5 border-t border-[rgba(201,162,75,0.14)] flex items-center justify-center gap-2 text-center text-[11px] text-[#a79c82]">
             <ShieldCheck className="h-3.5 w-3.5 text-[#d4af61] shrink-0" />
-            <p className="max-w-xl">{t('privacyNote')}</p>
+            <p className="max-w-md">{t('privacyNote')}</p>
           </div>
         </div>
+
+        {/* When specific reviews are present in content/reviews.json, render them */}
+        {reviews.length > 0 && (
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((rev) => (
+              <div
+                key={rev.id}
+                className="rounded-2xl border border-[rgba(201,162,75,0.2)] bg-[#14110d] p-5 sm:p-6 shadow-sm flex flex-col justify-between hover:border-[rgba(201,162,75,0.4)] transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-[rgba(201,162,75,0.12)] pb-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#d4af61]/15 text-[#ecd290] font-bold text-xs uppercase">
+                        {rev.author.charAt(0)}
+                      </div>
+                      <div>
+                        <span className="font-semibold text-xs sm:text-sm text-[#f4ecda] block">
+                          {rev.author}
+                        </span>
+                        <span className="text-[10px] text-[#a79c82] block">{rev.date}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-0.5 text-[#eab308]">
+                      {[...Array(rev.rating || 5)].map((_, i) => (
+                        <Star key={i} className="h-3 w-3 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="mt-4 italic text-xs sm:text-sm text-[#f4ecda]/90 leading-relaxed font-tagline">
+                    &ldquo;{isUrdu && rev.commentUr ? rev.commentUr : rev.commentEn}&rdquo;
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
