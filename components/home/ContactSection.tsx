@@ -68,7 +68,11 @@ export const ContactSection = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d4af61] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d4af61]"></span>
                 </span>
-                <span className="truncate">{locale === 'ur' ? 'پن لوکیشن: 31°31\'25.0"N 74°27\'12.0"E' : 'Pinned: 31°31\'25.0"N 74°27\'12.0"E'}</span>
+                <span className="truncate">
+                  {locale === 'ur'
+                    ? `پن لوکیشن: ${SITE_CONFIG.dmsCoordinates}`
+                    : `Pinned: ${SITE_CONFIG.dmsCoordinates}`}
+                </span>
               </div>
 
               <iframe
@@ -92,7 +96,7 @@ export const ContactSection = () => {
                       : '95 - S Block, Opp. LACAS, Paragon City, Lahore'}
                   </span>
                   <span className="text-[10px] text-[#a79c82] font-mono">
-                    31°31&apos;25.0&quot;N 74°27&apos;12.0&quot;E
+                    {SITE_CONFIG.dmsCoordinates}
                   </span>
                 </div>
               </div>

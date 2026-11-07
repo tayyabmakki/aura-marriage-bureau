@@ -45,12 +45,12 @@ export const SITE_CONFIG = {
   },
   openingHoursDisplay: "Daily, 10:00 AM – 7:00 PM (By Appointment)",
   openingHoursDisplayUr: "روزانہ، صبح 10:00 تا شام 7:00 (پیشگی وقت کے ساتھ)",
-  directionsUrl: "https://www.google.com/maps/place/31%C2%B031'25.0%22N+74%C2%B027'12.0%22E/@31.524583,74.4534739,146m/data=!3m1!1e3!4m4!3m3!8m2!3d31.523611!4d74.453333?hl=en",
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700!2d74.4534739!3d31.524583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDMxJzI1LjAiTiA3NMKwMjcnMTIuMCJF!5e0!3m2!1sen!2spk!4v1730370000000!5m2!1sen!2spk",
+  directionsUrl: "https://maps.app.goo.gl/q84pz8FuzNcEdWiU8",
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.7607736696425!2d74.45056557635293!3d31.524584447385973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190f23665fecc7%3A0xb327e16a24193245!2sAura%20Marriage%20Bureau!5e0!3m2!1sen!2spk!4v1730990000000!5m2!1sen!2spk",
 
-  // Verified Location Coordinates (Exact GPS Pin: 31°31'25.0"N 74°27'12.0"E)
-  mapCoordinates: { lat: 31.523611, lng: 74.453333 } as { lat: number; lng: number } | null,
-  dmsCoordinates: `31°31'25.0"N 74°27'12.0"E`,
+  // Verified Location Coordinates (Exact GPS Pin: 31°31'28.5"N 74°27'11.3"E)
+  mapCoordinates: { lat: 31.524580, lng: 74.453141 } as { lat: number; lng: number } | null,
+  dmsCoordinates: `31°31'28.5"N 74°27'11.3"E`,
   googleReviewUrl: "https://share.google/sZJY8BZlVrTdRIhrI",
 
   // Feature Flags
