@@ -113,12 +113,16 @@
     "noSubmitNote": "Zero data transmitted: This form operates 100% on your device."
   },
   "reviews": {
-    "eyebrow": "Client Experiences",
-    "title": "Words from Families",
-    "emptyTitle": "Be the first to share your experience",
-    "emptyDesc": "We take pride in guiding families with quiet excellence. After your consultation, we welcome your thoughtful reflection on Google.",
-    "writeReview": "Share your review on Google",
-    "readReview": "View reviews"
+    "eyebrow": "Verified Google Reviews",
+    "title": "What Families Say on Google",
+    "subtitle": "Authentic experiences and reflections from respected families we have guided.",
+    "emptyTitle": "Aura Marriage Bureau on Google",
+    "emptyDesc": "Read authentic reviews from families we have served across Pakistan and overseas, or share your own reflection following your consultation.",
+    "writeReview": "Write a Review on Google",
+    "readReview": "View Google Reviews",
+    "verifiedBadge": "Verified Google Business Profile",
+    "ratingNote": "5.0 ★★★★★ Rating on Google",
+    "privacyNote": "Proposals remain strictly confidential via Ref IDs. Client reflections are shared directly on Google."
   },
   "follow": {
     "eyebrow": "Stay Connected",

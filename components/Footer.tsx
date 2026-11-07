@@ -273,7 +273,6 @@ export const Footer = () => {
                   <span>{navT('fillForm')}</span>
                 </Link>
               </li>
-              {/* Temporarily commented out until reviews are available
               <li>
                 <Link
                   href={`${prefix}/#reviews`}
@@ -283,7 +282,6 @@ export const Footer = () => {
                   <span>{navT('reviews')}</span>
                 </Link>
               </li>
-              */}
               <li>
                 <Link
                   href={`${prefix}/#moments-of-union`}

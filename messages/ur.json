@@ -207,17 +207,26 @@
     "noSubmitNote_review": true
   },
   "reviews": {
-    "eyebrow": "خاندانوں کے تاثرات",
+    "eyebrow": "گوگل پر تصدیق شدہ تاثرات",
     "eyebrow_review": true,
     "title": "خاندان ہمارے بارے میں کیا کہتے ہیں",
     "title_review": true,
-    "emptyTitle": "اپنے تجربے پر پہلا تبصرہ درج کریں",
-    "emptyDesc": "ہم سنجیدہ خاندانوں کی خدمت کو اعزاز سمجھتے ہیں۔ رہنمائی کے بعد گوگل پر اپنی رائے ضرور شیئر کریں۔",
+    "subtitle": "باوقار پاکستانی اور اوورسیز خاندانوں کے حقیقی تجربات اور تاثرات۔",
+    "subtitle_review": true,
+    "emptyTitle": "اورا میرج بیورو — گوگل ریویوز",
+    "emptyTitle_review": true,
+    "emptyDesc": "پاکستان اور بیرونِ ملک مقیم ان خاندانوں کے تاثرات پڑھیں جن کی ہم نے رہنمائی کی ہے، یا اپنی مشاورت کے بعد گوگل پر اپنی رائے شیئر کریں۔",
     "emptyDesc_review": true,
     "writeReview": "گوگل پر رائے درج کریں",
     "writeReview_review": true,
-    "readReview": "تاثرات دیکھیں",
-    "readReview_review": true
+    "readReview": "گوگل پر تاثرات دیکھیں",
+    "readReview_review": true,
+    "verifiedBadge": "تصدیق شدہ گوگل بزنس پروفائل",
+    "verifiedBadge_review": true,
+    "ratingNote": "5.0 ★★★★★ ریٹنگ گوگل پر",
+    "ratingNote_review": true,
+    "privacyNote": "تمام خاندانی رشتے مکمل رازداری کے ساتھ طے پاتے ہیں۔ کلائنٹس کے تاثرات براہ راست گوگل پر دیکھے جا سکتے ہیں۔",
+    "privacyNote_review": true
   },
   "follow": {
     "eyebrow": "رابطے میں رہیں",

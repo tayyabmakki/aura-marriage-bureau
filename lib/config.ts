@@ -51,7 +51,7 @@ export const SITE_CONFIG = {
   // Verified Location Coordinates (Exact GPS Pin: 31°31'25.0"N 74°27'12.0"E)
   mapCoordinates: { lat: 31.523611, lng: 74.453333 } as { lat: number; lng: number } | null,
   dmsCoordinates: `31°31'25.0"N 74°27'12.0"E`,
-  googleReviewUrl: null as string | null,
+  googleReviewUrl: "https://share.google/sZJY8BZlVrTdRIhrI",
 
   // Feature Flags
   SHOW_FEES: false,

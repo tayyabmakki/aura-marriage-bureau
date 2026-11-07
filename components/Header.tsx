@@ -96,14 +96,12 @@ export const Header = () => {
               </span>
             </Link>
 
-            {/* Temporarily commented out until reviews are available
             <Link
               href={`${prefix}/#reviews`}
               className="rounded-full px-4 py-2 text-xs lg:text-sm font-medium tracking-wide text-[#f4ecda]/85 transition-all duration-300 hover:text-[#ecd290] hover:bg-[#d4af61]/10"
             >
               {navT('reviews')}
             </Link>
-            */}
 
             <Link
               href={`${prefix}/#contact`}
@@ -213,7 +211,6 @@ export const Header = () => {
               <span className="text-xs text-[#d4af61]">✦</span>
             </Link>
 
-            {/* Temporarily commented out until reviews are available
             <Link
               href={`${prefix}/#reviews`}
               onClick={() => setMobileMenuOpen(false)}
@@ -222,7 +219,6 @@ export const Header = () => {
               <span>{navT('reviews')}</span>
               <span className="text-xs text-[#d4af61]">→</span>
             </Link>
-            */}
 
             <Link
               href={`${prefix}/#contact`}
